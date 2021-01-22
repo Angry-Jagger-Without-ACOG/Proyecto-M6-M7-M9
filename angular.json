@@ -24,11 +24,14 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css","node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": ["node_modules/popper.js/dist/umd/popper.js"
-              ,"node_modules/jquery/jquery.js"
-              ,"node_modules/bootstrap/dist/js/bootstrap.bundle.js"]
+            "scripts": [
+              "node_modules/popper.js/dist/umd/popper.js",
+              "node_modules/jquery/jquery.js",
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -90,11 +93,14 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css","node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": ["node_modules/popper.js/dist/umd/popper.js"
-              ,"node_modules/jquery/jquery.js"
-              ,"node_modules/bootstrap/dist/js/bootstrap.bundle.js"]
+            "scripts": [
+              "node_modules/popper.js/dist/umd/popper.js",
+              "node_modules/jquery/jquery.js",
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.js"
+            ]
           }
         },
         "lint": {
@@ -123,6 +129,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Proyecto-M6-M7-M9"
+    }
+  },
+  "defaultProject": "Proyecto-M6-M7-M9",
+  "cli": {
+    "analytics": false
+  }
 }
