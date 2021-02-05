@@ -7,13 +7,25 @@ import { AppComponent } from './app.component';
 import { RegistroComponent } from './Components/registro/registro.component';
 import { LoginComponent } from './Components/login/login.component';
 import { HttpClient } from '@angular/common/http';
+import { CrearRankingComponent } from './crear-ranking/crear-ranking.component';
+import { RankingGrupoComponent } from './Components/ranking-grupo/ranking-grupo.component';
+import { RankingSoloComponent } from './Components/ranking-solo/ranking-solo.component';
+import { PerfilProfesorComponent } from './Components/perfil-profesor/perfil-profesor.component';
+import { PerfilAlumnoComponent } from './Components/perfil-alumno/perfil-alumno.component';
+import { ModificarRankingComponent } from './Components/modificar-ranking/modificar-ranking.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistroComponent,
-    LoginComponent
+    LoginComponent,
+    CrearRankingComponent,
+    RankingGrupoComponent,
+    RankingSoloComponent,
+    PerfilProfesorComponent,
+    PerfilAlumnoComponent,
+    ModificarRankingComponent
   ],
   imports: [
     BrowserModule,
