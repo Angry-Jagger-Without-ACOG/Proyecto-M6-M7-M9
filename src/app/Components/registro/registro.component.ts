@@ -24,7 +24,8 @@ export class RegistroComponent implements OnInit {
       cont_a: ['', Validators.required],
       nombre_a: ['', Validators.required],
       apell_a: ['', Validators.required],
-      curso: ['', Validators.required]
+      curso: ['', Validators.required],
+      img:['', Validators.required]
     });
 
     this.Profesor = this.formBuilder.group({
@@ -33,7 +34,8 @@ export class RegistroComponent implements OnInit {
       cont_p: ['', Validators.required],
       nombre_p: ['', Validators.required],
       apell_p: ['', Validators.required],
-      centro: ['', Validators.required]
+      centro: ['', Validators.required],
+      img:['', Validators.required]
     });
 
   }
@@ -53,19 +55,22 @@ export class RegistroComponent implements OnInit {
       return;
     }
 
-    Swal.fire('Los datos son correctos, vàldívíà pto vago!');
-
     Swal.fire({
-      title: 'Custom width, padding, background.',
-      width: 600,
-      padding: '3em',
-      background: '#fff url(/images/trees.png)',
-      backdrop: `
-        rgba(0,0,123,0.4)
-        url("https://i.stack.imgur.com/e8nZC.gif")
-        left top
-        no-repeat
-      `
+      title: 'Estas seguro?',
+      text: "¡ Estos son los datos con los que crearas el perfil !",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#4a4a50',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, crear!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          '¡Creado!',
+          '',
+          'success'
+        )
+      }
     })
   }
 
@@ -76,19 +81,22 @@ export class RegistroComponent implements OnInit {
       return;
     }
 
-    Swal.fire('Los datos son correctos, vàldívíà pto vago!');
-
     Swal.fire({
-      title: 'Custom width, padding, background.',
-      width: 600,
-      padding: '3em',
-      background: '#fff url(/images/trees.png)',
-      backdrop: `
-        rgba(0,0,123,0.4)
-        url("https://i.stack.imgur.com/e8nZC.gif")
-        left top
-        no-repeat
-      `
+      title: 'Estas seguro?',
+      text: "¡ Estos son los datos con los que crearas el perfil !",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#4a4a50',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, crear!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          '¡Creado!',
+          '',
+          'success'
+        )
+      }
     })
   }
 

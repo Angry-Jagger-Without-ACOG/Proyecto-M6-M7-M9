@@ -4,60 +4,65 @@
   <div *ngIf="switch1 == true">
     <form [formGroup]="Alumno" class="pt-3 pl-4 pr-4 mb-5 rounded">
 
+      <!-- Nick -->
       <div class="form-group">
         <label>Nick</label>
         <input type="text" placeholder="Entra tu Nick" formControlName="nick_a" class="form-control"
           [ngClass]="{'is-invalid': submitted && A.nick_a.errors}">
 
         <div *ngIf="submitted && A.nick_a.errors" class="invalid-feedback">
-          <div *ngIf="A.nick_a.errors.required"> El campo Nick esta vacio!!</div>
+          <div *ngIf="A.nick_a.errors.required">El campo Nick esta vacio!!</div>
         </div>
       </div>
 
+      <!-- Correo -->
       <div class="form-group">
         <label>Correo</label>
         <input type="text" placeholder="Entra tu correo" formControlName="correo_a" class="form-control"
           [ngClass]="{'is-invalid': submitted && A.correo_a.errors}">
 
         <div *ngIf="submitted && A.correo_a.errors" class="invalid-feedback">
-          <div *ngIf="A.correo_a.errors.required"> El campo de Correo esta Vacio</div>
-          <div *ngIf="A.correo_a.errors.email"> Escribe correctamente el Correo</div>
+          <div *ngIf="A.correo_a.errors.required">El campo de Correo esta Vacio</div>
+          <div *ngIf="A.correo_a.errors.email">Escribe correctamente el Correo</div>
         </div>
       </div>
 
+      <!-- Contraseña -->
       <div class="form-group">
         <label for="cont_a">Contraseña</label>
         <input type="password" placeholder="Entra tu contraseña" formControlName="cont_a" class="form-control"
           [ngClass]="{'is-invalid': submitted && A.cont_a.errors}">
 
         <div *ngIf="submitted && A.cont_a.errors" class="invalid-feedback">
-          <div *ngIf="A.cont_a.errors.required"> El campo Contraseña esta vacio!!</div>
+          <div *ngIf="A.cont_a.errors.required">El campo Contraseña esta vacio!!</div>
         </div>
       </div>
 
+      <!-- Nombre -->
       <div class="form-group">
         <label for="nombre_a">Nombre</label>
         <input type="text" placeholder="Entra tu nombre" formControlName="nombre_a" class="form-control"
           [ngClass]="{'is-invalid': submitted && A.nombre_a.errors}">
 
         <div *ngIf="submitted && A.nombre_a.errors" class="invalid-feedback">
-          <div *ngIf="A.nombre_a.errors.required"> El campo nombre esta vacio!!</div>
+          <div *ngIf="A.nombre_a.errors.required">El campo nombre esta vacio!!</div>
         </div>
       </div>
 
+      <!-- Apellido -->
       <div class="form-group">
         <label for="aplle_a">Apellido</label>
         <input type="text" placeholder="Entra tus apellidos" formControlName="apll_a" class="form-control"
           [ngClass]="{'is-invalid': submitted && A.aplle_a.errors}">
 
         <div *ngIf="submitted && A.aplle_a.errors" class="invalid-feedback">
-          <div *ngIf="A.aplle_a.errors.required"> El campo Apellido esta vacio!!</div>
+          <div *ngIf="A.aplle_a.errors.required">El campo Apellido esta vacio!!</div>
         </div>
       </div>
 
+      <!-- Curso -->
       <div class="form-group">
         <label for="curso">Curso</label>
-
         <select class="form-control" formControlName="curso"
         [ngClass]="{'is-invalid': submitted && A.curso.errors}">
           <option>Daw1</option>
@@ -67,20 +72,35 @@
         </select>
 
         <div *ngIf="submitted && A.curso.errors" class="invalid-feedback">
-          <div *ngIf="A.curso.errors.required"> El campo Curso esta vacio!!</div>
+          <div *ngIf="A.curso.errors.required">El campo Curso esta vacio!!</div>
         </div>
       </div>
 
+      <!-- Imagen -->
+      <div class="form-group custom-file mt-3 mb-3">
+        <label class="custom-file-label" for="img">Selecciona una Imagen</label>
+        <input type="file" class="custom-file-input form-control" formControlName="img"
+        [ngClass]="{'is-invalid': submitted && A.img.errors}">
+
+
+        <div *ngIf="submitted && A.img.errors" class="invalid-feedback">
+          <div *ngIf="A.img.errors.required">No has selecionado una Imagen!!</div>
+        </div>
+      </div>
+
+      <!-- Botton del formulario de Alumno -->
       <div class="form-group">
         <button type="button" class="btn btn-primary" (click)="comp_Alum()">Crear</button>
       </div>
     </form>
+
   </div>
 
   <!-- Formulario Profesor -->
   <div *ngIf="switch1 != true">
     <form [formGroup]="Profesor" class="pt-3 pl-4 pr-4 mb-5 rounded">
 
+      <!-- Nick Professor -->
       <div class="form-group">
         <p for="nick_p">Nick</p>
         <input type="text" placeholder="Entra tu mote" formControlName="nick_p" class="form-control"
@@ -91,6 +111,7 @@
         </div>
       </div>
 
+      <!-- Correo Professor -->
       <div class="form-group">
         <label for="correo_p">Correo</label>
         <input type="text" placeholder="Entra tu correo" formControlName="correo_p" class="form-control"
@@ -102,6 +123,7 @@
         </div>
       </div>
 
+      <!-- Contraseña Professor -->
       <div class="form-group">
         <label for="cont_p">Contraseña</label>
         <input type="password" placeholder="Entra tu contraseña" formControlName="cont_p" class="form-control"
@@ -112,6 +134,7 @@
         </div>
       </div>
 
+      <!-- Nombre Professor -->
       <div class="form-group">
         <label for="nombre_p">Nombre</label>
         <input type="text" placeholder="Entra tu nombre" formControlName="nombre_p" class="form-control"
@@ -122,6 +145,7 @@
         </div>
       </div>
 
+      <!-- Apellido Professor -->
       <div class="form-group">
         <label for="aplle_p">Apellido</label>
         <input type="text" placeholder="Entra tus apellidos" formControlName="apll_p" class="form-control"
@@ -132,6 +156,7 @@
         </div>
       </div>
 
+      <!-- Centro Professor -->
       <div class="form-group">
         <label for="centro">Centro</label>
         <input type="text" placeholder="Entra tus apellidos" formControlName="centro" class="form-control"
@@ -142,6 +167,19 @@
         </div>
       </div>
 
+      <!-- Imagen -->
+      <div class="form-group custom-file mt-3 mb-3">
+        <label class="custom-file-label" for="img">Selecciona una Imagen</label>
+        <input type="file" class="custom-file-input form-control" formControlName="img"
+        [ngClass]="{'is-invalid': submitted && P.img.errors}">
+
+
+        <div *ngIf="submitted && P.img.errors" class="invalid-feedback">
+          <div *ngIf="P.img.errors.required">No has selecionado una Imagen!!</div>
+        </div>
+      </div>
+
+      <!-- Botton del formulario de Profesor -->
       <div class="form-group">
         <button type="button" class="btn btn-primary" (click)="comp_Prof()">Crear</button>
       </div>
