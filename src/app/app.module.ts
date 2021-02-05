@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { RegistroComponent } from './Components/registro/registro.component';
 import { LoginComponent } from './Components/login/login.component';
 import { HttpClient } from '@angular/common/http';
-import { CrearRankingComponent } from './crear-ranking/crear-ranking.component';
+import { CrearRankingComponent } from './Components/crear-ranking/crear-ranking.component';
 import { RankingGrupoComponent } from './Components/ranking-grupo/ranking-grupo.component';
 import { RankingSoloComponent } from './Components/ranking-solo/ranking-solo.component';
 import { PerfilProfesorComponent } from './Components/perfil-profesor/perfil-profesor.component';
@@ -33,8 +33,7 @@ import { HeaderComponent } from './Components/header/header.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule,
-    HttpClient
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
