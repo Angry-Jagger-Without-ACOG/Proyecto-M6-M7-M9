@@ -13,6 +13,7 @@ import { RankingSoloComponent } from './Components/ranking-solo/ranking-solo.com
 import { PerfilProfesorComponent } from './Components/perfil-profesor/perfil-profesor.component';
 import { PerfilAlumnoComponent } from './Components/perfil-alumno/perfil-alumno.component';
 import { ModificarRankingComponent } from './Components/modificar-ranking/modificar-ranking.component';
+import { HeaderComponent } from './Components/header/header.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { ModificarRankingComponent } from './Components/modificar-ranking/modifi
     RankingSoloComponent,
     PerfilProfesorComponent,
     PerfilAlumnoComponent,
-    ModificarRankingComponent
+    ModificarRankingComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
