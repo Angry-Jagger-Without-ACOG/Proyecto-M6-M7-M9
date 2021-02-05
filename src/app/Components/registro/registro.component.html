@@ -1,8 +1,10 @@
-<div class="Container-fluid">
+
+<div class="Container fondo">
 
   <!-- Formulario Alumno -->
-  <div *ngIf="switch1 == true">
-    <form [formGroup]="Alumno" class="pt-3 pl-4 pr-4 mb-5 rounded">
+  <div *ngIf="switch1 == true" class="rounded mt-5 mr-5 ml-5">
+
+    <form [formGroup]="Alumno" class="pt-3 pb-1 pl-4 pr-4 rounded color_form">
 
       <!-- Nick -->
       <div class="form-group">
@@ -90,7 +92,7 @@
 
       <!-- Botton del formulario de Alumno -->
       <div class="form-group">
-        <button type="button" class="btn btn-primary" (click)="comp_Alum()">Crear</button>
+        <button type="button" class="btn btn-dark" (click)="comp_Alum()">Crear</button>
       </div>
     </form>
 

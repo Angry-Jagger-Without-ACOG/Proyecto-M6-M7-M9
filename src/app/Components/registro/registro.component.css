@@ -1,0 +1,8 @@
+.fondo{
+  background-image:url("src/assets/img/fondo.png");
+  width: auto;
+}
+
+.color_form{
+  background-color: white;
+}
