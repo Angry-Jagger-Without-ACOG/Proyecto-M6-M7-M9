@@ -8,7 +8,7 @@
 
       <!-- Nick -->
       <div class="form-group">
-        <label>Nick</label>
+        <label class="text-light">Nick</label>
         <input type="text" placeholder="Entra tu Nick" formControlName="nick_a" class="form-control"
           [ngClass]="{'is-invalid': submitted && A.nick_a.errors}">
 
@@ -19,7 +19,7 @@
 
       <!-- Correo -->
       <div class="form-group">
-        <label>Correo</label>
+        <label class="text-light">Correo</label>
         <input type="text" placeholder="Entra tu correo" formControlName="correo_a" class="form-control"
           [ngClass]="{'is-invalid': submitted && A.correo_a.errors}">
 
@@ -31,7 +31,7 @@
 
       <!-- Contraseña -->
       <div class="form-group">
-        <label for="cont_a">Contraseña</label>
+        <label class="text-light">Contraseña</label>
         <input type="password" placeholder="Entra tu contraseña" formControlName="cont_a" class="form-control"
           [ngClass]="{'is-invalid': submitted && A.cont_a.errors}">
 
@@ -42,7 +42,7 @@
 
       <!-- Nombre -->
       <div class="form-group">
-        <label for="nombre_a">Nombre</label>
+        <label class="text-light">Nombre</label>
         <input type="text" placeholder="Entra tu nombre" formControlName="nombre_a" class="form-control"
           [ngClass]="{'is-invalid': submitted && A.nombre_a.errors}">
 
@@ -53,7 +53,7 @@
 
       <!-- Apellido -->
       <div class="form-group">
-        <label for="aplle_a">Apellido</label>
+        <label class="text-light">Apellido</label>
         <input type="text" placeholder="Entra tus apellidos" formControlName="apll_a" class="form-control"
           [ngClass]="{'is-invalid': submitted && A.aplle_a.errors}">
 
@@ -64,7 +64,7 @@
 
       <!-- Curso -->
       <div class="form-group">
-        <label for="curso">Curso</label>
+        <label class="text-light">Curso</label>
         <select class="form-control" formControlName="curso"
         [ngClass]="{'is-invalid': submitted && A.curso.errors}">
           <option>Daw1</option>
@@ -92,7 +92,7 @@
 
       <!-- Botton del formulario de Alumno -->
       <div class="form-group">
-        <button type="button" class="btn btn-dark" (click)="comp_Alum()">Crear</button>
+        <button type="button" class="btn btn-light text-dark" (click)="comp_Alum()">Crear</button>
       </div>
     </form>
 
@@ -104,7 +104,7 @@
 
       <!-- Nick Professor -->
       <div class="form-group">
-        <p for="nick_p">Nick</p>
+        <p class="text-light">Nick</p>
         <input type="text" placeholder="Entra tu mote" formControlName="nick_p" class="form-control"
           [ngClass]="{'is-invalid': submitted && P.nick_p.errors}">
 
@@ -115,7 +115,7 @@
 
       <!-- Correo Professor -->
       <div class="form-group">
-        <label for="correo_p">Correo</label>
+        <label class="text-light">Correo</label>
         <input type="text" placeholder="Entra tu correo" formControlName="correo_p" class="form-control"
           [ngClass]="{'is-invalid': submitted && A.correo_p.errors}">
 
@@ -127,7 +127,7 @@
 
       <!-- Contraseña Professor -->
       <div class="form-group">
-        <label for="cont_p">Contraseña</label>
+        <label class="text-light">Contraseña</label>
         <input type="password" placeholder="Entra tu contraseña" formControlName="cont_p" class="form-control"
           [ngClass]="{'is-invalid': submitted && P.cont_p.errors}">
 
@@ -138,7 +138,7 @@
 
       <!-- Nombre Professor -->
       <div class="form-group">
-        <label for="nombre_p">Nombre</label>
+        <label class="text-light">Nombre</label>
         <input type="text" placeholder="Entra tu nombre" formControlName="nombre_p" class="form-control"
           [ngClass]="{'is-invalid': submitted && P.nombre_p.errors}">
 
@@ -149,7 +149,7 @@
 
       <!-- Apellido Professor -->
       <div class="form-group">
-        <label for="aplle_p">Apellido</label>
+        <label class="text-light">Apellido</label>
         <input type="text" placeholder="Entra tus apellidos" formControlName="apll_p" class="form-control"
           [ngClass]="{'is-invalid': submitted && P.nombre_p.errors}">
 
@@ -160,7 +160,7 @@
 
       <!-- Centro Professor -->
       <div class="form-group">
-        <label for="centro">Centro</label>
+        <label class="text-light">Centro</label>
         <input type="text" placeholder="Entra tus apellidos" formControlName="centro" class="form-control"
           [ngClass]="{'is-invalid': submitted && P.centro.errors}">
 
@@ -183,7 +183,7 @@
 
       <!-- Botton del formulario de Profesor -->
       <div class="form-group">
-        <button type="button" class="btn btn-primary" (click)="comp_Prof()">Crear</button>
+        <button type="button" class="btn btn-light text-dark" (click)="comp_Prof()">Crear</button>
       </div>
     </form>
   </div>
