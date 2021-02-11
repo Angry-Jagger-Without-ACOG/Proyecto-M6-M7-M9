@@ -10,10 +10,9 @@ import { HttpClient } from '@angular/common/http';
 import { CrearRankingComponent } from './Components/crear-ranking/crear-ranking.component';
 import { RankingGrupoComponent } from './Components/ranking-grupo/ranking-grupo.component';
 import { RankingSoloComponent } from './Components/ranking-solo/ranking-solo.component';
-import { PerfilProfesorComponent } from './Components/perfil-profesor/perfil-profesor.component';
-import { PerfilAlumnoComponent } from './Components/perfil-alumno/perfil-alumno.component';
 import { ModificarRankingComponent } from './Components/modificar-ranking/modificar-ranking.component';
 import { HeaderComponent } from './Components/header/header.component';
+import { PerfilComponent } from './Components/perfil/perfil.component';
 
 
 @NgModule({
@@ -24,10 +23,9 @@ import { HeaderComponent } from './Components/header/header.component';
     CrearRankingComponent,
     RankingGrupoComponent,
     RankingSoloComponent,
-    PerfilProfesorComponent,
-    PerfilAlumnoComponent,
     ModificarRankingComponent,
-    HeaderComponent
+    HeaderComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,
