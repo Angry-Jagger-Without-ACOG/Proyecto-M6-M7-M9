@@ -9,7 +9,7 @@ import { ModificarRankingComponent } from './Components/modificar-ranking/modifi
 import { PerfilComponent } from './Components/perfil/perfil.component';
 
 const routes: Routes = [
-{ path: '', pathMatch: 'full', redirectTo: 'LOG'},
+{ path: '', pathMatch: 'full', redirectTo: 'PC'},
 { path: 'LOG', component: LoginComponent},
 { path: 'REG', component: RegistroComponent},
 { path: 'CRC', component: CrearRankingComponent},
