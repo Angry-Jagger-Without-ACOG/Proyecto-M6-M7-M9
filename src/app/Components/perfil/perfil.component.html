@@ -1,13 +1,27 @@
 <app-header></app-header>
 
 <div class="container-fluid mt-5">
+
   <div class="row mb-1">
 
     <!-- Columna Izquierda -->
     <div class="col-4 mt-3">
 
       <!-- Imagen y Nick-->
-      <div class="card mt-4 mb-3 pt-4 pb-2 text-white align-items-center text-center Marco ">
+      <div *ngIf="Tipo == true" class="card mt-4 mb-3 pt-4 pb-2 text-white align-items-center text-center Marco">
+
+        <div class="card-header">
+          <img src="assets/img/fondo.png" class="rounded-circle white img_perfil">
+        </div>
+
+        <div class="card-body">
+          <h4 class="card-title">Nick: Valenti_Pto_Amo</h4>
+          <p class="card-text">Professor</p>
+        </div>
+
+      </div>
+
+      <div *ngIf="Tipo == false" class="card mt-4 mb-3 pt-4 pb-2 text-white align-items-center text-center Marco">
 
         <div class="card-header">
           <img src="assets/img/fondo.png" class="rounded-circle white img_perfil">
@@ -21,7 +35,7 @@
       </div>
 
       <!-- Datos de Perfil -->
-      <div class="card text-white Marco">
+      <div *ngIf="Tipo == true" class="card text-white Marco">
 
         <table class="table table-borderless text-light">
           <tr>
@@ -48,12 +62,49 @@
 
       </div>
 
+      <div *ngIf="Tipo == false" class="card text-white Marco">
+
+        <table class="table table-borderless text-light">
+          <tr>
+            <th>Nombre:</th>
+            <td>Alfonso</td>
+          </tr>
+          <tr>
+            <th>Apellidos:</th>
+            <td>Garcia</td>
+          </tr>
+          <tr>
+            <th>Email:</th>
+            <td>agarcia@ilerna.com</td>
+          </tr>
+          <tr>
+            <th>Centro:</th>
+            <td>Ilerna</td>
+          </tr>
+          <tr>
+            <th>Contraseña:</th>
+            <td><button class="btn btn-light mt-n2 mb-n2" type="button">Cambiar Contraseña</button></td>
+          </tr>
+        </table>
+
+      </div>
+
     </div>
 
     <!-- Columna Derecha -->
     <div class="col-8 pt-4 mt-3">
 
-      <div class="text-white align-items-center text-center pt-3 pb-3 pre-scrollable Marco scroll-height">
+      <div *ngIf="Tipo == false" class="text-white align-items-center text-center pt-3 pb-3 pre-scrollable Marco scroll-height">
+
+        <!-- Lista de ranking creados -->
+        <div class="list-group rounded mr-3 ml-3">
+          <a *ngFor="let Alumno of Alumnos" class="list-group-item list-group-item-action text-center p-4 bg-light">
+            <strong>{{Alumno.Mote}}</strong></a>
+        </div>
+
+      </div>
+
+      <div *ngIf="Tipo == true" class="text-white align-items-center text-center pt-3 pb-3 pre-scrollable Marco scroll-height">
 
         <!-- Lista de ranking creados -->
         <div class="list-group rounded mr-3 ml-3">

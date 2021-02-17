@@ -7,10 +7,14 @@ import { Alumno } from 'src/app/Models/Alumno.model';
 })
 export class PerfilComponent implements OnInit {
 
+  // Componenetes de prueba
   Alumnos : Alumno[] = [];
+  Tipo : boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
+    // Componenete de prueba
     this.Alumnos.push(new Alumno('Marc','','','','','',''));
     this.Alumnos.push(new Alumno('Fonsi','','','','','',''));
     this.Alumnos.push(new Alumno('Rosa','','','','','',''));
@@ -23,6 +27,5 @@ export class PerfilComponent implements OnInit {
     this.Alumnos.push(new Alumno('Susana','','','','','',''));
     this.Alumnos.push(new Alumno('Susana','','','','','',''));
   }
-
 
 }
