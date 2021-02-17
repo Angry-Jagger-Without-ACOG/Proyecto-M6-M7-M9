@@ -54,11 +54,11 @@
       <!-- Apellido -->
       <div class="form-group">
         <label class="text-light">Apellido</label>
-        <input type="text" placeholder="Entra tus apellidos" formControlName="apll_a" class="form-control"
-          [ngClass]="{'is-invalid': submitted && A.aplle_a.errors}">
+        <input type="text" placeholder="Entra tus apellidos" formControlName="apell_a" class="form-control"
+          [ngClass]="{'is-invalid': submitted && A.apell_a.errors}">
 
-        <div *ngIf="submitted && A.aplle_a.errors" class="invalid-feedback">
-          <div *ngIf="A.aplle_a.errors.required">El campo Apellido esta vacio!!</div>
+        <div *ngIf="submitted && A.apell_a.errors" class="invalid-feedback">
+          <div *ngIf="A.apell_a.errors.required">El campo Apellido esta vacio!!</div>
         </div>
       </div>
 
@@ -150,11 +150,11 @@
       <!-- Apellido Professor -->
       <div class="form-group">
         <label class="text-light">Apellido</label>
-        <input type="text" placeholder="Entra tus apellidos" formControlName="apll_p" class="form-control"
-          [ngClass]="{'is-invalid': submitted && P.nombre_p.errors}">
+        <input type="text" placeholder="Entra tus apellidos" formControlName="apell_p" class="form-control"
+          [ngClass]="{'is-invalid': submitted && P.apell_p.errors}">
 
-        <div *ngIf="submitted && P.nombre_p.errors" class="invalid-feedback">
-          <div *ngIf="P.nombre_p.errors.required"> El campo Apellido esta vacio!!</div>
+        <div *ngIf="submitted && P.apell_p.errors" class="invalid-feedback">
+          <div *ngIf="P.apell_p.errors.required"> El campo Apellido esta vacio!!</div>
         </div>
       </div>
 
