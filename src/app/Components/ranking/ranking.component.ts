@@ -8,6 +8,7 @@ import {Equipo} from '../../Models/Equipo.model'
 export class RankingComponent implements OnInit {
 
   Lista_Equipos : Equipo[]= [];
+
   constructor() { }
 
   ngOnInit(): void {
@@ -15,7 +16,5 @@ export class RankingComponent implements OnInit {
     this.Lista_Equipos.push(new Equipo('R_Prueba2','Clasico',false));
     this.Lista_Equipos.push(new Equipo('R_Prueba3','Clasico',true));
   }
-
-
 
 }
