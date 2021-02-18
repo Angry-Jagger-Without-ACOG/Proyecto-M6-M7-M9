@@ -1,14 +1,16 @@
 
 <div class="Container">
 
+  <!-- Componente del modulo ngx-ui-switch que utilizamos para elegir el tipo de usuario para crear la cuenta-->
+  <ui-switch class="float-right mt-1 pr-2 mr-5" [ngModel]="switch1" (ngModelChange)="manualUpdateEvent($event)" checkedLabel="Alumno"
+  uncheckedLabel="Profesor" size="large" checkedTextColor="white"></ui-switch>
+
   <!-- Formulario Alumno -->
   <div *ngIf="switch1 == true" class="rounded mt-5 mr-5 ml-5">
-
     <form [formGroup]="Alumno" class="pt-3 pb-1 pl-4 pr-4 rounded color_form">
-
       <!-- Nick -->
       <div class="form-group">
-        <label class="text-light">Nick</label>
+        <p class="text-light">Nick</p>
         <input type="text" placeholder="Entra tu Nick" formControlName="nick_a" class="form-control"
           [ngClass]="{'is-invalid': submitted && A.nick_a.errors}">
 
@@ -99,9 +101,8 @@
   </div>
 
   <!-- Formulario Profesor -->
-  <div *ngIf="switch1 != true" class="rounded mt-5 mr-5 ml-5">
+  <div *ngIf="switch1 == false" class="rounded mt-5 mr-5 ml-5">
     <form [formGroup]="Profesor" class="pt-3 pb-1 pl-4 pr-4 rounded color_form">
-
       <!-- Nick Professor -->
       <div class="form-group">
         <p class="text-light">Nick</p>

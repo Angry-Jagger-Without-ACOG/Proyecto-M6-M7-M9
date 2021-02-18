@@ -14,7 +14,7 @@ export class RegistroComponent implements OnInit {
  Profesor: FormGroup;
  submitted1 = false;
  submitted2 = false;
- switch1 : boolean = true;
+ switch1 = false;
 
   ngOnInit(): void {
 
@@ -38,6 +38,10 @@ export class RegistroComponent implements OnInit {
       img:['', Validators.required]
     });
 
+  }
+  //Funcion del modulo ngx-ui-switch que utilizamos para elegir el tipo de usuario a elegir
+  manualUpdateEvent(value: boolean) {
+    this.switch1 = value;
   }
 
   get A() {

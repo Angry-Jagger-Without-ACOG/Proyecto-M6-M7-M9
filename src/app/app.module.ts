@@ -13,6 +13,7 @@ import { RankingSoloComponent } from './Components/ranking-solo/ranking-solo.com
 import { ModificarRankingComponent } from './Components/modificar-ranking/modificar-ranking.component';
 import { HeaderComponent } from './Components/header/header.component';
 import { PerfilComponent } from './Components/perfil/perfil.component';
+import { UiSwitchModule } from 'ngx-ui-switch';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { PerfilComponent } from './Components/perfil/perfil.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    UiSwitchModule
   ],
   providers: [],
   bootstrap: [AppComponent]
