@@ -2,17 +2,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 
+import { HttpClient } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RegistroComponent } from './Components/registro/registro.component';
 import { LoginComponent } from './Components/login/login.component';
-import { HttpClient } from '@angular/common/http';
-import { CrearRankingComponent } from './Components/crear-ranking/crear-ranking.component';
-import { RankingGrupoComponent } from './Components/ranking-grupo/ranking-grupo.component';
-import { RankingSoloComponent } from './Components/ranking-solo/ranking-solo.component';
-import { ModificarRankingComponent } from './Components/modificar-ranking/modificar-ranking.component';
+import { RegistroComponent } from './Components/registro/registro.component';
 import { HeaderComponent } from './Components/header/header.component';
 import { PerfilComponent } from './Components/perfil/perfil.component';
+import { RankingComponent } from './Components/ranking/ranking.component';
+import { CrearRankingComponent } from './Components/ranking/crear-ranking/crear-ranking.component';
+import { RankingGrupoComponent } from './Components/ranking/ranking-grupo/ranking-grupo.component';
+import { RankingSoloComponent } from './Components/ranking/ranking-solo/ranking-solo.component';
+import { ModificarRankingComponent } from './Components/ranking/modificar-ranking/modificar-ranking.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { PerfilComponent } from './Components/perfil/perfil.component';
     RankingSoloComponent,
     ModificarRankingComponent,
     HeaderComponent,
-    PerfilComponent
+    PerfilComponent,
+    RankingComponent
   ],
   imports: [
     BrowserModule,

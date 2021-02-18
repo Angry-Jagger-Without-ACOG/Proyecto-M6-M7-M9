@@ -8,6 +8,6 @@ export class Alumno {
     public Apellido: string,
     public Curso : string,
     public Img : string
-){}
+  ){}
 
 }
