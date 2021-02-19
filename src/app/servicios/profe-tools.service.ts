@@ -6,5 +6,10 @@ import {HttpClient} from '@angular/common/http';
 })
 export class ProfeToolsService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+  prueba() {
+    return this.http.get('${this.URL}SelectPrueba.php');
+  }
+
 }
