@@ -8,10 +8,10 @@
 
   global $datos;
 
-  require("db.php");
-
   $conexion = conexion(); // CREA LA CONEXION
 
   $registros = mysqli_query($conexion, "SELECT * FROM usuario");
+
+    echo $registros;
 
 ?>

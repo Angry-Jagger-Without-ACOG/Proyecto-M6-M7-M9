@@ -1,23 +1,18 @@
 <div class="container-fluid">
 
-<form class="form mt-5">
+<form class="form mt-5" method="POST">
 
   <div class="form-group col-md-10">
     <label for="exampleInputEmail1">Nick</label>
-    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Entra nick">
-  </div>
-
-  <div class="form-group col-md-10">
-    <label for="exampleInputEmail1">Correo</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Entra Correo">
-  </div>
+    <input type="text" class="form-control" id="name"  [(ngModel)]="mote" name="name" #name="ngModel" placeholder="Nick"> </div>
 
   <div class="form-group col-md-10">
     <label for="exampleInputPassword1">Contraseña</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
+    <input type="password" class="form-control" id="contrasena" [(ngModel)]="contrasena" name="name" #name="ngModel" placeholder="Contraseña">
   </div>
 
-  <button type="submit" class="btn btn-primary mt-3">Enviar!</button>
+  <button type="submit" (click)="login()" class="btn btn-primary mt-3">Enviar!</button>
+
 </form>
 
 </div>
