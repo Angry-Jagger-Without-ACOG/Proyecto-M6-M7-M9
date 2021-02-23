@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ProfeToolsService } from '../../servicios/profe-tools.service';
 
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,6 +11,7 @@ export class LoginComponent implements OnInit {
 
     mote: string;
     contrasena: string;
+    Alumnos:any;
 
   constructor(private BD: ProfeToolsService) { }
 
@@ -20,11 +20,15 @@ export class LoginComponent implements OnInit {
     console.log(this.mote);
     console.log(this.contrasena);
 
+    this.BD.listarusuarios().subscribe(
+      datos => this.Alumnos = datos
+    );
   }
 
   ngOnInit(): void {
 
   }
+
 
   Data_Bsse(){
 
