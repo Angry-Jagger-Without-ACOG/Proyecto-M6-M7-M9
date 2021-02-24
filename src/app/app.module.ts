@@ -33,11 +33,8 @@ import { UiSwitchModule } from 'ngx-ui-switch';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-<<<<<<< HEAD
-    UiSwitchModule
-=======
+    UiSwitchModule,
     HttpClientModule
->>>>>>> Login
   ],
   providers: [],
   bootstrap: [AppComponent]
