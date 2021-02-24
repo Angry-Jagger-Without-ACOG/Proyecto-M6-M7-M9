@@ -8,12 +8,6 @@ import { environment } from 'src/environments/environment';
 
 export class ProfeToolsService {
 
-<<<<<<< HEAD
-  constructor(private http: HttpClient) { }
-
-  prueba() {
-    return this.http.get('${this.URL}SelectPrueba.php');
-=======
   URL = environment.serverUrl;
 
   constructor(private http: HttpClient) { }
@@ -24,7 +18,6 @@ export class ProfeToolsService {
 
   listarusuarios() {
     return this.http.get(`${this.URL}SelectPrueba.php`);
->>>>>>> master
   }
 
 }
