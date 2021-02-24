@@ -1,0 +1,13 @@
+.img_perfil{
+  background-color: white;
+  max-height: 120px;
+}
+
+.Marco{
+    background: rgba(0, 0, 0, 0.693);
+    border-radius: 5px;
+}
+.scroll-height{
+  max-height: 85vh;
+}
+
