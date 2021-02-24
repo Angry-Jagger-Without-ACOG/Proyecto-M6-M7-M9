@@ -1,24 +1,24 @@
 <?php
 
   header('Access-Control-Allow-Origin: *');
-  header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
-  header('Content-Type: text/html; charset=UTF-8');
+	header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
+	header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
+	header("Allow: GET, POST, OPTIONS, PUT, DELETE");
 
-  require('../../../PHP/BD.php');
+  require('BD.php');
 
 
-  global $datos;
-
-  $conexion = conexion(); // CREA LA CONEXION
+  $conexion = conexion();
 
   $registros = mysqli_query($conexion, "SELECT * FROM alumnos");
 
-  if ($resultado = mysqli_fetch_array($registros))
+  $datos=[];
+  while ($resultado = mysqli_fetch_assoc($registros))
   {
     $datos[] = $resultado;
   }
 
-  $json = json_encode($datos); // GENERA EL JSON CON LOS DATOS OBTENIDOS
+  $json = json_encode($datos);
 
   echo $json;
 ?>
