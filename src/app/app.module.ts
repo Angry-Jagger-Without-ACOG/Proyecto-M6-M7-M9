@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegistroComponent } from './Components/registro/registro.component';
 import { LoginComponent } from './Components/login/login.component';
-import { HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { CrearRankingComponent } from './Components/crear-ranking/crear-ranking.component';
 import { RankingGrupoComponent } from './Components/ranking-grupo/ranking-grupo.component';
 import { RankingSoloComponent } from './Components/ranking-solo/ranking-solo.component';
@@ -33,7 +33,11 @@ import { UiSwitchModule } from 'ngx-ui-switch';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+<<<<<<< HEAD
     UiSwitchModule
+=======
+    HttpClientModule
+>>>>>>> Login
   ],
   providers: [],
   bootstrap: [AppComponent]
