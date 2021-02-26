@@ -16,6 +16,18 @@ export class ProfeToolsService {
     return this.http.get(`${this.URL}LoginUsuario.php?mote=${mote}?contrasena=${contrasena}`);
   }
 
+  // Faltaria introducir la imagen
+  RegistrarAlumno(nick,correo,contra,nombre,apellidos,curso){
+    return this.http.get(`${this.URL}RegistroUsuario.php?nick=${nick}?correo=${correo}?
+    contra=${contra}?nombre=${nombre}?apellidos=${apellidos}?curso=${curso}`);
+  }
+
+  // Faltaria introducir la imagen
+  RegistrarProfesor(nick,correo,contra,nombre,apellidos,centro){
+    return this.http.get(`${this.URL}RegistroProfesor.php?nick=${nick}?correo=${correo}?
+    contra=${contra}?nombre=${nombre}?apellidos=${apellidos}?curso=${centro}`);
+  }
+
   listarusuarios() {
     return this.http.get(`${this.URL}SelectPrueba.php`);
   }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ProfeToolsService } from '../../servicios/profe-tools.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -9,36 +10,38 @@ import Swal from 'sweetalert2';
 })
 export class RegistroComponent implements OnInit {
 
- constructor(private formBuilder: FormBuilder) { }
- Alumno: FormGroup;
- Profesor: FormGroup;
- submitted1 = false;
- submitted2 = false;
- switch1 = false;
+  constructor(private formBuilder: FormBuilder,private BD: ProfeToolsService) { }
+  Alumno: FormGroup;
+  Profesor: FormGroup;
+  submitted1 = false;
+  submitted2 = false;
+  switch1 = false;
 
   ngOnInit(): void {
 
     this.Alumno = this.formBuilder.group({
-      nick_a: ['', Validators.required] ,
-      correo_a: ['',[ Validators.required, Validators.email]],
+      nick_a: ['', Validators.required],
+      correo_a: ['', [Validators.required, Validators.email]],
       cont_a: ['', Validators.required],
       nombre_a: ['', Validators.required],
       apell_a: ['', Validators.required],
       curso: ['', Validators.required],
-      img:['', Validators.required]
+      img: ['', Validators.required]
     });
 
     this.Profesor = this.formBuilder.group({
-      nick_p: ['', Validators.required] ,
-      correo_p: ['',[ Validators.required, Validators.email]],
+      nick_p: ['', Validators.required],
+      correo_p: ['', [Validators.required, Validators.email]],
       cont_p: ['', Validators.required],
       nombre_p: ['', Validators.required],
       apell_p: ['', Validators.required],
-      centro: ['', Validators.required],
-      img:['', Validators.required]
+      centro: ['', Validators.required]
     });
+    // ,
+    // img: ['', Validators.required]
 
   }
+
   //Funcion del modulo ngx-ui-switch que utilizamos para elegir el tipo de usuario a elegir
   manualUpdateEvent(value: boolean) {
     this.switch1 = value;
@@ -55,7 +58,7 @@ export class RegistroComponent implements OnInit {
   comp_Alum() {
     this.submitted1 = true;
 
-    if(this.Alumno.invalid){
+    if (this.Alumno.invalid) {
       return;
     }
 
@@ -69,11 +72,8 @@ export class RegistroComponent implements OnInit {
       confirmButtonText: 'Si, crear!'
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire(
-          '¡Creado!',
-          '',
-          'success'
-        )
+
+        Swal.fire('¡Creado!', '', 'success')
       }
     })
   }
@@ -81,7 +81,7 @@ export class RegistroComponent implements OnInit {
   comp_Prof() {
     this.submitted2 = true;
 
-    if(this.Profesor.invalid){
+    if (this.Profesor.invalid) {
       return;
     }
 
@@ -93,13 +93,25 @@ export class RegistroComponent implements OnInit {
       confirmButtonColor: '#4a4a50',
       cancelButtonColor: '#d33',
       confirmButtonText: 'Si, crear!'
+
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire(
-          '¡Creado!',
-          '',
-          'success'
-        )
+
+        this.BD.RegistrarProfesor(
+        this.Profesor.value.nick_p,this.Profesor.value.correo_p,
+        this.Profesor.value.cont_p,this.Profesor.value.nombre_p,
+        this.Profesor.value.apell_p,this.Profesor.value.centro).subscribe(
+
+          (respuesta: any) => {
+            console.log(respuesta);
+          },
+          (error: any) => {
+            console.log(error);
+          }
+
+        );
+
+        Swal.fire('¡Creado!', '', 'success')
       }
     })
   }

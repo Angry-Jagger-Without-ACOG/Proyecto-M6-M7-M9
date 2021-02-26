@@ -11,10 +11,10 @@
       <!-- Nick -->
       <div class="form-group">
         <p class="text-light">Nick</p>
-        <input type="text" placeholder="Entra tu Nick" formControlName="nick_a" class="form-control"
-          [ngClass]="{'is-invalid': submitted && A.nick_a.errors}">
+        <input type="text" placeholder="Entra tu nick" formControlName="nick_a" class="form-control"
+          [ngClass]="{'is-invalid': submitted1 && A.nick_a.errors}" >
 
-        <div *ngIf="submitted && A.nick_a.errors" class="invalid-feedback">
+        <div *ngIf="submitted1 && A.nick_a.errors" class="invalid-feedback">
           <div *ngIf="A.nick_a.errors.required">El campo Nick esta vacio!!</div>
         </div>
       </div>
@@ -23,9 +23,9 @@
       <div class="form-group">
         <label class="text-light">Correo</label>
         <input type="text" placeholder="Entra tu correo" formControlName="correo_a" class="form-control"
-          [ngClass]="{'is-invalid': submitted && A.correo_a.errors}">
+          [ngClass]="{'is-invalid': submitted1 && A.correo_a.errors}">
 
-        <div *ngIf="submitted && A.correo_a.errors" class="invalid-feedback">
+        <div *ngIf="submitted1 && A.correo_a.errors" class="invalid-feedback">
           <div *ngIf="A.correo_a.errors.required">El campo de Correo esta Vacio</div>
           <div *ngIf="A.correo_a.errors.email">Escribe correctamente el Correo</div>
         </div>
@@ -35,9 +35,9 @@
       <div class="form-group">
         <label class="text-light">Contraseña</label>
         <input type="password" placeholder="Entra tu contraseña" formControlName="cont_a" class="form-control"
-          [ngClass]="{'is-invalid': submitted && A.cont_a.errors}">
+          [ngClass]="{'is-invalid': submitted1 && A.cont_a.errors}">
 
-        <div *ngIf="submitted && A.cont_a.errors" class="invalid-feedback">
+        <div *ngIf="submitted1 && A.cont_a.errors" class="invalid-feedback">
           <div *ngIf="A.cont_a.errors.required">El campo Contraseña esta vacio!!</div>
         </div>
       </div>
@@ -46,9 +46,9 @@
       <div class="form-group">
         <label class="text-light">Nombre</label>
         <input type="text" placeholder="Entra tu nombre" formControlName="nombre_a" class="form-control"
-          [ngClass]="{'is-invalid': submitted && A.nombre_a.errors}">
+          [ngClass]="{'is-invalid': submitted1 && A.nombre_a.errors}">
 
-        <div *ngIf="submitted && A.nombre_a.errors" class="invalid-feedback">
+        <div *ngIf="submitted1 && A.nombre_a.errors" class="invalid-feedback">
           <div *ngIf="A.nombre_a.errors.required">El campo nombre esta vacio!!</div>
         </div>
       </div>
@@ -57,9 +57,9 @@
       <div class="form-group">
         <label class="text-light">Apellido</label>
         <input type="text" placeholder="Entra tus apellidos" formControlName="apell_a" class="form-control"
-          [ngClass]="{'is-invalid': submitted && A.apell_a.errors}">
+          [ngClass]="{'is-invalid': submitted1 && A.apell_a.errors}">
 
-        <div *ngIf="submitted && A.apell_a.errors" class="invalid-feedback">
+        <div *ngIf="submitted1 && A.apell_a.errors" class="invalid-feedback">
           <div *ngIf="A.apell_a.errors.required">El campo Apellido esta vacio!!</div>
         </div>
       </div>
@@ -68,14 +68,14 @@
       <div class="form-group">
         <label class="text-light">Curso</label>
         <select class="form-control" formControlName="curso"
-        [ngClass]="{'is-invalid': submitted && A.curso.errors}">
+        [ngClass]="{'is-invalid': submitted1 && A.curso.errors}">
           <option>Daw1</option>
           <option>Daw2</option>
           <option>Dam1</option>
           <option>Dam2</option>
         </select>
 
-        <div *ngIf="submitted && A.curso.errors" class="invalid-feedback">
+        <div *ngIf="submitted1 && A.curso.errors" class="invalid-feedback">
           <div *ngIf="A.curso.errors.required">El campo Curso esta vacio!!</div>
         </div>
       </div>
@@ -84,32 +84,31 @@
       <div class="form-group custom-file mt-3 mb-3">
         <label class="custom-file-label" for="img">Selecciona una Imagen</label>
         <input type="file" class="custom-file-input form-control" formControlName="img"
-        [ngClass]="{'is-invalid': submitted && A.img.errors}">
+        [ngClass]="{'is-invalid': submitted1 && A.img.errors}">
 
-
-        <div *ngIf="submitted && A.img.errors" class="invalid-feedback">
+        <div *ngIf="submitted1 && A.img.errors" class="invalid-feedback">
           <div *ngIf="A.img.errors.required">No has selecionado una Imagen!!</div>
         </div>
       </div>
 
       <!-- Botton del formulario de Alumno -->
       <div class="form-group">
-        <button type="button" class="btn btn-light text-dark mt-3" (click)="comp_Alum()">Crear</button>
+        <button type="submit" class="btn btn-light text-dark mt-3" (click)="comp_Alum()">Crear</button>
       </div>
     </form>
-
   </div>
+
 
   <!-- Formulario Profesor -->
   <div *ngIf="switch1 == false" class="rounded mt-5 mr-5 ml-5">
-    <form [formGroup]="Profesor" class="pt-3 pb-1 pl-4 pr-4 rounded color_form">
+    <form [formGroup]="Profesor" class="pt-3 pb-1 pl-4 pr-4 rounded color_form" method="POST">
       <!-- Nick Professor -->
       <div class="form-group">
         <p class="text-light">Nick</p>
-        <input type="text" placeholder="Entra tu mote" formControlName="nick_p" class="form-control"
-          [ngClass]="{'is-invalid': submitted && P.nick_p.errors}">
+        <input type="text" placeholder="Entra tu nick" formControlName="nick_p" class="form-control"
+          [ngClass]="{'is-invalid': submitted2 && P.nick_p.errors}">
 
-        <div *ngIf="submitted && P.nick_p.errors" class="invalid-feedback">
+        <div *ngIf="submitted2 && P.nick_p.errors" class="invalid-feedback">
           <div *ngIf="P.nick_p.errors.required"> El campo Nick esta vacio!!</div>
         </div>
       </div>
@@ -118,9 +117,9 @@
       <div class="form-group">
         <label class="text-light">Correo</label>
         <input type="text" placeholder="Entra tu correo" formControlName="correo_p" class="form-control"
-          [ngClass]="{'is-invalid': submitted && A.correo_p.errors}">
+          [ngClass]="{'is-invalid': submitted2 && P.correo_p.errors}">
 
-        <div *ngIf="submitted && P.correo_p.errors" class="invalid-feedback">
+        <div *ngIf="submitted2 && P.correo_p.errors" class="invalid-feedback">
           <div *ngIf="P.correo_p.errors.required"> El campo de Correo esta Vacio</div>
           <div *ngIf="P.correo_p.errors.email"> Escribe correctamente el Correo</div>
         </div>
@@ -130,9 +129,9 @@
       <div class="form-group">
         <label class="text-light">Contraseña</label>
         <input type="password" placeholder="Entra tu contraseña" formControlName="cont_p" class="form-control"
-          [ngClass]="{'is-invalid': submitted && P.cont_p.errors}">
+          [ngClass]="{'is-invalid': submitted2 && P.cont_p.errors}">
 
-        <div *ngIf="submitted && P.cont_p.errors" class="invalid-feedback">
+        <div *ngIf="submitted2 && P.cont_p.errors" class="invalid-feedback">
           <div *ngIf="P.cont_p.errors.required"> El campo Contraseña esta vacio!!</div>
         </div>
       </div>
@@ -141,9 +140,9 @@
       <div class="form-group">
         <label class="text-light">Nombre</label>
         <input type="text" placeholder="Entra tu nombre" formControlName="nombre_p" class="form-control"
-          [ngClass]="{'is-invalid': submitted && P.nombre_p.errors}">
+          [ngClass]="{'is-invalid': submitted2 && P.nombre_p.errors}">
 
-        <div *ngIf="submitted && P.nombre_p.errors" class="invalid-feedback">
+        <div *ngIf="submitted2 && P.nombre_p.errors" class="invalid-feedback">
           <div *ngIf="P.nombre_p.errors.required"> El campo Nombre esta vacio!!</div>
         </div>
       </div>
@@ -152,9 +151,9 @@
       <div class="form-group">
         <label class="text-light">Apellido</label>
         <input type="text" placeholder="Entra tus apellidos" formControlName="apell_p" class="form-control"
-          [ngClass]="{'is-invalid': submitted && P.apell_p.errors}">
+          [ngClass]="{'is-invalid': submitted2 && P.apell_p.errors}">
 
-        <div *ngIf="submitted && P.apell_p.errors" class="invalid-feedback">
+        <div *ngIf="submitted2 && P.apell_p.errors" class="invalid-feedback">
           <div *ngIf="P.apell_p.errors.required"> El campo Apellido esta vacio!!</div>
         </div>
       </div>
@@ -163,28 +162,27 @@
       <div class="form-group">
         <label class="text-light">Centro</label>
         <input type="text" placeholder="Entra tus apellidos" formControlName="centro" class="form-control"
-          [ngClass]="{'is-invalid': submitted && P.centro.errors}">
+          [ngClass]="{'is-invalid': submitted2 && P.centro.errors}">
 
-        <div *ngIf="submitted && P.centro.errors" class="invalid-feedback">
+        <div *ngIf="submitted2 && P.centro.errors" class="invalid-feedback">
           <div *ngIf="P.centro.errors.required"> El campo Centro esta vacio!!</div>
         </div>
       </div>
 
-      <!-- Imagen -->
+      <!-- Imagen
       <div class="form-group custom-file mt-3 mb-3">
         <label class="custom-file-label" for="img">Selecciona una Imagen</label>
         <input type="file" class="custom-file-input form-control" formControlName="img"
-        [ngClass]="{'is-invalid': submitted && P.img.errors}">
+        [ngClass]="{'is-invalid': submitted2 && P.img.errors}">
 
-
-        <div *ngIf="submitted && P.img.errors" class="invalid-feedback">
+        <div *ngIf="submitted2 && P.img.errors" class="invalid-feedback">
           <div *ngIf="P.img.errors.required">No has selecionado una Imagen!!</div>
         </div>
-      </div>
+      </div>-->
 
       <!-- Botton del formulario de Profesor -->
       <div class="form-group">
-        <button type="button" class="btn btn-light text-dark mt-3" (click)="comp_Prof()">Crear</button>
+        <button type="submit" class="btn btn-light text-dark mt-3" (click)="comp_Prof()">Crear</button>
       </div>
     </form>
   </div>
