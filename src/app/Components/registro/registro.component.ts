@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProfeToolsService } from '../../servicios/profe-tools.service';
 import Swal from 'sweetalert2';
+import { Profesor } from 'src/app/Models/Profesor.model';
 
 @Component({
   selector: 'app-registro',
@@ -97,10 +98,12 @@ export class RegistroComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
 
-        this.BD.RegistrarProfesor(
-        this.Profesor.value.nick_p,this.Profesor.value.correo_p,
-        this.Profesor.value.cont_p,this.Profesor.value.nombre_p,
-        this.Profesor.value.apell_p,this.Profesor.value.centro).subscribe(
+        var profesor: Profesor = new Profesor(this.Profesor.value.nick_p,
+          this.Profesor.value.cont_p, this.Profesor.value.correo_p,
+          this.Profesor.value.nombre_p, this.Profesor.value.apell_p,
+          this.Profesor.value.centro);
+
+        this.BD.RegistrarProfesor(profesor).subscribe(
 
           (respuesta: any) => {
             console.log(respuesta);

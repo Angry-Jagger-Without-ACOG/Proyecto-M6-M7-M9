@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { environment } from 'src/environments/environment';
+import { Profesor } from '../Models/Profesor.model';
 
 @Injectable({
   providedIn: 'root'
@@ -23,9 +24,8 @@ export class ProfeToolsService {
   }
 
   // Faltaria introducir la imagen
-  RegistrarProfesor(nick,correo,contra,nombre,apellidos,centro){
-    return this.http.get(`${this.URL}RegistroProfesor.php?nick=${nick}?correo=${correo}?
-    contra=${contra}?nombre=${nombre}?apellidos=${apellidos}?curso=${centro}`);
+  RegistrarProfesor(profesor: Profesor){
+    return this.http.post(`${this.URL}RegistroProfesor.php`, profesor);
   }
 
   listarusuarios() {

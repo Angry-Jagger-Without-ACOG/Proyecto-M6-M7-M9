@@ -5,18 +5,12 @@
   header("Allow: GET, POST, OPTIONS, PUT, DELETE");
   require('BD.php');
 
-  $nick=$_POST['nick'];
-  $contra=$_POST['contra'];
-  $correo=$_POST['correo'];
-  $nombre=$_POST['nombre'];
-  $apellidos=$_POST['apellidos'];
-  $centro=$_POST['centro'];
-  // $img=$_POST['img'];
+  $Profesor=$_POST['profesor'];
 
   global $datos;
 
   $conexion = conexion();
 
-  $registroProfe = mysqli_query($conexion, "INSERT INTO profesores(nickname,pasword,email,firstname,lastname,centro) VALUES ('$nick','$contrasena','$correo','$nombre','$apellido','$centro')");
+  $registroProfe = mysqli_query($conexion, "INSERT INTO profesores(nickname,pasword,email,firstname,lastname,centro) VALUES ('','','','','','')");
 
 ?>
