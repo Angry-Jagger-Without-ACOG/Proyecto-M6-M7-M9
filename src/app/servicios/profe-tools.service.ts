@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { environment } from 'src/environments/environment';
 import { Profesor } from '../Models/Profesor.model';
+import { Observable } from 'rxjs';
+import { User } from '../Models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -10,12 +12,22 @@ import { Profesor } from '../Models/Profesor.model';
 export class ProfeToolsService {
 
   URL = environment.serverUrl;
+  cookies: any;
 
   constructor(private http: HttpClient) { }
 
-  Insertar_Login(mote, contrasena) {
-    return this.http.get(`${this.URL}LoginUsuario.php?mote=${mote}?contrasena=${contrasena}`);
-  }
+  public login(user) {
+    return this.http.post<User>('http://localhost:8080' + '/LoginUsuario.php', JSON.stringify(user))
+    }
+
+    setToken(token: String) {
+      this.cookies.set("token", "token");
+    }
+
+
+    getToken() {
+      return this.cookies.get("token");
+    }
 
   // Faltaria introducir la imagen
   RegistrarAlumno(nick,correo,contra,nombre,apellidos,curso){

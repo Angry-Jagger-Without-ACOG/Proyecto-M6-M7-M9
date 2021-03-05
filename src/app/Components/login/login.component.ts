@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/Models/user';
 import { ProfeToolsService } from '../../servicios/profe-tools.service';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-login',
@@ -9,41 +11,31 @@ import { ProfeToolsService } from '../../servicios/profe-tools.service';
 
 export class LoginComponent implements OnInit {
 
-  mote: string;
-  contrasena: string;
-  Alumnos:any;
+  service: ProfeToolsService;
+  user = new User();
 
   constructor(private BD: ProfeToolsService) { }
 
-  ngOnInit(): void {}
 
-  login() {
-    this.BD.listarusuarios().subscribe(
-      (respuesta: any) => {
-        console.log(respuesta);
 
-      },
-      (error: any) => {
-        console.log(error);
-      }
+  ngOnInit(): void { }
 
-    );
+
+  onFormSubmit(){
+
   }
+  login() {
+    console.log(this.user);
+    this.BD.login(this.user)
+    .pipe(first())
+    .subscribe(
+      (data) => {
+        console.log(data)
+        console.log(data['nombre'])
+        console.log(data['password'])
 
-
-
-
-  // Data_Bsse(){
-
-  //  this.BD.Insertar_Login(this.mote,this.contrasena).subscribe(
-  //       datos => {
-  //         if (datos['resultado'] == 'OK') {
-  //           //this.Insertar_Login();
-  //         }
-  //       }
-  //     );
-
-  // }
-
+      }
+    )
+  }
 
 }

@@ -5,18 +5,18 @@ header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Conte
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
 header("Allow: GET, POST, OPTIONS, PUT, DELETE");
 
-
-  $mote=$_POST['mote'];
-  $mote=$_POST['contrasena'];
-
-  global $datos;
+$bd = include_once "BD.php";
 
 
-  require("BD.php");
+$postdata = file_get_contents("php://input"); // Esto es un JSON en formato string
+$params = json_decode($postdata, true);	// Convertimos el JSON string que nos llega en un objeto de PHP
 
-  $conexion = conexion(); // CREA LA CONEXION
+$password = $params['nombre'];
+echo '{ "nombre": "'. $password .'" }'; // Desde el servidor tenemos que devolver siempre la información en forma de JSON
 
-  $LogUsuario = mysqli_query($conexion, "SELECT mote, contrasena  FROM alumnos where mote = $mote and contrasena= $contrasena");
+$instruccion = "select count(*) as cuantos from alumnos where nombre = '$nick'";
 
-  header("Location: /crear-ranking/crear-ranking.html");
+
+
+// echo  ($postdata);
 ?>
