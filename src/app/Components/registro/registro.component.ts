@@ -107,14 +107,16 @@ export class RegistroComponent implements OnInit {
 
           (respuesta: any) => {
             console.log(respuesta);
+            Swal.fire('¡Creado!', '', 'success')
           },
           (error: any) => {
             console.log(error);
+            Swal.fire('¡Error!', '', 'error')
           }
 
         );
 
-        Swal.fire('¡Creado!', '', 'success')
+
       }
     })
   }
