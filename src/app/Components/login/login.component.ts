@@ -17,10 +17,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private BD: ProfeToolsService, private router:Router) { }
 
-  ngOnInit(): void { }
-
-
-  onFormSubmit(){
+  ngOnInit(): void {
 
   }
 
@@ -29,7 +26,7 @@ export class LoginComponent implements OnInit {
       datos => {
         if(datos['response'] == 'OK') {
           alert(datos['mensaje']);
-         // this.BD.setToken(datos.token);
+          //this.BD.setToken(datos.token);
           this.router.navigate(['Perfil']);
          } else {
           alert(datos['mensaje']);
@@ -38,7 +35,6 @@ export class LoginComponent implements OnInit {
       }
     );
     }
-
 
 
 

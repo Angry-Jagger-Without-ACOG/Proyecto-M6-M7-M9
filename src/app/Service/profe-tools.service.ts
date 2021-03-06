@@ -16,25 +16,18 @@ export class ProfeToolsService {
 
   constructor(private http: HttpClient,private cookies: CookieService) { }
 
-  public login(user: any) {
-    return this.http.post<User>('http://localhost:8080' + '/LoginUsuario.php', JSON.stringify(user))
-    }
-
     loginUsuario(login: any) {
       return this.http.post(`${this.URL}LoginUsuario.php`, JSON.stringify(login));
     }
 
     //token prueba
     setToken(token: String) {
-     // this.cookies.set("token", token);
+     //this.cookies.set("token", token);
     }
     getToken() {
       return this.cookies.get("token");
     }
 
-    getUser() {
-      return this.http.get("https://reqres.in/api/users/2");
-    }
     getUserLogged() {
       const token = this.getToken();
       // Aquí iría el endpoint para devolver el usuario para un token
