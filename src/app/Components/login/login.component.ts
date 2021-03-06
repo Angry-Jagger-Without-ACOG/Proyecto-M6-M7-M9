@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 import { User } from 'src/app/Models/user';
 import { ProfeToolsService } from '../../servicios/profe-tools.service';
-import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-login',
@@ -12,11 +12,10 @@ import { first } from 'rxjs/operators';
 export class LoginComponent implements OnInit {
 
   service: ProfeToolsService;
+
   user = new User();
 
   constructor(private BD: ProfeToolsService) { }
-
-
 
   ngOnInit(): void { }
 
@@ -24,18 +23,25 @@ export class LoginComponent implements OnInit {
   onFormSubmit(){
 
   }
-  login() {
-    console.log(this.user);
-    this.BD.login(this.user)
-    .pipe(first())
-    .subscribe(
-      (data) => {
-        console.log(data)
-        console.log(data['nombre'])
-        console.log(data['password'])
 
+  loginUsuario() {
+    this.BD.loginUsuario(this.user).subscribe (
+      datos => {
+        if(datos['response'] == 'OK') {
+          alert(datos['mensaje']);
+         } else {
+          alert(datos['mensaje']);
+
+        }
       }
-    )
-  }
+    );
+    }
+
+
+
+
+
+
+
 
 }

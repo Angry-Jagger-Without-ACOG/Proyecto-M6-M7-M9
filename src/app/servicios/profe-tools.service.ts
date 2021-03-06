@@ -20,10 +20,14 @@ export class ProfeToolsService {
     return this.http.post<User>('http://localhost:8080' + '/LoginUsuario.php', JSON.stringify(user))
     }
 
+    loginUsuario(login) {
+      return this.http.post(`${this.URL}LoginUsuario.php`, JSON.stringify(login));
+    }
+
+    //token prueba
     setToken(token: String) {
       this.cookies.set("token", "token");
     }
-
 
     getToken() {
       return this.cookies.get("token");

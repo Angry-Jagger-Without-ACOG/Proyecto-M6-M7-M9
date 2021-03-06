@@ -4,7 +4,7 @@
 
     <div class="form-group col-md-10">
       <label for="exampleInputEmail1">Nick</label>
-      <input type="text" class="form-control" id="name" [(ngModel)]="user.nombre" name="name" #name="ngModel"
+      <input type="text" class="form-control" id="name" [(ngModel)]="user.nick" name="name" #name="ngModel"
         placeholder="Nick"> </div>
 
     <div class="form-group col-md-10">
@@ -13,8 +13,7 @@
         placeholder="Contraseña">
     </div>
 
-    <button type="submit" (click)="login()" class="btn btn-primary mt-3">Enviar!</button>
+    <button type="submit" (click)="loginUsuario()"  class="btn btn-primary mt-3">Enviar!</button>
 
   </form>
-  <!-- <button type="button" (click)="login()" class="btn btn-primary mt-3">Enviar!</button> -->
 </div>
