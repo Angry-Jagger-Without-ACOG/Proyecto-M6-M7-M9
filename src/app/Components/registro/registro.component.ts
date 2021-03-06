@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ProfeToolsService } from '../../servicios/profe-tools.service';
+import { ProfeToolsService } from '../../Service/profe-tools.service';
 import Swal from 'sweetalert2';
 import { Profesor } from 'src/app/Models/Profesor.model';
 
