@@ -1,7 +1,5 @@
 <?php
 
-session_start();
-
 header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
@@ -24,7 +22,7 @@ $resultado = mysqli_query($con, "SELECT * FROM alumnos WHERE nick='$params->nick
 
   $response = new Result();
 
-  if($resultado->num_rows > 0 ) {
+  if($resultado->num_rows > 0) {
     $response->response = 'OK';
     $response->mensaje = 'LOGIN EXITOSO';
 

@@ -99,13 +99,13 @@
   </div>
 
 
-  <!-- Formulario Profesor -->
+  <!-- Formulario Profesor  -->
   <div *ngIf="switch1 == false" class="rounded mt-5 mr-5 ml-5">
     <form [formGroup]="Profesor" class="pt-3 pb-1 pl-4 pr-4 rounded color_form" method="POST">
       <!-- Nick Professor -->
       <div class="form-group">
         <p class="text-light">Nick</p>
-        <input type="text" placeholder="Entra tu nick" formControlName="nick_p" class="form-control"
+        <input type="text" placeholder="Entra tu nick"  [(ngModel)]="user.nick" formControlName="nick_p" class="form-control"
           [ngClass]="{'is-invalid': submitted2 && P.nick_p.errors}">
 
         <div *ngIf="submitted2 && P.nick_p.errors" class="invalid-feedback">
@@ -116,7 +116,7 @@
       <!-- Correo Professor -->
       <div class="form-group">
         <label class="text-light">Correo</label>
-        <input type="text" placeholder="Entra tu correo" formControlName="correo_p" class="form-control"
+        <input type="text" placeholder="Entra tu correo" [(ngModel)]="user.correo" formControlName="correo_p" class="form-control"
           [ngClass]="{'is-invalid': submitted2 && P.correo_p.errors}">
 
         <div *ngIf="submitted2 && P.correo_p.errors" class="invalid-feedback">
@@ -128,7 +128,7 @@
       <!-- Contraseña Professor -->
       <div class="form-group">
         <label class="text-light">Contraseña</label>
-        <input type="password" placeholder="Entra tu contraseña" formControlName="cont_p" class="form-control"
+        <input type="password" placeholder="Entra tu contraseña" [(ngModel)]="user.password" formControlName="cont_p" class="form-control"
           [ngClass]="{'is-invalid': submitted2 && P.cont_p.errors}">
 
         <div *ngIf="submitted2 && P.cont_p.errors" class="invalid-feedback">
@@ -139,7 +139,7 @@
       <!-- Nombre Professor -->
       <div class="form-group">
         <label class="text-light">Nombre</label>
-        <input type="text" placeholder="Entra tu nombre" formControlName="nombre_p" class="form-control"
+        <input type="text" placeholder="Entra tu nombre" [(ngModel)]="user.nombre" formControlName="nombre_p" class="form-control"
           [ngClass]="{'is-invalid': submitted2 && P.nombre_p.errors}">
 
         <div *ngIf="submitted2 && P.nombre_p.errors" class="invalid-feedback">
@@ -150,7 +150,7 @@
       <!-- Apellido Professor -->
       <div class="form-group">
         <label class="text-light">Apellido</label>
-        <input type="text" placeholder="Entra tus apellidos" formControlName="apell_p" class="form-control"
+        <input type="text" placeholder="Entra tus apellidos" [(ngModel)]="user.apellido" formControlName="apell_p" class="form-control"
           [ngClass]="{'is-invalid': submitted2 && P.apell_p.errors}">
 
         <div *ngIf="submitted2 && P.apell_p.errors" class="invalid-feedback">
@@ -161,7 +161,7 @@
       <!-- Centro Professor -->
       <div class="form-group">
         <label class="text-light">Centro</label>
-        <input type="text" placeholder="Entra tus apellidos" formControlName="centro" class="form-control"
+        <input type="text" placeholder="Entra tus apellidos" [(ngModel)]="user.centro" formControlName="centro" class="form-control"
           [ngClass]="{'is-invalid': submitted2 && P.centro.errors}">
 
         <div *ngIf="submitted2 && P.centro.errors" class="invalid-feedback">

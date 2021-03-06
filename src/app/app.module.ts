@@ -14,7 +14,6 @@ import { ModificarRankingComponent } from './Components/ranking/modificar-rankin
 import { HeaderComponent } from './Components/header/header.component';
 import { PerfilComponent } from './Components/perfil/perfil.component';
 import { UiSwitchModule } from 'ngx-ui-switch';
-import { PerfilProfComponent } from './Components/perfil-prof/perfil-prof.component';
 
 
 @NgModule({
@@ -27,8 +26,7 @@ import { PerfilProfComponent } from './Components/perfil-prof/perfil-prof.compon
     RankingSoloComponent,
     ModificarRankingComponent,
     HeaderComponent,
-    PerfilComponent,
-    PerfilProfComponent
+    PerfilComponent
   ],
   imports: [
     BrowserModule,

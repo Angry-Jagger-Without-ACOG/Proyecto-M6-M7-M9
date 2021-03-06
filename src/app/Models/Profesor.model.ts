@@ -1,13 +1,13 @@
 export class Profesor {
 
-  constructor(
-      public Nick: string,
-      public Contraseña: string,
-      public Correo? : string,
-      public Nombre?: string,
-      public Apellido?: string,
-      public Centro?: string,
-      public Img?: string
-  ){}
+
+       nick: string;
+       password: string;
+       correo: string;
+       nombre: string;
+       apellido: string;
+       centro: string;
+       img?: string;
+
 
 }

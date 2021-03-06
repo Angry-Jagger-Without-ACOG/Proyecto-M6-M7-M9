@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ProfeToolsService } from '../../Service/profe-tools.service';
+import { ProfeToolsService } from '../../servicios/profe-tools.service';
 import Swal from 'sweetalert2';
 import { Profesor } from 'src/app/Models/Profesor.model';
 
@@ -17,6 +17,8 @@ export class RegistroComponent implements OnInit {
   submitted1 = false;
   submitted2 = false;
   switch1 = false;
+
+  user = new Profesor();
 
   ngOnInit(): void {
 
@@ -98,16 +100,20 @@ export class RegistroComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
 
-        var profesor: Profesor = new Profesor(this.Profesor.value.nick_p,
-          this.Profesor.value.cont_p, this.Profesor.value.correo_p,
-          this.Profesor.value.nombre_p, this.Profesor.value.apell_p,
-          this.Profesor.value.centro);
+        // var profesor: Profesor = new Profesor(this.Profesor.value.nick_p,
+        //   this.Profesor.value.cont_p, this.Profesor.value.correo_p,
+        //   this.Profesor.value.nombre_p, this.Profesor.value.apell_p,
+        //   this.Profesor.value.centro);
 
-        this.BD.RegistrarProfesor(profesor).subscribe(
+        this.BD.RegistrarProfesor(this.user).subscribe(
 
           (respuesta: any) => {
-            console.log(respuesta);
+
             Swal.fire('¡Creado!', '', 'success')
+
+
+
+
           },
           (error: any) => {
             console.log(error);
@@ -118,7 +124,22 @@ export class RegistroComponent implements OnInit {
 
 
       }
+
     })
+
   }
 
+  RegistroProfesor() {
+    this.BD.RegistroProfesor(this.user).subscribe (
+      datos => {
+        if(datos['response'] == 'OK') {
+          console.log(datos['response'])
+          alert(datos['mensaje']);
+         } else {
+          alert(datos['mensaje']);
+
+        }
+      }
+    );
+    }
 }

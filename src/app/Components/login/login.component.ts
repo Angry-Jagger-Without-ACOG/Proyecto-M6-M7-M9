@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, RouterOutlet } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
 import { User } from 'src/app/Models/user';
-import { ProfeToolsService } from '../../Service/profe-tools.service';
+import { ProfeToolsService } from '../../servicios/profe-tools.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
 
   user = new User();
 
-  constructor(private BD: ProfeToolsService, private router:Router) { }
+  constructor(private BD: ProfeToolsService) { }
 
   ngOnInit(): void { }
 
@@ -29,8 +29,6 @@ export class LoginComponent implements OnInit {
       datos => {
         if(datos['response'] == 'OK') {
           alert(datos['mensaje']);
-         // this.BD.setToken(datos.token);
-          this.router.navigate(['Perfil']);
          } else {
           alert(datos['mensaje']);
 
@@ -38,7 +36,6 @@ export class LoginComponent implements OnInit {
       }
     );
     }
-
 
 
 

@@ -98,7 +98,6 @@
               "src/styles.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "./node_modules/ngx-ui-swtich/ui-swtich.component.css",
-              "./node_modules/js-cookie/src/js.cookie.js",
               "./node_modules/js-cookie/src/js.cookie.js"
             ],
             "scripts": [
