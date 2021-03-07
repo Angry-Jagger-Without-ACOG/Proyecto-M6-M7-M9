@@ -1,0 +1,24 @@
+.form {
+  float: center;
+  background: rgba(0, 0, 0, 0.693);
+  padding: 40px;
+  max-width: 1000px;
+  margin: 40px;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px 4px rgba(0, 0, 0, 0.3);
+  margin-right: 20px;
+}
+
+label{
+color: white;
+}
+
+button{
+margin-left: 15px;
+}
+
+.button4 {
+  background-color: white;
+  color: black;
+  border: 2px solid #e7e7e7;
+}

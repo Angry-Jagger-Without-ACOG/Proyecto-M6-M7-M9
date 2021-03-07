@@ -22,6 +22,10 @@ export class ProfeToolsService {
       return this.http.post(`${this.URL}LoginUsuario.php`, JSON.stringify(login));
     }
 
+    loginProfe(login) {
+      return this.http.post(`${this.URL}LoginProfe.php`, JSON.stringify(login));
+    }
+
     //token prueba
     setToken(token: String) {
       this.cookies.set("token", "token");

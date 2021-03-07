@@ -1,6 +1,6 @@
 <div class="container-fluid">
 
-  <form class="form mt-5" method="POST" (ngSubmit)="onFormSubmit()" >
+  <form class="form mt-5" method="POST" >
 
     <div class="form-group col-md-10">
       <label for="exampleInputEmail1">Nick</label>
@@ -13,10 +13,11 @@
         placeholder="Contraseña">
     </div>
 
-    <button type="submit" (click)="loginUsuario()"  class="btn btn-primary mt-3">Enviar!</button>
+    <button type="submit" (click)="loginProfesor()"  class="btn btn-primary mt-3">Enviar!</button>
 
   </form>
 
-  <button class="button button4" routerLink="/LogProf" routerLinkActive>Log in Profe</button>
+  <button class="button button4" routerLink="/LOG" routerLinkActive>Log in Alumno</button>
 
 </div>
+
