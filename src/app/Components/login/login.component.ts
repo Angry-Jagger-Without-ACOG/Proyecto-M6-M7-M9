@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< Updated upstream
+=======
+import { Router, RouterOutlet } from '@angular/router';
+import { User } from 'src/app/Models/user';
+import { environment } from 'src/environments/environment';
+>>>>>>> Stashed changes
 import { ProfeToolsService } from '../../servicios/profe-tools.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
@@ -25,8 +31,13 @@ export class LoginComponent implements OnInit {
 
   }
 
+<<<<<<< Updated upstream
   get U() {
     return this.Usuario.controls;
+=======
+  ngOnInit(): void {
+    sessionStorage.clear();
+>>>>>>> Stashed changes
   }
 
   login() {
@@ -37,14 +48,37 @@ export class LoginComponent implements OnInit {
     }
 
 
+<<<<<<< Updated upstream
     this.BD.listarusuarios().subscribe(
       (respuesta: any) => {
         console.log(respuesta);
+=======
+  loginUsuario() {
+
+
+    this.BD.loginUsuario(this.user).subscribe (
+      datos => {
+        if(datos['response'] == 'OK') {
+          environment.vsession  = this.user.nick;
+          sessionStorage.setItem("Nombre:",environment.vsession);
+
+          console.log(environment.vsession);
+          alert(datos['mensaje']);
+          this.router.navigate(['Perfil']);
+         } else {
+          alert(datos['mensaje']);
+>>>>>>> Stashed changes
 
       },
       (error: any) => {
         console.log(error);
       }
+<<<<<<< Updated upstream
+=======
+    );
+  }
+
+>>>>>>> Stashed changes
 
     );
   }
