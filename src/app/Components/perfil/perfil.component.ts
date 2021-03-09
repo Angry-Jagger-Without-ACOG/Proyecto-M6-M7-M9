@@ -67,7 +67,7 @@ export class PerfilComponent implements OnInit {
         },
         {
           title: 'Correo',
-          text: 'Estar seguro de que quieres estos correo?'
+          text: 'Estar seguro de que quieres este correo?'
         }
       ]).then((result) => {
         if (result) {
