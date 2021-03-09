@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Alumno } from 'src/app/Models/Alumno.model';
 import { Profesor } from 'src/app/Models/Profesor.model';
-
+import { ProfeToolsService } from '../../servicios/profe-tools.service';
 @Component({
   selector: 'app-perfil',
   templateUrl: './perfil.component.html',
@@ -11,9 +11,11 @@ export class PerfilComponent implements OnInit {
 
   // Componenetes de prueba
   Alumnos: Alumno[] = [];
+
+  //Variable para indicar el tipo de usuario
   Tipo: boolean = false;
 
-  constructor() { }
+  constructor(private BD: ProfeToolsService) { }
 
   ngOnInit(): void {
     // Componenete de prueba
