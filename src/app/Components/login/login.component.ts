@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, RouterOutlet } from '@angular/router';
-import { User } from 'src/app/Models/user';
 import { ProfeToolsService } from '../../servicios/profe-tools.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -11,39 +11,56 @@ import { ProfeToolsService } from '../../servicios/profe-tools.service';
 
 export class LoginComponent implements OnInit {
 
-  service: ProfeToolsService;
-
-  user = new User();
-
-
-  constructor(private BD: ProfeToolsService, public router: Router) { }
-
-  ngOnInit(): void { }
-
-
-  onFormSubmit(){
+  constructor(private formBuilder: FormBuilder,private BD: ProfeToolsService) { }
+  Usuario: FormGroup;
+  mote: string;
+  contrasena: string;
+  Alumnos:any;
+  submitted = false;
+  ngOnInit(): void {
+    this.Usuario = this.formBuilder.group({
+      nick: ['', Validators.required] ,
+      cont: ['', Validators.required]
+    });
 
   }
 
-  loginUsuario() {
-    this.BD.loginUsuario(this.user).subscribe (
-      datos => {
-        if(datos['response'] == 'OK') {
-          alert(datos['mensaje']);
-          this.router.navigate(['Perfil']);
-         } else {
-          alert(datos['mensaje']);
+  get U() {
+    return this.Usuario.controls;
+  }
 
-        }
-      }
-    );
+  login() {
+    this.submitted = true;
+
+    if(this.Usuario.invalid){
+      return;
     }
 
 
+    this.BD.listarusuarios().subscribe(
+      (respuesta: any) => {
+        console.log(respuesta);
+
+      },
+      (error: any) => {
+        console.log(error);
+      }
+
+    );
+  }
 
 
+  // Data_Bsse(){
 
+  //  this.BD.Insertar_Login(this.mote,this.contrasena).subscribe(
+  //       datos => {
+  //         if (datos['resultado'] == 'OK') {
+  //           //this.Insertar_Login();
+  //         }
+  //       }
+  //     );
 
+  // }
 
 
 }

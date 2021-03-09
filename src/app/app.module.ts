@@ -17,6 +17,7 @@ import { UiSwitchModule } from 'ngx-ui-switch';
 import { LoginProfComponent } from './Components/login-prof/login-prof.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

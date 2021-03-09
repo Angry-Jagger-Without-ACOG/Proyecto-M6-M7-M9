@@ -1,22 +1,29 @@
 <div class="container-fluid">
 
-  <form class="form mt-5" method="POST" (ngSubmit)="onFormSubmit()" >
+  <form class="form mt-5" [formGroup]="Usuario" method="POST">
 
     <div class="form-group col-md-10">
-      <label for="exampleInputEmail1">Nick</label>
-      <input type="text" class="form-control" id="name" [(ngModel)]="user.nick" name="name" #name="ngModel"
-        placeholder="Nick"> </div>
+      <label class="text-light">Nick</label>
+      <input type="text" placeholder="Entra tu Nick" formControlName="nick" class="form-control"
+      [ngClass]="{'is-invalid': submitted && U.nick.errors}">
+
+      <div *ngIf="submitted && U.nick.errors" class="invalid-feedback">
+        <div *ngIf="U.nick.errors.required">El campo Nick esta vacio!!</div>
+      </div>
+    </div>
 
     <div class="form-group col-md-10">
       <label for="exampleInputPassword1">Contraseña</label>
-      <input type="password" class="form-control" id="contrasena" [(ngModel)]="user.password" name="name" #name="ngModel"
-        placeholder="Contraseña">
+      <input type="password" placeholder="Entra tu Contraseña" formControlName="cont" class="form-control"
+      [ngClass]="{'is-invalid': submitted && U.cont.errors}">
+
+      <div *ngIf="submitted && U.cont.errors" class="invalid-feedback">
+        <div *ngIf="U.cont.errors.required">El campo Contraseña esta vacio!!</div>
+      </div>
     </div>
 
-    <button type="submit" (click)="loginUsuario()"  class="btn btn-primary mt-3">Enviar!</button>
+    <button type="button" (click)="login()" class="btn btn-light text-dark mt-3">Enviar!</button>
 
   </form>
-
-  <button class="button button4" routerLink="/LogProf" routerLinkActive>Log in Profe</button>
 
 </div>
