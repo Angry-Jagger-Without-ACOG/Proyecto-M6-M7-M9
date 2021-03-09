@@ -16,6 +16,7 @@ import { PerfilComponent } from './Components/perfil/perfil.component';
 import { UiSwitchModule } from 'ngx-ui-switch';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
