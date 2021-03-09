@@ -1,13 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Alumno } from 'src/app/Models/Alumno.model';
-<<<<<<< Updated upstream
 import { Profesor } from 'src/app/Models/Profesor.model';
 import { ProfeToolsService } from '../../servicios/profe-tools.service';
 import Swal from 'sweetalert2';
-
-=======
 import { environment } from 'src/environments/environment';
->>>>>>> Stashed changes
 @Component({
   selector: 'app-perfil',
   templateUrl: './perfil.component.html',
@@ -37,7 +33,6 @@ export class PerfilComponent implements OnInit {
   constructor(private BD: ProfeToolsService) { }
 
   ngOnInit(): void {
-<<<<<<< Updated upstream
     this.GetProfesor(this.usuario);
   }
 
@@ -149,22 +144,6 @@ export class PerfilComponent implements OnInit {
       })
 
     }
-
-=======
-    // Componenete de prueba
-    this.Alumnos.push(new Alumno('Marc','','','','','',''));
-    this.Alumnos.push(new Alumno('Fonsi','','','','','',''));
-    this.Alumnos.push(new Alumno('Rosa','','','','','',''));
-    this.Alumnos.push(new Alumno('David','','','','','',''));
-    this.Alumnos.push(new Alumno('Joel','','','','','',''));
-    this.Alumnos.push(new Alumno('Susana','','','','','',''));
-    this.Alumnos.push(new Alumno('Susana','','','','','',''));
-    this.Alumnos.push(new Alumno('Susana','','','','','',''));
-    this.Alumnos.push(new Alumno('Susana','','','','','',''));
-    this.Alumnos.push(new Alumno('Susana','','','','','',''));
-    this.Alumnos.push(new Alumno('Susana','','','','','',''));
-    console.log(environment.vsession);
->>>>>>> Stashed changes
   }
 
 }

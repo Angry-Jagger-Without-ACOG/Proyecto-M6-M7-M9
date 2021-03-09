@@ -1,15 +1,11 @@
 
 <div class="container-fluid">
 
-<<<<<<< Updated upstream
-  <form class="form mt-5" [formGroup]="Usuario" method="POST">
-=======
   <form class="form mt-5" method="POST" >
->>>>>>> Stashed changes
 
     <div class="form-group col-md-10">
       <label class="text-light">Nick</label>
-      <input type="text" placeholder="Entra tu Nick" formControlName="nick" class="form-control"
+      <input type="text" placeholder="Entra tu Nick" [(ngModel)]="user.nick" name="nick" class="form-control"
       [ngClass]="{'is-invalid': submitted && U.nick.errors}">
 
       <div *ngIf="submitted && U.nick.errors" class="invalid-feedback">
@@ -19,7 +15,7 @@
 
     <div class="form-group col-md-10">
       <label for="exampleInputPassword1">Contraseña</label>
-      <input type="password" placeholder="Entra tu Contraseña" formControlName="cont" class="form-control"
+      <input type="password" placeholder="Entra tu Contraseña" [(ngModel)]="user.password" name="password" class="form-control"
       [ngClass]="{'is-invalid': submitted && U.cont.errors}">
 
       <div *ngIf="submitted && U.cont.errors" class="invalid-feedback">
@@ -27,7 +23,7 @@
       </div>
     </div>
 
-    <button type="button" (click)="login()" class="btn btn-light text-dark mt-3">Enviar!</button>
+    <button type="button" (click)="loginUsuario()" class="btn btn-light text-dark mt-3">Enviar!</button>
 
   </form>
 
