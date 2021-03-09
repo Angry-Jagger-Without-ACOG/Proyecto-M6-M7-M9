@@ -16,8 +16,6 @@ export class PerfilComponent implements OnInit {
 
   //Variable para indicar el tipo de usuario
   Tipo: boolean = true;
-
-  perfil = new Profesor();
   usuarios = null;
 
   usuario = {
@@ -35,16 +33,15 @@ export class PerfilComponent implements OnInit {
   constructor(private BD: ProfeToolsService) { }
 
   ngOnInit(): void {
-    // this.GetProfesor(this.usuario);
+    this.GetProfesor(this.usuario);
   }
 
+  GetProfesor(nick) {
+    this.BD.GetProfesor(nick).subscribe(
+      result => this.usuario = result[0]
+    );
 
-  // GetProfesor(nick) {
-  //   this.BD.GetProfesor(nick).subscribe(
-  //     result => this.usuario = result[0]
-  //   );
-
-  // }
+  }
 
   Cambiar_Contra() {
 

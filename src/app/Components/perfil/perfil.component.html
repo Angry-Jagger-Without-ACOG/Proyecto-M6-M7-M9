@@ -40,22 +40,23 @@
         <table class="table table-borderless text-light">
           <tr>
             <th>Nombre:</th>
-            <td>Valenti</td>
+            <td>{{usuario.nick}}</td>
           </tr>
           <tr>
             <th>Apellidos:</th>
-            <td>Casas</td>
+            <td>{{usuario.apellido}}</td>
           </tr>
           <tr>
             <th>Email:</th>
-            <td>vcasas@ilerna.com</td>
+            <td>{{usuario.email}}</td>
           </tr>
           <tr>
             <th>Centro:</th>
-            <td>Ilerna</td>
+            <td>{{usuario.centro}}</td>
           </tr>
           <tr>
-            <td><button class="btn btn-light mt-n2 mb-n2" (click)="Cambiar_Contra()" type="button">Cambiar datos</button></td>
+            <td><button class="btn btn-light mt-n2 mb-n2" (click)="Cambiar_Contra()" type="button">Cambiar
+                datos</button></td>
           </tr>
         </table>
 
@@ -66,22 +67,23 @@
         <table class="table table-borderless text-light">
           <tr>
             <th>Nombre:</th>
-            <td>Marco</td>
+            <td>{{usuario.nick}}</td>
           </tr>
           <tr>
             <th>Apellidos:</th>
-            <td>Fumsinf</td>
+            <td>{{usuario.apellido}}</td>
           </tr>
           <tr>
             <th>Email:</th>
-            <td>marcosnifp@ilerna.com</td>
+            <td>{{usuario.email}}</td>
           </tr>
           <tr>
             <th>Curso:</th>
-            <td>DAM 2</td>
+            <td>{{usuario.centro}}</td>
           </tr>
           <tr>
-            <td><button class="btn btn-light mt-n2 mb-n2" (click)="Cambiar_Contra()" type="button">Cambiar datos</button></td>
+            <td><button class="btn btn-light mt-n2 mb-n2" (click)="Cambiar_Contra()" type="button">Cambiar
+                datos</button></td>
           </tr>
         </table>
 
@@ -98,7 +100,7 @@
         <!-- Lista de ranking creados -->
         <div class="list-group rounded mr-3 ml-3">
           <a *ngFor="let Alumno of Alumnos" class="list-group-item list-group-item-action text-center p-4 bg-light">
-            <strong>{{Alumno.Nick}}</strong></a>
+            <strong>{{perfil.nick}}</strong></a>
         </div>
 
       </div>
@@ -109,7 +111,7 @@
         <!-- Lista de ranking creados -->
         <div class="list-group rounded mr-3 ml-3">
           <a *ngFor="let Alumno of Alumnos" class="list-group-item list-group-item-action text-center p-4 bg-light">
-            <strong>{{Alumno.Nick}}</strong></a>
+            <strong>{{perfil.nick}}</strong></a>
         </div>
 
       </div>

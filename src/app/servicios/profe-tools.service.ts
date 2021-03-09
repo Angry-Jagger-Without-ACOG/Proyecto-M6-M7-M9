@@ -57,6 +57,8 @@ export class ProfeToolsService {
     return this.http.post(`${this.URL}RegistroProfesor.php`, JSON.stringify(user));
   }
 
-
+  GetProfesor(nick){
+    return this.http.get(`${this.URL}SelectProfesor.php?idUsuario=${nick}`)
+  }
 
 }
