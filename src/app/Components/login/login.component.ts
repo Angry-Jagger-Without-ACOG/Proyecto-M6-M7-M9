@@ -50,6 +50,7 @@ export class LoginComponent implements OnInit {
   ///////////////////////////////////////////////////////////////////////////////////
   loginUsuario() {
 
+    //Alumno
     if (this.switch_user == true) {
     this.BD.loginUsuario(this.user).subscribe(
       datos => {
@@ -63,7 +64,7 @@ export class LoginComponent implements OnInit {
         }
       }
     );
-
+    //Professor
     }else if(this.switch_user == false){
 
     }
