@@ -3,34 +3,71 @@
   <ui-switch class="float-right mt-3 alineado" [ngModel]="switch_user" (ngModelChange)="manualUpdateEvent($event)"
     checkedLabel="Alumno" uncheckedLabel="Profesor" size="large" checkedTextColor="white"></ui-switch>
 
-  <form class="form altura" [formGroup]="Usuario" (ngSubmit)="loginUsuario()" method="POST">
+  <div *ngIf="switch_user == false">
+    <form class="form altura" [formGroup]="Usuario" (ngSubmit)="loginUsuario()" method="POST">
 
-    <div class="form-group mt-2">
+      <h2 class="text-light pb-3">Profesor</h2>
 
-      <p class="text-light">Nick</p>
-      <input type="text" placeholder="Entra tu Nick" formControlName="nick" [(ngModel)]="user.nick" class="form-control"
-        [ngClass]="{'is-invalid': U.nick.touched && U.nick.errors}">
+      <div class="form-group mt-2">
 
-      <div *ngIf="U.nick.touched && U.nick.errors" class="invalid-feedback">
-        <div *ngIf="U.nick.errors.required">El campo Nick esta vacio!!</div>
+        <p class="text-light">Nick</p>
+        <input type="text" placeholder="Entra tu Nick de profesor" formControlName="nick" [(ngModel)]="user.nick"
+          class="form-control" [ngClass]="{'is-invalid': U.nick.touched && U.nick.errors}">
+
+        <div *ngIf="U.nick.touched && U.nick.errors" class="invalid-feedback">
+          <div *ngIf="U.nick.errors.required">El campo Nick esta vacio!!</div>
+        </div>
+
       </div>
 
-    </div>
+      <div class="form-group mt-5">
+        <p class="text-light">Contraseña</p>
+        <input type="password" placeholder="Entra tu Contraseña de profesor" formControlName="cont" [(ngModel)]="user.password"
+          class="form-control" [ngClass]="{'is-invalid':U.cont.touched && U.cont.errors}">
 
-    <div class="form-group mt-5">
+        <div *ngIf="U.cont.touched && U.cont.errors" class="invalid-feedback">
+          <div *ngIf="U.cont.errors.required">El campo Contraseña esta vacio!!</div>
+        </div>
 
-      <p class="text-light">Contraseña</p>
-      <input type="password" placeholder="Entra tu Contraseña" formControlName="cont" [(ngModel)]="user.password"
-        class="form-control" [ngClass]="{'is-invalid':U.cont.touched && U.cont.errors}">
-
-      <div *ngIf="U.cont.touched && U.cont.errors" class="invalid-feedback">
-        <div *ngIf="U.cont.errors.required">El campo Contraseña esta vacio!!</div>
       </div>
 
-    </div>
+      <button type="submit" [disabled]="Usuario.invalid" class="btn btn-light text-dark mt-5 mr-4">Enviar!</button>
+      <button type="button" (click)="gotoRegistro()" class="btn btn-light text-dark mt-5">Registrar-se</button>
+    </form>
+  </div>
 
-    <button type="submit" [disabled]="Usuario.invalid" class="btn btn-light text-dark mt-5 mr-4">Enviar!</button>
-    <button type="button" (click)="gotoRegistro()" class="btn btn-light text-dark mt-5">Registrar-se</button>
-  </form>
+  <div *ngIf="switch_user == true">
+    <form class="form altura" [formGroup]="Usuario" (ngSubmit)="loginUsuario()" method="POST">
+
+      <h2 class="text-light pb-3">Alumno</h2>
+
+      <div class="form-group mt-2">
+
+        <p class="text-light">Nick</p>
+        <input type="text" placeholder="Entra tu Nick de alumno" formControlName="nick" [(ngModel)]="user.nick"
+          class="form-control" [ngClass]="{'is-invalid': U.nick.touched && U.nick.errors}">
+
+        <div *ngIf="U.nick.touched && U.nick.errors" class="invalid-feedback">
+          <div *ngIf="U.nick.errors.required">El campo Nick esta vacio!!</div>
+        </div>
+
+      </div>
+
+      <div class="form-group mt-5">
+
+        <p class="text-light">Contraseña</p>
+        <input type="password" placeholder="Entra tu Contraseña de alumno" formControlName="cont" [(ngModel)]="user.password"
+          class="form-control" [ngClass]="{'is-invalid':U.cont.touched && U.cont.errors}">
+
+        <div *ngIf="U.cont.touched && U.cont.errors" class="invalid-feedback">
+          <div *ngIf="U.cont.errors.required">El campo Contraseña esta vacio!!</div>
+        </div>
+
+      </div>
+
+      <button type="submit" [disabled]="Usuario.invalid" class="btn btn-light text-dark mt-5 mr-4">Enviar!</button>
+      <button type="button" (click)="gotoRegistro()" class="btn btn-light text-dark mt-5">Registrar-se</button>
+    </form>
+  </div>
 
 </div>

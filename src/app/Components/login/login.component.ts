@@ -45,6 +45,9 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['REG']);
   }
 
+  ///////////////////////////////////////////////////////////////////////////////////
+  // Hace falta montar las funciones para el login de profe y alumno correctamente //
+  ///////////////////////////////////////////////////////////////////////////////////
   loginUsuario() {
 
     this.BD.loginUsuario(this.user).subscribe(
