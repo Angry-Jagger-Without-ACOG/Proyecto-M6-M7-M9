@@ -9,16 +9,10 @@
     margin-right: 20px;
 }
 
-label{
-  color: white;
+.alineado{
+  margin-right:15%;
 }
 
-button{
-  margin-left: 15px;
-}
-
-.button4 {
-  background-color: white;
-  color: black;
-  border: 2px solid #e7e7e7;
+.altura{
+  margin-top: 10%;
 }

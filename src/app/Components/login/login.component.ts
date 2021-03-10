@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfeToolsService } from '../../servicios/profe-tools.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import Swal from 'sweetalert2';
 import { environment } from 'src/environments/environment';
 import { User } from 'src/app/Models/user';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -14,42 +14,55 @@ import { Router } from '@angular/router';
 
 export class LoginComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder,private BD: ProfeToolsService,public router: Router) { }
   Usuario: FormGroup;
-
   user = new User();
+  //Variable que indica que registro se va a utilizar: Alumno(true) o Profesor(false)
+  switch_user = false;
 
-  submitted = false;
+  constructor(private formBuilder: FormBuilder, private BD: ProfeToolsService, public router: Router) { }
 
   ngOnInit(): void {
+
     sessionStorage.clear();
+
     this.Usuario = this.formBuilder.group({
-      nick: ['', Validators.required] ,
+      nick: ['', Validators.required],
       cont: ['', Validators.required]
     });
 
   }
 
-get U() {
+  get U() {
     return this.Usuario.controls;
-}
-
-loginUsuario() {
-  this.BD.loginUsuario(this.user).subscribe (
-    datos => {
-      if(datos['response'] == 'OK') {
-        environment.vsession = this.user.nick;
-        alert(datos['mensaje']);
-        sessionStorage.setItem("Name", environment.vsession)
-        this.router.navigate(['Perfil']);
-       } else {
-        alert(datos['mensaje']);
-
-      }
-    }
-  );
   }
+
+  //Funcion del modulo ngx-ui-switch que utilizamos para elegir el tipo de login
+  manualUpdateEvent(value: boolean) {
+    this.switch_user = value;
+  }
+
+  gotoRegistro() {
+    this.router.navigate(['REG']);
+  }
+
+  loginUsuario() {
+
+    this.BD.loginUsuario(this.user).subscribe(
+      datos => {
+        if (datos['response'] == 'OK') {
+          environment.vsession = this.user.nick;
+          Swal.fire('Logeado', '', datos['mensaje']);
+          sessionStorage.setItem("Name", environment.vsession)
+          this.router.navigate(['Perfil']);
+        } else {
+          Swal.fire('Error', '', datos['mensaje']);
+        }
+      }
+    );
+  }
+
 }
+
   // Data_Bsse(){
 
   //  this.BD.Insertar_Login(this.mote,this.contrasena).subscribe(
@@ -61,4 +74,3 @@ loginUsuario() {
   //     );
 
   // }
-
