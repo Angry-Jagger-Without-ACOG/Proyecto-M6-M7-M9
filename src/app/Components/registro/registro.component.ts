@@ -14,9 +14,7 @@ export class RegistroComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,private BD: ProfeToolsService) { }
   Alumno: FormGroup;
   Profesor: FormGroup;
-  submitted1 = false;
-  submitted2 = false;
-  switch1 = false;
+  switch_user = false;
 
   user = new Profesor();
 
@@ -38,16 +36,16 @@ export class RegistroComponent implements OnInit {
       cont_p: ['', Validators.required],
       nombre_p: ['', Validators.required],
       apell_p: ['', Validators.required],
-      centro: ['', Validators.required]
+      centro: ['', Validators.required],
+      img: ['', Validators.required]
     });
-    // ,
-    // img: ['', Validators.required]
+
 
   }
 
   //Funcion del modulo ngx-ui-switch que utilizamos para elegir el tipo de usuario a elegir
   manualUpdateEvent(value: boolean) {
-    this.switch1 = value;
+    this.switch_user = value;
   }
 
   get A() {
@@ -58,35 +56,7 @@ export class RegistroComponent implements OnInit {
     return this.Profesor.controls;
   }
 
-  comp_Alum() {
-    this.submitted1 = true;
-
-    if (this.Alumno.invalid) {
-      return;
-    }
-
-    Swal.fire({
-      title: 'Estas seguro?',
-      text: "¡ Estos son los datos con los que crearas el perfil !",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#4a4a50',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Si, crear!'
-    }).then((result) => {
-      if (result.isConfirmed) {
-
-        Swal.fire('¡Creado!', '', 'success')
-      }
-    })
-  }
-
-  comp_Prof() {
-    this.submitted2 = true;
-
-    if (this.Profesor.invalid) {
-      return;
-    }
+  Comprobador() {
 
     Swal.fire({
       title: 'Estas seguro?',
@@ -98,7 +68,7 @@ export class RegistroComponent implements OnInit {
       confirmButtonText: 'Si, crear!'
 
     }).then((result) => {
-      if (result.isConfirmed) {
+      if (result.isConfirmed && this.switch_user == true) {
 
         // var profesor: Profesor = new Profesor(this.Profesor.value.nick_p,
         //   this.Profesor.value.cont_p, this.Profesor.value.correo_p,
@@ -108,12 +78,8 @@ export class RegistroComponent implements OnInit {
         this.BD.RegistrarProfesor(this.user).subscribe(
 
           (respuesta: any) => {
-
+            console.log(respuesta);
             Swal.fire('¡Creado!', '', 'success')
-
-
-
-
           },
           (error: any) => {
             console.log(error);
@@ -121,6 +87,9 @@ export class RegistroComponent implements OnInit {
           }
 
         );
+
+
+      }else if(result.isConfirmed && this.switch_user == false){
 
 
       }
@@ -142,4 +111,5 @@ export class RegistroComponent implements OnInit {
       }
     );
     }
+
 }
