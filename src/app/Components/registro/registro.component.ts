@@ -11,12 +11,18 @@ import { Profesor } from 'src/app/Models/Profesor.model';
 })
 export class RegistroComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder,private BD: ProfeToolsService) { }
   Alumno: FormGroup;
   Profesor: FormGroup;
+  user = new Profesor();
+
+  //Variable que indica que registro se va a utilizar: Alumno(true) o Profesor(false)
   switch_user = false;
 
-  user = new Profesor();
+  /////////////////////////////////////////////////////////////////////////////////////
+  // Hace falta que al cambiar de tipo de registro se limpien los campos y los fallos//
+  /////////////////////////////////////////////////////////////////////////////////////
+
+  constructor(private formBuilder: FormBuilder,private BD: ProfeToolsService) { }
 
   ngOnInit(): void {
 
@@ -39,7 +45,6 @@ export class RegistroComponent implements OnInit {
       centro: ['', Validators.required],
       img: ['', Validators.required]
     });
-
 
   }
 
@@ -68,6 +73,7 @@ export class RegistroComponent implements OnInit {
       confirmButtonText: 'Si, crear!'
 
     }).then((result) => {
+
       if (result.isConfirmed && this.switch_user == true) {
 
         // var profesor: Profesor = new Profesor(this.Profesor.value.nick_p,
