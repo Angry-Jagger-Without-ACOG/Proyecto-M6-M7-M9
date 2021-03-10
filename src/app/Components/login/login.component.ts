@@ -50,6 +50,7 @@ export class LoginComponent implements OnInit {
   ///////////////////////////////////////////////////////////////////////////////////
   loginUsuario() {
 
+    if (this.switch_user == true) {
     this.BD.loginUsuario(this.user).subscribe(
       datos => {
         if (datos['response'] == 'OK') {
@@ -62,6 +63,10 @@ export class LoginComponent implements OnInit {
         }
       }
     );
+
+    }else if(this.switch_user == false){
+
+    }
   }
 
 }
