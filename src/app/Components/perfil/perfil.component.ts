@@ -17,31 +17,60 @@ export class PerfilComponent implements OnInit {
   //Variable para indicar el tipo de usuario
   Tipo: boolean = true;
   usuarios = null;
+  tipo_Usuario: String;
+  nombre_Usuario: String;
 
-  usuario = {
+  nombre: string;
+  apellido: string;
+  password: string;
+  email: string;
+
+   usuario: Object = {
 
     nick: null,
     password: null,
     correo: null,
     nombre: null,
     apellido: null,
-    centro: null,
-    img: null
+    curso: null,
+    centro: null
 
   }
+
 
   constructor(private BD: ProfeToolsService) { }
 
   ngOnInit(): void {
-    this.GetProfesor(this.usuario);
+    this.tipo_Usuario = localStorage.getItem('Tipo');
+    this.nombre_Usuario = localStorage.getItem('Name');
+
+    if(this.tipo_Usuario == "Profesor"){
+      this.Tipo = true;
+      this.GetProfesor(this.nombre_Usuario);
+    }else if (this.tipo_Usuario == "Alumno") {
+      this.Tipo = false;
+      this.GetAlumno(this.nombre_Usuario);
+
+    }
+
+
+
+
   }
 
-  GetProfesor(nick) {
-    this.BD.GetProfesor(nick).subscribe(
+  GetProfesor(nombre_Usuario) {
+      this.BD.GetProfesor(nombre_Usuario).subscribe(
       result => this.usuario = result[0]
-    );
 
+    );
   }
+
+  GetAlumno(nombre_Usuario) {
+    this.BD.GetAlumno(nombre_Usuario).subscribe(
+    result => this.usuario = result[0]
+
+  );
+}
 
   Cambiar_Contra() {
 
@@ -100,7 +129,7 @@ export class PerfilComponent implements OnInit {
         input: 'text',
         confirmButtonText: 'Next &rarr;',
         showCancelButton: true,
-        progressSteps: ['1', '2', '3', '4']
+        progressSteps: [this.nombre,this.apellido,this.password,this.email]
       }).queue([
         {
           title: 'Nombre',
@@ -120,11 +149,11 @@ export class PerfilComponent implements OnInit {
         }
       ]).then((result) => {
         if (result) {
-          var answers = JSON.stringify(result)
+          var update = JSON.stringify(result)
 
           Swal.fire({
             title: 'Estas seguro de tu cambios?',
-            html: `Your answers: <pre><code>${answers}</code></pre>`,
+            html: `Your answers: <pre><code>${update}</code></pre>`,
             showDenyButton: true,
             showCancelButton: true,
             confirmButtonText: `Save`,
@@ -133,6 +162,8 @@ export class PerfilComponent implements OnInit {
             if (result.isConfirmed) {
 
               Swal.fire('Saved!', '', 'success')
+              this.UpdateAlumno(update);
+              console.log();
 
             } else if (result.isDenied) {
 
@@ -144,6 +175,12 @@ export class PerfilComponent implements OnInit {
       })
 
     }
+  }
+
+  UpdateAlumno(update){
+    this.BD.CambiosPerfil(update).subscribe(
+
+    )
   }
 
 }

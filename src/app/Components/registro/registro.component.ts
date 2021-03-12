@@ -84,10 +84,6 @@ export class RegistroComponent implements OnInit {
 
       if (result.isConfirmed && this.switch_user == true) {
 
-        // var profesor: Profesor = new Profesor(this.Profesor.value.nick_p,
-        //   this.Profesor.value.cont_p, this.Profesor.value.correo_p,
-        //   this.Profesor.value.nombre_p, this.Profesor.value.apell_p,
-        //   this.Profesor.value.centro);
 
         this.BD.RegistroAlumno(this.alumno).subscribe(
 
@@ -114,17 +110,7 @@ export class RegistroComponent implements OnInit {
   }
 
   RegistroProfesor() {
-    this.BD.RegistrarProfesor(this.user).subscribe (
-      datos => {
-        if(datos['response'] == 'OK') {
-          console.log(datos['response'])
-          alert(datos['mensaje']);
-         } else {
-          alert(datos['mensaje']);
 
-        }
-      }
-    );
     }
 
 }

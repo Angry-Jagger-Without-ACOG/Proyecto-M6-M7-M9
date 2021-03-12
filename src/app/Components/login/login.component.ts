@@ -49,32 +49,12 @@ export class LoginComponent implements OnInit {
   ///////////////////////////////////////////////////////////////////////////////////
   // Hace falta montar las funciones para el login de profe y alumno correctamente //
   ///////////////////////////////////////////////////////////////////////////////////
-  loginPRofe() {
+  Comporbar() {
 
     //Alumno
     if (this.switch_user == true) {
     this.BD.loginUsuario(this.user).subscribe(
       datos => {
-        if (datos['response'] == 'OK') {
-          environment.vsession = this.user.nick;
-          Swal.fire('Logeado', '', datos['mensaje']);
-          sessionStorage.setItem("Name", environment.vsession)
-          this.router.navigate(['Perfil']);
-        } else {
-          Swal.fire('Error', '', datos['mensaje']);
-        }
-      }
-    );
-    //Professor
-    }else if(this.switch_user == false){
-
-    }
-  }
-
-  loginUsuario() {
-    this.BD.loginUsuario(this.user).subscribe(
-      datos => {
-        console.log(datos);
         if (datos['response'] == 'OK') {
           environment.vsession = this.user.nick;
           localStorage.setItem("Name", environment.vsession);
@@ -83,12 +63,36 @@ export class LoginComponent implements OnInit {
           this.BD.setDatos(datos);
           this.BD.setSession(this.session);
           this.router.navigate(['Perfil']);
+          console.log(datos);
         } else {
-          alert(datos['mensaje']);
-
+          Swal.fire('Error', '', datos['mensaje']);
         }
       }
     );
+
+    //Professor
+    }else if(this.switch_user == false){
+
+      this.BD.loginProfe(this.user).subscribe(
+        datos => {
+          console.log(datos);
+          if (datos['response'] == 'OK') {
+            environment.vsession = this.user.nick;
+            localStorage.setItem("Name", environment.vsession);
+            localStorage.setItem("Tipo", "Profesor");
+            this.session = environment.vsession;
+            this.BD.setDatos(datos);
+            console.log(datos['alumno']);
+            this.BD.setSession(this.session);
+            this.router.navigate(['Perfil']);
+          } else {
+            alert(datos['mensaje']);
+
+          }
+        }
+      );
+
+    }
   }
 
   }

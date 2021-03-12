@@ -27,16 +27,6 @@ export class ProfeToolsService {
     return this.http.post(`${environment.serverUrl}LoginProfe.php`, JSON.stringify(login));
   }
 
-  //token prueba
-  setToken(token: String) {
-    this.cookies.set("token", "token");
-  }
-
-  getToken() {
-    return this.cookies.get("token");
-  }
-
-
   RegistrarProfesor(profesor) {
     return this.http.post(`${environment.serverUrl}RegistroProfesor.php`, JSON.stringify(profesor));
   }
@@ -49,8 +39,26 @@ export class ProfeToolsService {
     return this.http.post(`${environment.serverUrl}RegistroUsuario.php`, JSON.stringify(alumno));
   }
 
-  GetProfesor(firstName){
-    return this.http.post(`${environment.serverUrl}SelectProfesor.php?`,JSON.stringify(firstName));
+  GetProfesor(nombre_Usuario){
+    return this.http.post(`${environment.serverUrl}SelectProfesor.php`,JSON.stringify(nombre_Usuario));
+  }
+
+  GetAlumno(nombre_Usuario){
+    return this.http.post(`${environment.serverUrl}SelectAlumno.php`,JSON.stringify(nombre_Usuario));
+  }
+
+  CambiosPerfil(update){
+
+    return this.http.post(`${environment.serverUrl}SelectAlumno.php`,JSON.stringify(update));
+  }
+
+   //token prueba
+  setToken(token: String) {
+    this.cookies.set("token", "token");
+  }
+
+  getToken() {
+    return this.cookies.get("token");
   }
 
   getDatos(): any{
@@ -69,5 +77,7 @@ export class ProfeToolsService {
   getSession(){
     return this.vsession;
   }
+
+
 
 }

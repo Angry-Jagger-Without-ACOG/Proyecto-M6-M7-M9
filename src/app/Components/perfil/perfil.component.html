@@ -16,7 +16,7 @@
 
         <div class="card-body">
           <h4 class="card-title">Nick: {{usuario.nick}}</h4>
-          <p class="card-text">Professor</p>
+          <p class="card-text">{{tipo_Usuario}}</p>
         </div>
 
       </div>
@@ -79,7 +79,7 @@
           </tr>
           <tr>
             <th>Curso:</th>
-            <td>{{usuario.centro}}</td>
+            <td>{{usuario.curso}}</td>
           </tr>
           <tr>
             <td><button class="btn btn-light mt-n2 mb-n2" (click)="Cambiar_Contra()" type="button">Cambiar

@@ -29,6 +29,8 @@ $resultado = mysqli_query($con, "SELECT * FROM alumnos WHERE nick='$params->nick
 
     $response -> alumno = json_encode(mysqli_fetch_assoc ($resultado));
 
+
+
 } else {
     $response->response = 'FAIL';
 }
@@ -36,6 +38,7 @@ $resultado = mysqli_query($con, "SELECT * FROM alumnos WHERE nick='$params->nick
     header('Content-Type: application/json');
 
     echo json_encode($response);
+
 
 
 ?>
