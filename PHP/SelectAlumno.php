@@ -18,7 +18,7 @@ $con=conexion();
 $vec = [];
 
 
-$resultado = mysqli_query($con,"SELECT * FROM profesores WHERE nick='$params'");
+$resultado = mysqli_query($con,"SELECT * FROM alumnos WHERE nick='$params'");
 
 
   class Result {}

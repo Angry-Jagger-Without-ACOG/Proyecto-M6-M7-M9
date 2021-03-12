@@ -22,6 +22,6 @@ $img=$_POST['img'];
 
   $conexion = conexion(); // CREA LA CONEXION
 
-  $registrosUsuario = mysqli_query($conexion, "UPDATE usuarios SET mote='$mote', correo='$correo',contrasena='$contrasena',apellido='$apellido',curso='$curso'");
+  $registrosUsuario = mysqli_query($conexion, "UPDATE usuarios SET nombre='$params->nombre', password='$params->password,apellido='$params->apellido',email='$params->email' ");
 
 ?>
