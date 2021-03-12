@@ -93,7 +93,8 @@
 
       <!-- Botton del formulario de Alumno -->
       <div class="form-group">
-        <button type="submit" [disabled]="Alumno.invalid" class="btn btn-light text-dark mt-3">Crear</button>
+        <button type="submit" [disabled]="Alumno.invalid" class="btn btn-light text-dark mt-3 mr-4">Crear</button>
+        <button type="button" (click)="gotoLogin()" class="btn btn-light text-dark mt-3">Volver</button>
       </div>
 
     </form>
@@ -184,7 +185,8 @@
 
       <!-- Botton del formulario de Profesor -->
       <div class="form-group">
-        <button type="submit" [disabled]="Profesor.invalid" class="btn btn-light text-dark mt-3">Crear</button>
+        <button type="submit" [disabled]="Profesor.invalid" class="btn btn-light text-dark mt-3 mr-4">Crear</button>
+        <button type="button" (click)="gotoLogin()" class="btn btn-light text-dark mt-3">Volver</button>
       </div>
     </form>
   </div>

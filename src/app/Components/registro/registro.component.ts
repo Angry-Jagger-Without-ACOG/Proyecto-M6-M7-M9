@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProfeToolsService } from '../../servicios/profe-tools.service';
-import Swal from 'sweetalert2';
 import { Profesor } from 'src/app/Models/Profesor.model';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-registro',
@@ -22,7 +24,7 @@ export class RegistroComponent implements OnInit {
   // Hace falta que al cambiar de tipo de registro se limpien los campos y los fallos//
   /////////////////////////////////////////////////////////////////////////////////////
 
-  constructor(private formBuilder: FormBuilder,private BD: ProfeToolsService) { }
+  constructor(private formBuilder: FormBuilder,private BD: ProfeToolsService,public router: Router) { }
 
   ngOnInit(): void {
 
@@ -51,6 +53,10 @@ export class RegistroComponent implements OnInit {
   //Funcion del modulo ngx-ui-switch que utilizamos para elegir el tipo de usuario a elegir
   manualUpdateEvent(value: boolean) {
     this.switch_user = value;
+  }
+
+  gotoLogin() {
+    this.router.navigate(['LOG']);
   }
 
   get A() {
