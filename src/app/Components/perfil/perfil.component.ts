@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Alumno } from 'src/app/Models/Alumno.model';
 import { Profesor } from 'src/app/Models/Profesor.model';
+import { environment } from 'src/environments/environment';
 import { ProfeToolsService } from '../../servicios/profe-tools.service';
 import Swal from 'sweetalert2';
-import { environment } from 'src/environments/environment';
+
 @Component({
   selector: 'app-perfil',
   templateUrl: './perfil.component.html',
@@ -13,6 +14,7 @@ export class PerfilComponent implements OnInit {
 
   Profesores: Profesor[] = [];
   Alumnos: Alumno[] = [];
+  ModoCambio : boolean= false;
 
   //Variable para indicar el tipo de usuario
   Tipo: boolean = true;
@@ -25,7 +27,7 @@ export class PerfilComponent implements OnInit {
   password: string;
   email: string;
 
-   usuario: Object = {
+  usuario: Object = {
 
     nick: null,
     password: null,
@@ -44,22 +46,18 @@ export class PerfilComponent implements OnInit {
     this.tipo_Usuario = localStorage.getItem('Tipo');
     this.nombre_Usuario = localStorage.getItem('Name');
 
-    if(this.tipo_Usuario == "Profesor"){
+    if (this.tipo_Usuario == "Profesor") {
       this.Tipo = true;
       this.GetProfesor(this.nombre_Usuario);
-    }else if (this.tipo_Usuario == "Alumno") {
+    } else if (this.tipo_Usuario == "Alumno") {
       this.Tipo = false;
       this.GetAlumno(this.nombre_Usuario);
 
     }
-
-
-
-
   }
 
   GetProfesor(nombre_Usuario) {
-      this.BD.GetProfesor(nombre_Usuario).subscribe(
+    this.BD.GetProfesor(nombre_Usuario).subscribe(
       result => this.usuario = result[0]
 
     );
@@ -67,12 +65,16 @@ export class PerfilComponent implements OnInit {
 
   GetAlumno(nombre_Usuario) {
     this.BD.GetAlumno(nombre_Usuario).subscribe(
-    result => this.usuario = result[0]
+      result => this.usuario = result[0]
 
-  );
-}
+    );
+  }
 
-  Cambiar_Contra() {
+  Cambiar_Contra(op: boolean): void{
+    this.ModoCambio = op;
+  }
+
+  Cambiar_Datos() {
 
     if (this.Tipo == true) {
       // Formulario Profesor
@@ -80,7 +82,7 @@ export class PerfilComponent implements OnInit {
         input: 'text',
         confirmButtonText: 'Next &rarr;',
         showCancelButton: true,
-        progressSteps: ['1', '2', '3', '4']
+        progressSteps: ['1', '2', '3']
       }).queue([
         {
           title: 'Nombre',
@@ -89,10 +91,6 @@ export class PerfilComponent implements OnInit {
         {
           title: 'Apellidos',
           text: 'Estar seguro de que quieres estos apellidos?'
-        },
-        {
-          title: 'Contraseña',
-          text: 'Estar seguro de que quieres esta contraseña?'
         },
         {
           title: 'Correo',
@@ -129,7 +127,7 @@ export class PerfilComponent implements OnInit {
         input: 'text',
         confirmButtonText: 'Next &rarr;',
         showCancelButton: true,
-        progressSteps: [this.nombre,this.apellido,this.password,this.email]
+        progressSteps: [this.nombre, this.apellido, this.email]
       }).queue([
         {
           title: 'Nombre',
@@ -138,10 +136,6 @@ export class PerfilComponent implements OnInit {
         {
           title: 'Apellidos',
           text: 'Estar seguro de que quieres estos apellidos?'
-        },
-        {
-          title: 'Contraseña',
-          text: 'Estar seguro de que quieres esta contraseña?'
         },
         {
           title: 'Correo',
@@ -177,7 +171,7 @@ export class PerfilComponent implements OnInit {
     }
   }
 
-  UpdateAlumno(update){
+  UpdateAlumno(update) {
     this.BD.CambiosPerfil(update).subscribe(
 
     )

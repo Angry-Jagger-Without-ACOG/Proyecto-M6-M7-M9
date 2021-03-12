@@ -2,7 +2,7 @@
 
 <div class="container-fluid mt-5">
 
-  <div class="row mb-1">
+  <div class="row mb-1" *ngIf="ModoCambio == false">
 
     <!-- Columna Izquierda -->
     <div class="col-4 mt-3">
@@ -55,8 +55,11 @@
             <td>{{usuario.centro}}</td>
           </tr>
           <tr>
-            <td><button class="btn btn-light mt-n2 mb-n2" (click)="Cambiar_Contra()" type="button">Cambiar
-                datos</button></td>
+            <td><button class="btn btn-light mt-n2 mb-n2" (click)="Cambiar_Datos()" type="button">Cambiar Datos
+              </button></td>
+            <td><button class="btn btn-light mt-n2 mb-n2" (click)="Cambiar_Contra(true)" type="button">Cambiar
+                Contraseña
+              </button></td>
           </tr>
         </table>
 
@@ -82,8 +85,11 @@
             <td>{{usuario.curso}}</td>
           </tr>
           <tr>
-            <td><button class="btn btn-light mt-n2 mb-n2" (click)="Cambiar_Contra()" type="button">Cambiar
-                datos</button></td>
+            <td><button class="btn btn-light mt-n2 mb-n2" (click)="Cambiar_Datos()" type="button">Cambiar Datos
+              </button></td>
+            <td><button class="btn btn-light mt-n2 mb-n2" (click)="Cambiar_Contra(true)" type="button">Cambiar
+                Contraseña
+              </button></td>
           </tr>
         </table>
 
@@ -120,5 +126,11 @@
     </div>
 
   </div>
+
+
+  <div class="d-flex justify-content-center pt-5" *ngIf="ModoCambio == true">
+    <app-contra (volver)="Cambiar_Contra($event)"></app-contra>
+  </div>
+
 
 </div>
