@@ -18,12 +18,13 @@ export class LoginComponent implements OnInit {
   user = new User();
   //Variable que indica que registro se va a utilizar: Alumno(true) o Profesor(false)
   switch_user = false;
+  session: String;
 
   constructor(private formBuilder: FormBuilder, private BD: ProfeToolsService, public router: Router) { }
 
   ngOnInit(): void {
 
-    sessionStorage.clear();
+    localStorage.clear();
 
     this.Usuario = this.formBuilder.group({
       nick: ['', Validators.required],
@@ -48,7 +49,7 @@ export class LoginComponent implements OnInit {
   ///////////////////////////////////////////////////////////////////////////////////
   // Hace falta montar las funciones para el login de profe y alumno correctamente //
   ///////////////////////////////////////////////////////////////////////////////////
-  loginUsuario() {
+  loginPRofe() {
 
     //Alumno
     if (this.switch_user == true) {
@@ -70,16 +71,27 @@ export class LoginComponent implements OnInit {
     }
   }
 
-}
+  loginUsuario() {
+    this.BD.loginUsuario(this.user).subscribe(
+      datos => {
+        console.log(datos);
+        if (datos['response'] == 'OK') {
+          environment.vsession = this.user.nick;
+          localStorage.setItem("Name", environment.vsession);
+          localStorage.setItem("Tipo", "Alumno");
+          this.session = environment.vsession;
+          this.BD.setDatos(datos);
+          this.BD.setSession(this.session);
+          this.router.navigate(['Perfil']);
+        } else {
+          alert(datos['mensaje']);
 
-  // Data_Bsse(){
+        }
+      }
+    );
+  }
 
-  //  this.BD.Insertar_Login(this.mote,this.contrasena).subscribe(
-  //       datos => {
-  //         if (datos['resultado'] == 'OK') {
-  //           //this.Insertar_Login();
-  //         }
-  //       }
-  //     );
+  }
 
-  // }
+
+

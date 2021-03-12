@@ -1,23 +1,43 @@
 <?php
 
-  header('Access-Control-Allow-Origin: *');
-  header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
-  header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
-  header("Allow: GET, POST, OPTIONS, PUT, DELETE");
-  require('BD.php');
 
-  $mote=$_POST['mote'];
-  $correo=$_POST['correo'];
-  $contrasena=$_POST['contrasena'];
-  $apellido=$_POST['apellido'];
-  $curso=$_POST['curso'];
-  $img=$_POST['img'];
+header('Access-Control-Allow-Origin: *');
+header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
+header("Allow: GET, POST, OPTIONS, PUT, DELETE");
 
-  global $datos;
+require("bd.php");
 
-  $conexion = conexion(); // CREA LA CONEXION
+$json = file_get_contents("php://input"); // Esto es un objeto JSON en formato string
 
-  $registrosUsuario = mysqli_query($conexion, "INSERT INTO usuarios( '$_GET[mote]', correo, contrasena, apellido, curso) VALUES ('$mote','$correo','$contrasena','$apellido','$curso'");
+$params = json_decode($json);
+
+$con;
+$con=conexion();
+
+
+
+
+
+$resultado = mysqli_query($con,"insert into alumnos (idusu,nick,password,email,nombre,apellido,image) VALUES ('$params->null','$params->nick','$params->password','$params->correo','$params->nombre','$params->apellido','$params->null')");
+
+
+ class Result {}
+
+   $response = new Result();
+
+   if($resultado->num_rows > 0 ) {
+     $response->response = 'OK';
+     $response->mensaje = 'Registro exitoso';
+
+ } else {
+     $response->response = 'FAIL';
+     $response->mensaje = 'Registro Fallido';
+ }
+
+     header('Content-Type: application/json');
+
+  echo json_encode($response);
 
 
 ?>

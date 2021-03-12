@@ -111,7 +111,7 @@ export class RegistroComponent implements OnInit {
   }
 
   RegistroProfesor() {
-    this.BD.RegistroProfesor(this.user).subscribe (
+    this.BD.RegistrarProfesor(this.user).subscribe (
       datos => {
         if(datos['response'] == 'OK') {
           console.log(datos['response'])

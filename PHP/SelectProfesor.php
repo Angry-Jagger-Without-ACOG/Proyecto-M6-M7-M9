@@ -1,25 +1,35 @@
 <?php
-  header('Access-Control-Allow-Origin: *');
-  header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
-  header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
-  header("Allow: GET, POST, OPTIONS, PUT, DELETE");
 
-  require("BD.php"); // IMPORTA EL ARCHIVO CON LA CONEXION A LA DB
+header('Access-Control-Allow-Origin: *');
+header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
+header("Allow: GET, POST, OPTIONS, PUT, DELETE");
 
-  $conexion = conexion(); // CREA LA CONEXION
+require("bd.php");
+
+
+$json = file_get_contents("php://input"); // Esto es un objeto JSON en formato string
+
+$params = json_decode($json);
+
+$con;
+$con=conexion();
 
   // REALIZA LA QUERY A LA DB
-  $registros = mysqli_query($conexion, "SELECT * FROM profesores");
+  $resultado = mysqli_query($con,"SELECT * FROM alumnos WHERE nick ='$params->firstName'");
 
-  // SI EL USUARIO EXISTE OBTIENE LOS DATOS Y LOS GUARDA EN UN ARRAY
-  if ($resultado = mysqli_fetch_assoc($registros))
-  {
-    $datos[] = $resultado;
-  }
 
-  $json = json_encode($datos); // GENERA EL JSON CON LOS DATOS OBTENIDOS
+  class Result {}
 
-  echo $json; // MUESTRA EL JSON GENERADO
+  $response = new Result();
 
-  header('Content-Type: application/json');
+
+    if($reg = mysqli_fetch_assoc($resultado)){
+      $vec[]=$reg;
+    }
+
+    header('Content-Type: application/json');
+
+    echo json_encode($vec);
+
 ?>
