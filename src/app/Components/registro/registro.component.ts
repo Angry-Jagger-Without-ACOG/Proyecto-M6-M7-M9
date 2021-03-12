@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProfeToolsService } from '../../servicios/profe-tools.service';
 import { Profesor } from 'src/app/Models/Profesor.model';
+import { Alumno } from 'src/app/Models/Alumno.model';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
@@ -16,6 +17,7 @@ export class RegistroComponent implements OnInit {
   Alumno: FormGroup;
   Profesor: FormGroup;
   user = new Profesor();
+  alumno = new Alumno();
 
   //Variable que indica que registro se va a utilizar: Alumno(true) o Profesor(false)
   switch_user = false;
@@ -87,21 +89,22 @@ export class RegistroComponent implements OnInit {
         //   this.Profesor.value.nombre_p, this.Profesor.value.apell_p,
         //   this.Profesor.value.centro);
 
-        this.BD.RegistrarProfesor(this.user).subscribe(
+        this.BD.RegistroAlumno(this.alumno).subscribe(
 
           (respuesta: any) => {
-            console.log(respuesta);
+
             Swal.fire('¡Creado!', '', 'success')
           },
           (error: any) => {
-            console.log(error);
+
             Swal.fire('¡Error!', '', 'error')
           }
+          );
 
-        );
 
 
       }else if(result.isConfirmed && this.switch_user == false){
+        this.BD.RegistrarProfesor(this.user).subscribe();
 
 
       }

@@ -45,8 +45,8 @@ export class ProfeToolsService {
     return this.http.get(`${environment.serverUrl}SelectPrueba.php`);
   }
 
-  RegistroAlumno(user){
-    return this.http.post(`${environment.serverUrl}RegistroAlumno.php`, JSON.stringify(user));
+  RegistroAlumno(alumno){
+    return this.http.post(`${environment.serverUrl}RegistroUsuario.php`, JSON.stringify(alumno));
   }
 
   GetProfesor(firstName){

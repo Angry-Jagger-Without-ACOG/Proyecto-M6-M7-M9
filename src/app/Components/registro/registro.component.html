@@ -11,7 +11,7 @@
       <!-- Nick -->
       <div class="form-group">
         <p class="text-light">Nick</p>
-        <input type="text" placeholder="Entra tu nick" formControlName="nick_a" class="form-control"
+        <input type="text" placeholder="Entra tu nick" [(ngModel)]="alumno.nick"  formControlName="nick_a" class="form-control"
           [ngClass]="{'is-invalid': A.nick_a.touched && A.nick_a.errors}" >
 
         <div *ngIf="A.nick_a.touched && A.nick_a.errors" class="invalid-feedback">
@@ -22,7 +22,7 @@
       <!-- Correo -->
       <div class="form-group">
         <label class="text-light">Correo</label>
-        <input type="text" placeholder="Entra tu correo" formControlName="correo_a" class="form-control"
+        <input type="text" placeholder="Entra tu correo" [(ngModel)]="alumno.correo"  formControlName="correo_a" class="form-control"
           [ngClass]="{'is-invalid': A.correo_a.touched && A.correo_a.errors}">
 
         <div *ngIf="A.correo_a.touched && A.correo_a.errors" class="invalid-feedback">
@@ -34,7 +34,7 @@
       <!-- Contraseña -->
       <div class="form-group">
         <label class="text-light">Contraseña</label>
-        <input type="password" placeholder="Entra tu contraseña" formControlName="cont_a" class="form-control"
+        <input type="password" placeholder="Entra tu contraseña"[(ngModel)]="alumno.password"  formControlName="cont_a" class="form-control"
           [ngClass]="{'is-invalid': A.cont_a.touched && A.cont_a.errors}">
 
         <div *ngIf="A.cont_a.touched && A.cont_a.errors" class="invalid-feedback">
@@ -45,7 +45,7 @@
       <!-- Nombre -->
       <div class="form-group">
         <label class="text-light">Nombre</label>
-        <input type="text" placeholder="Entra tu nombre" formControlName="nombre_a" class="form-control"
+        <input type="text" placeholder="Entra tu nombre" [(ngModel)]="alumno.nombre"  formControlName="nombre_a" class="form-control"
           [ngClass]="{'is-invalid': A.nombre_a.touched && A.nombre_a.errors}">
 
         <div *ngIf="A.nombre_a.touched && A.nombre_a.errors" class="invalid-feedback">
@@ -56,7 +56,7 @@
       <!-- Apellido -->
       <div class="form-group">
         <label class="text-light">Apellido</label>
-        <input type="text" placeholder="Entra tus apellidos" formControlName="apell_a" class="form-control"
+        <input type="text" placeholder="Entra tus apellidos" [(ngModel)]="alumno.apellido"  formControlName="apell_a" class="form-control"
           [ngClass]="{'is-invalid': A.apell_a.touched && A.apell_a.errors}">
 
         <div *ngIf="A.apell_a.touched && A.apell_a.errors" class="invalid-feedback">
@@ -67,7 +67,7 @@
       <!-- Curso -->
       <div class="form-group">
         <label class="text-light">Curso</label>
-        <select class="form-control" formControlName="curso"
+        <select class="form-control"  [(ngModel)]="alumno.curso"  formControlName="curso"
         [ngClass]="{'is-invalid': A.curso.touched && A.curso.errors}">
           <option>Daw1</option>
           <option>Daw2</option>
@@ -83,7 +83,7 @@
       <!-- Imagen -->
       <div class="form-group custom-file mt-3 mb-3">
         <label class="custom-file-label" for="img">Selecciona una Imagen</label>
-        <input type="file" class="custom-file-input form-control" formControlName="img"
+        <input type="file"[(ngModel)]="alumno.img"  class="custom-file-input form-control" formControlName="img"
         [ngClass]="{'is-invalid': A.img.touched && A.img.errors}">
 
         <div *ngIf="A.img.touched && A.img.errors" class="invalid-feedback">
