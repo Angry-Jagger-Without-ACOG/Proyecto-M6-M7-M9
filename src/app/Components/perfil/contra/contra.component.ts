@@ -12,9 +12,25 @@ export class ContraComponent implements OnInit {
 
   @Output() volver = new EventEmitter<boolean>();
 
-  constructor() { }
+
+
+  profesor: any ={
+    nick: null,
+    password: null,
+    password2: null,
+    password3: null
+
+  }
+
+
+  constructor(private BD: ProfeToolsService) {
+  } password2?: string;
 
   ngOnInit(): void {
+
+
+
+
   }
 
   UpdateCont(){
@@ -22,6 +38,12 @@ export class ContraComponent implements OnInit {
 
 
     this.volver.emit(false);
+  }
+  updatePasswordProfesor(){
+    this.BD.updatePasswordProfesor(this.profesor).subscribe();
+
+
+
   }
 
 }

@@ -77,6 +77,9 @@ export class ProfeToolsService {
   getSession(){
     return this.vsession;
   }
+  updatePasswordProfesor(profesor) {
+    return this.http.post(`${environment.serverUrl}updatePasswordProfesor.php`, JSON.stringify(profesor));
+  }
 
 
 
