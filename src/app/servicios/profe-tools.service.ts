@@ -47,10 +47,18 @@ export class ProfeToolsService {
     return this.http.post(`${environment.serverUrl}SelectAlumno.php`,JSON.stringify(nombre_Usuario));
   }
 
-  CambiosPerfil(update){
+  CambiosPerfilProfe(update){
 
-    return this.http.post(`${environment.serverUrl}SelectAlumno.php`,JSON.stringify(update));
+    return this.http.put(`${environment.serverUrl}UpdateProfesor.php`,JSON.stringify(update));
   }
+
+  CambiosPerfilAlumno(update){
+    return this.http.put(`${environment.serverUrl}UpdateUsuario.php`,JSON.stringify(update));
+  }
+
+
+
+
 
    //token prueba
   setToken(token: String) {
@@ -77,7 +85,6 @@ export class ProfeToolsService {
   getSession(){
     return this.vsession;
   }
-
 
 
 }

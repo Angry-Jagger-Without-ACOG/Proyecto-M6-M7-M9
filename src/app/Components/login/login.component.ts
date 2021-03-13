@@ -49,6 +49,7 @@ export class LoginComponent implements OnInit {
   ///////////////////////////////////////////////////////////////////////////////////
   // Hace falta montar las funciones para el login de profe y alumno correctamente //
   ///////////////////////////////////////////////////////////////////////////////////
+
   Comporbar() {
 
     //Alumno
@@ -59,11 +60,8 @@ export class LoginComponent implements OnInit {
           environment.vsession = this.user.nick;
           localStorage.setItem("Name", environment.vsession);
           localStorage.setItem("Tipo", "Alumno");
-          this.session = environment.vsession;
           this.BD.setDatos(datos);
-          this.BD.setSession(this.session);
           this.router.navigate(['Perfil']);
-          console.log(datos);
         } else {
           Swal.fire('Error', '', datos['mensaje']);
         }
@@ -80,10 +78,7 @@ export class LoginComponent implements OnInit {
             environment.vsession = this.user.nick;
             localStorage.setItem("Name", environment.vsession);
             localStorage.setItem("Tipo", "Profesor");
-            this.session = environment.vsession;
             this.BD.setDatos(datos);
-            console.log(datos['alumno']);
-            this.BD.setSession(this.session);
             this.router.navigate(['Perfil']);
           } else {
             alert(datos['mensaje']);

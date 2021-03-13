@@ -19,8 +19,6 @@ export class ContraComponent implements OnInit {
 
   UpdateCont(){
 
-
-
     this.volver.emit(false);
   }
 

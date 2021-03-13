@@ -1,0 +1,20 @@
+<form class="form p-5 mt-4 align-content-center" (ngSubmit)="cambiarDatos()">
+
+  <div class="form-group p-4">
+    <h3 class="text-light">Entra tu nombre</h3>
+    <input type="text" class="mt-3" [(ngModel)]="profe.nombre" name="nombre"  placeholder="Entra tu nombre">
+  </div>
+
+  <div class="form-group p-4">
+    <h3 class="text-light">Entra tu apellido</h3>
+    <input type="text" class="mt-3" [(ngModel)]="profe.apellido" name="apellido" placeholder="Entra tu apellido">
+  </div>
+
+  <div class="form-group p-4">
+    <h3 class="text-light">Repite tu correo</h3>
+    <input type="email" class="mt-3"  [(ngModel)]="profe.correo" name="correo" placeholder="Repite tu correo">
+  </div>
+
+  <button type="submit" class="btn btn-light text-dark m-4">Cambiar Datos</button>
+
+</form>

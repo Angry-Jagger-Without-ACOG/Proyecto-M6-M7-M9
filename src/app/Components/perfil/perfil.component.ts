@@ -4,6 +4,7 @@ import { Profesor } from 'src/app/Models/Profesor.model';
 import { environment } from 'src/environments/environment';
 import { ProfeToolsService } from '../../servicios/profe-tools.service';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-perfil',
@@ -27,7 +28,7 @@ export class PerfilComponent implements OnInit {
   password: string;
   email: string;
 
-  usuario: Object = {
+  usuario: any = {
 
     nick: null,
     password: null,
@@ -40,7 +41,7 @@ export class PerfilComponent implements OnInit {
   }
 
 
-  constructor(private BD: ProfeToolsService) { }
+  constructor(private BD: ProfeToolsService,public router: Router) { }
 
   ngOnInit(): void {
     this.tipo_Usuario = localStorage.getItem('Tipo');
@@ -74,15 +75,20 @@ export class PerfilComponent implements OnInit {
     this.ModoCambio = op;
   }
 
-  Cambiar_Datos() {
 
+
+
+
+  Cambiar_Datos() {
+    this.router.navigate(['Datos']);
+    /*
     if (this.Tipo == true) {
       // Formulario Profesor
       Swal.mixin({
         input: 'text',
         confirmButtonText: 'Next &rarr;',
         showCancelButton: true,
-        progressSteps: ['1', '2', '3']
+        progressSteps: [this.nombre, this.apellido, this.email]
       }).queue([
         {
           title: 'Nombre',
@@ -98,11 +104,11 @@ export class PerfilComponent implements OnInit {
         }
       ]).then((result) => {
         if (result) {
-          var answers = JSON.stringify(result)
-
+          var updateProfe = JSON.stringify(result)
+          console.log(updateProfe)
           Swal.fire({
             title: 'Estas seguro de tu cambios?',
-            html: `Your answers: <pre><code>${answers}</code></pre>`,
+            html: `Your answers: <pre><code>${updateProfe}</code></pre>`,
             showDenyButton: true,
             showCancelButton: true,
             confirmButtonText: `Save`,
@@ -111,6 +117,7 @@ export class PerfilComponent implements OnInit {
             if (result.isConfirmed) {
 
               Swal.fire('Saved!', '', 'success')
+              this.UpdateAlumno(result);
 
             } else if (result.isDenied) {
 
@@ -143,11 +150,11 @@ export class PerfilComponent implements OnInit {
         }
       ]).then((result) => {
         if (result) {
-          var update = JSON.stringify(result)
+          var updateAlumno = JSON.stringify(result)
 
           Swal.fire({
             title: 'Estas seguro de tu cambios?',
-            html: `Your answers: <pre><code>${update}</code></pre>`,
+            html: `Your answers: <pre><code>${updateAlumno}</code></pre>`,
             showDenyButton: true,
             showCancelButton: true,
             confirmButtonText: `Save`,
@@ -156,8 +163,6 @@ export class PerfilComponent implements OnInit {
             if (result.isConfirmed) {
 
               Swal.fire('Saved!', '', 'success')
-              this.UpdateAlumno(update);
-              console.log();
 
             } else if (result.isDenied) {
 
@@ -168,13 +173,7 @@ export class PerfilComponent implements OnInit {
         }
       })
 
-    }
-  }
-
-  UpdateAlumno(update) {
-    this.BD.CambiosPerfil(update).subscribe(
-
-    )
+    }*/
   }
 
 }

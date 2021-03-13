@@ -15,6 +15,7 @@ function conexion(){
     echo "Error de depuracion: " . mysqli_connect_error() . PHP_EOL;
     exit;
    }
+
   return $enlace;
 }
 
