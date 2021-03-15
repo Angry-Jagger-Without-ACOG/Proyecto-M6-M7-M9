@@ -56,6 +56,7 @@ export class PerfilComponent implements OnInit {
       this.GetAlumno(this.nombre_Usuario);
 
     }
+
   }
 
   GetProfesor(nombre_Usuario) {
@@ -76,5 +77,7 @@ export class PerfilComponent implements OnInit {
   Cambiar_Opcion(op: String): void {
     this.ModoCambio = op;
   }
+
+
 
 }

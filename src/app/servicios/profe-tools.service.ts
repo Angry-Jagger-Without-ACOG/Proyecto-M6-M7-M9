@@ -68,9 +68,6 @@ export class ProfeToolsService {
 
 }
 
-  setPassword(){
-
-  }
 
 
 

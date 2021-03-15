@@ -9,8 +9,6 @@ import { ProfeToolsService } from 'src/app/servicios/profe-tools.service';
 })
 export class ActualizarComponent implements OnInit {
 
-  @Output() volver = new EventEmitter<String>();
-
   nombre_Usuario: String;
   tipo_Usuario: String;
 
@@ -57,7 +55,11 @@ export class ActualizarComponent implements OnInit {
   }
 
   UpdateCont(){
-    this.volver.emit("Perfil");
+    this.refresh();
+  }
+
+  refresh(): void {
+    window.location.reload();
   }
 
 }

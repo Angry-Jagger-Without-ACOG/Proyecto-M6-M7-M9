@@ -62,8 +62,12 @@ export class ContraComponent implements OnInit {
 
 
   UpdateCont(){
-
-    this.volver.emit("Perfil");
+    this.refresh();
   }
+
+  refresh(): void {
+    window.location.reload();
+  }
+
 
 }
