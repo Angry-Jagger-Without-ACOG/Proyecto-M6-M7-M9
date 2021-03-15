@@ -1,4 +1,4 @@
-import { Component, OnInit ,Output, EventEmitter  } from '@angular/core';
+import { Component, OnInit ,Output, EventEmitter} from '@angular/core';
 import { ProfeToolsService } from '../../../servicios/profe-tools.service';
 import { Profesor } from 'src/app/Models/Profesor.model';
 import { Alumno } from 'src/app/Models/Alumno.model';
@@ -10,7 +10,7 @@ import { Alumno } from 'src/app/Models/Alumno.model';
 })
 export class ContraComponent implements OnInit {
 
-  @Output() volver = new EventEmitter<boolean>();
+  @Output() volver = new EventEmitter<String>();
 
   nombre_Usuario: String;
   tipo_Usuario: String;
@@ -29,9 +29,7 @@ export class ContraComponent implements OnInit {
 
     this.tipo_Usuario = localStorage.getItem('Tipo');
     this.nombre_Usuario = localStorage.getItem('Name');
-
     this.profesor.nombre_Usuario = this.nombre_Usuario;
-
 
   }
 
@@ -65,7 +63,7 @@ export class ContraComponent implements OnInit {
 
   UpdateCont(){
 
-    this.volver.emit(false);
+    this.volver.emit("Perfil");
   }
 
 }

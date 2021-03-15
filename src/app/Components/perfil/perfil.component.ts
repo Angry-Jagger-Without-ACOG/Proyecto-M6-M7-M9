@@ -1,22 +1,23 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Alumno } from 'src/app/Models/Alumno.model';
 import { Profesor } from 'src/app/Models/Profesor.model';
-import { environment } from 'src/environments/environment';
 import { ProfeToolsService } from '../../servicios/profe-tools.service';
-import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { result } from 'lodash';
+import Swal from 'sweetalert2';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-perfil',
   templateUrl: './perfil.component.html',
   styleUrls: ['./perfil.component.css']
 })
+
 export class PerfilComponent implements OnInit {
 
   Profesores: Profesor[] = [];
   Alumnos: Alumno[] = [];
-  ModoCambio : boolean= false;
+  ModoCambio: String = "Perfil";
 
   //Variable para indicar el tipo de usuario
   Tipo: boolean = true;
@@ -41,8 +42,7 @@ export class PerfilComponent implements OnInit {
 
   }
 
-
-  constructor(private BD: ProfeToolsService,public router: Router) { }
+  constructor(private BD: ProfeToolsService, public router: Router) { }
 
   ngOnInit(): void {
     this.tipo_Usuario = localStorage.getItem('Tipo');
@@ -73,16 +73,8 @@ export class PerfilComponent implements OnInit {
     );
   }
 
-  Cambiar_Contra(op: boolean): void{
+  Cambiar_Opcion(op: String): void {
     this.ModoCambio = op;
-  }
-
-
-
-
-
-  Cambiar_Datos() {
-    this.router.navigate(['Datos']);
   }
 
 }
