@@ -29,7 +29,7 @@
 
         <div class="card-body">
           <h4 class="card-title">Nick: {{usuario.nick}}</h4>
-          <p class="card-text">Alumno</p>
+          <p class="card-text">{{tipo_Usuario}}</p>
         </div>
 
       </div>
@@ -127,11 +127,11 @@
   </div>
 
   <div class="d-flex justify-content-center pt-5" *ngIf='ModoCambio == "Datos"'>
-    <app-actualizar (volver)='Cambiar_Opcion($event)'></app-actualizar >
+    <app-actualizar></app-actualizar >
   </div>
 
   <div class="d-flex justify-content-center pt-5" *ngIf='ModoCambio == "Contra"'>
-    <app-contra (volver)='Cambiar_Opcion($event)'></app-contra>
+    <app-contra></app-contra>
   </div>
 
 

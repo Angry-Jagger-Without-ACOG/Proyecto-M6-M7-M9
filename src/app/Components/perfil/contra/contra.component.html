@@ -1,21 +1,37 @@
-<form class="form p-5 mt-4 align-content-center" (ngSubmit)="cambiarDatos()">
+<form class="form p-5 mt-4 align-content-center" [formGroup]="usuario" (ngSubmit)="cambiarDatos()">
 
   <div class="form-group p-4">
     <h3 class="text-light">Entra tu contraseña Actual</h3>
-    <input type="text" class="mt-3" placeholder="Entra tu contraseña Actual"  [(ngModel)]="profesor.password" name="password">
+    <input type="text" class="mt-3" placeholder="Entra tu contraseña Actual" formControlName="cont" [(ngModel)]="profesor.password" name="password"
+    [ngClass]="{'is-invalid': data.cont.touched && data.cont.errors}">
+
+    <div *ngIf="data.cont.touched && data.cont.errors" class="invalid-feedback">
+      <div *ngIf="data.cont.errors.required">El campo esta vacio !!</div>
+    </div>
   </div>
 
   <div class="form-group p-4">
     <h3 class="text-light">Entra tu Nueva contraseña</h3>
-    <input type="text" class="mt-3" placeholder="Entra tu Nueva contraseña"  [(ngModel)]="profesor.password2" name="password2">
+    <input type="text" class="mt-3" placeholder="Entra tu Nueva contraseña" formControlName="new_cont" [(ngModel)]="profesor.password2" name="password2"
+    [ngClass]="{'is-invalid': data.new_cont.touched && data.new_cont.errors}">
+
+    <div *ngIf="data.new_cont.touched && data.new_cont.errors" class="invalid-feedback">
+      <div *ngIf="data.new_cont.errors.required">El campo esta vacio !!</div>
+    </div>
   </div>
 
   <div class="form-group p-4">
     <h3 class="text-light">Repite tu nueva contraseña</h3>
-    <input type="text" class="mt-3" placeholder="Repite tu contraseña" [(ngModel)]="profesor.password3" name="password3">
+    <input type="password" class="mt-3" placeholder="Repite tu contraseña" formControlName="rep_cont" [(ngModel)]="profesor.password3" name="password3"
+    [ngClass]="{'is-invalid': data.rep_cont.touched && data.rep_cont.errors}">
+
+    <div *ngIf="data.rep_cont.touched && data.rep_cont.errors" class="invalid-feedback">
+      <div *ngIf="data.rep_cont.errors.required">El campo esta vacio !!</div>
+      <div *ngIf= "data.rep_cont.errors.Comprobacion"> La contraseña no coincide</div>
+    </div>
   </div>
 
-  <button type="submit" class="btn btn-light text-dark m-4" >Cambiar contraseña</button>
+  <button type="submit" [disabled]="usuario.invalid" class="btn btn-light text-dark m-4">Cambiar contraseña</button>
   <button type="button" (click)="UpdateCont()" class="btn btn-light text-dark m-4"> Atras</button>
 
 </form>

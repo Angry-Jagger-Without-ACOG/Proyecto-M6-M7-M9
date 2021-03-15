@@ -1,7 +1,7 @@
-import { Component, OnInit ,Output, EventEmitter} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import {Comprobacion} from './Comprobador'
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProfeToolsService } from '../../../servicios/profe-tools.service';
-import { Profesor } from 'src/app/Models/Profesor.model';
-import { Alumno } from 'src/app/Models/Alumno.model';
 
 @Component({
   selector: 'app-contra',
@@ -10,20 +10,18 @@ import { Alumno } from 'src/app/Models/Alumno.model';
 })
 export class ContraComponent implements OnInit {
 
-  @Output() volver = new EventEmitter<String>();
-
   nombre_Usuario: String;
   tipo_Usuario: String;
+  usuario: FormGroup;
 
-  profesor: any ={
+  profesor: any = {
     nombre_Usuario: null,
     password: null,
     password2: null,
     password3: null
-
   }
 
-  constructor(private BD: ProfeToolsService) { }
+  constructor(private BD: ProfeToolsService,private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
 
@@ -31,9 +29,21 @@ export class ContraComponent implements OnInit {
     this.nombre_Usuario = localStorage.getItem('Name');
     this.profesor.nombre_Usuario = this.nombre_Usuario;
 
+    this.usuario = this.formBuilder.group({
+      cont: ['', Validators.required],
+      new_cont: ['', Validators.required],
+      rep_cont: ['', Validators.required]
+    },
+    {
+      validator: Comprobacion('cont', 'rep_cont')});
+
   }
 
-  cambiarDatos(){
+  get data() {
+    return this.usuario.controls;
+  }
+
+  cambiarDatos() {
 
     if (this.tipo_Usuario == "Profesor") {
 
@@ -46,22 +56,22 @@ export class ContraComponent implements OnInit {
     }
   }
 
-  cambiarPasswordProfe(){
+  cambiarPasswordProfe() {
     this.BD.cambiarContraseñaProfesor(this.profesor).subscribe(
 
     )
     this.UpdateCont();
   }
 
-  cambiosPasswordAlumno(){
+  cambiosPasswordAlumno() {
     this.BD.cambiarContraseñaAlumno(this.profesor).subscribe(
 
-      )
-      this.UpdateCont();
+    )
+    this.UpdateCont();
   }
 
 
-  UpdateCont(){
+  UpdateCont() {
     this.refresh();
   }
 
