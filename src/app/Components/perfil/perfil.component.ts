@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { ProfeToolsService } from '../../servicios/profe-tools.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { result } from 'lodash';
 
 @Component({
   selector: 'app-perfil',
@@ -62,6 +63,7 @@ export class PerfilComponent implements OnInit {
       result => this.usuario = result[0]
 
     );
+
   }
 
   GetAlumno(nombre_Usuario) {
@@ -81,99 +83,6 @@ export class PerfilComponent implements OnInit {
 
   Cambiar_Datos() {
     this.router.navigate(['Datos']);
-    /*
-    if (this.Tipo == true) {
-      // Formulario Profesor
-      Swal.mixin({
-        input: 'text',
-        confirmButtonText: 'Next &rarr;',
-        showCancelButton: true,
-        progressSteps: [this.nombre, this.apellido, this.email]
-      }).queue([
-        {
-          title: 'Nombre',
-          text: 'Estar seguro de que quieres este nombre?'
-        },
-        {
-          title: 'Apellidos',
-          text: 'Estar seguro de que quieres estos apellidos?'
-        },
-        {
-          title: 'Correo',
-          text: 'Estar seguro de que quieres este correo?'
-        }
-      ]).then((result) => {
-        if (result) {
-          var updateProfe = JSON.stringify(result)
-          console.log(updateProfe)
-          Swal.fire({
-            title: 'Estas seguro de tu cambios?',
-            html: `Your answers: <pre><code>${updateProfe}</code></pre>`,
-            showDenyButton: true,
-            showCancelButton: true,
-            confirmButtonText: `Save`,
-            denyButtonText: `Don't save`,
-          }).then((result) => {
-            if (result.isConfirmed) {
-
-              Swal.fire('Saved!', '', 'success')
-              this.UpdateAlumno(result);
-
-            } else if (result.isDenied) {
-
-              Swal.fire('Changes are not saved', '', 'info')
-
-            }
-          })
-        }
-      })
-
-    } else {
-      // Formulario Alumno
-      Swal.mixin({
-        input: 'text',
-        confirmButtonText: 'Next &rarr;',
-        showCancelButton: true,
-        progressSteps: [this.nombre, this.apellido, this.email]
-      }).queue([
-        {
-          title: 'Nombre',
-          text: 'Estar seguro de que quieres este nombre?'
-        },
-        {
-          title: 'Apellidos',
-          text: 'Estar seguro de que quieres estos apellidos?'
-        },
-        {
-          title: 'Correo',
-          text: 'Estar seguro de que quieres estos correo?'
-        }
-      ]).then((result) => {
-        if (result) {
-          var updateAlumno = JSON.stringify(result)
-
-          Swal.fire({
-            title: 'Estas seguro de tu cambios?',
-            html: `Your answers: <pre><code>${updateAlumno}</code></pre>`,
-            showDenyButton: true,
-            showCancelButton: true,
-            confirmButtonText: `Save`,
-            denyButtonText: `Don't save`,
-          }).then((result) => {
-            if (result.isConfirmed) {
-
-              Swal.fire('Saved!', '', 'success')
-
-            } else if (result.isDenied) {
-
-              Swal.fire('Changes are not saved', '', 'info')
-
-            }
-          })
-        }
-      })
-
-    }*/
   }
 
 }

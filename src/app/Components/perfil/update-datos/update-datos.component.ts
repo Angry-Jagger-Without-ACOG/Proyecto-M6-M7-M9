@@ -10,8 +10,6 @@ import { ProfeToolsService } from 'src/app/servicios/profe-tools.service';
 export class UpdateDatosComponent implements OnInit {
 
 
-  tipo_Usuario: String;
-
   profe: any = {
 
     nombre: null,
@@ -21,6 +19,7 @@ export class UpdateDatosComponent implements OnInit {
   }
 
   nombre_Usuario: String;
+  tipo_Usuario: String;
 
   constructor(private formBuilder: FormBuilder,private BD: ProfeToolsService) { }
 
