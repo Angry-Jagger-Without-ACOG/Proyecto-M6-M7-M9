@@ -1,31 +1,23 @@
 <?php
+
 header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
 header("Allow: GET, POST, OPTIONS, PUT, DELETE");
 
-require("bd.php");
+require('BD.php');
 
-$json = file_get_contents("php://input"); // Esto es un objeto JSON en formato string
+  $con = conexion();
 
-$params = json_decode($json);
+  $json = file_get_contents("php://input");
 
-$con;
-$con=conexion();
-
+  $params = json_decode($json);
 
 
+  $response = mysqli_query($con, "UPDATE profesores SET password='$params->password' WHERE nick='$params->nombre_Usuario'");
 
 
-$resultado =  mysqli_query($con, "UPDATE profesores SET password='$params->password2'");
-
-
- class Result {}
-
-   $response = new Result();
-
-
-     header('Content-Type: application/json');
+  header('Content-Type: application/json');
 
   echo json_encode($response);
 
