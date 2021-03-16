@@ -1,6 +1,6 @@
 <div class="container-fluid form">
 
-  <ui-switch class="float-right mt-3" [ngModel]="switch_user" (ngModelChange)="manualUpdateEvent($event)"
+  <ui-switch class="float-right" [ngModel]="switch_user" (ngModelChange)="manualUpdateEvent($event)"
     checkedLabel="Alumno" uncheckedLabel="Profesor" size="large" checkedTextColor="white"></ui-switch>
 
   <div *ngIf="switch_user == false">
