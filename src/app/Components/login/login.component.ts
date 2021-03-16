@@ -40,15 +40,12 @@ export class LoginComponent implements OnInit {
   //Funcion del modulo ngx-ui-switch que utilizamos para elegir el tipo de login
   manualUpdateEvent(value: boolean) {
     this.switch_user = value;
+    this.Usuario.reset();
   }
 
   gotoRegistro() {
     this.router.navigate(['REG']);
   }
-
-  ///////////////////////////////////////////////////////////////////////////////////
-  // Hace falta montar las funciones para el login de profe y alumno correctamente //
-  ///////////////////////////////////////////////////////////////////////////////////
 
   Comporbar() {
 

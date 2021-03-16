@@ -55,6 +55,8 @@ export class RegistroComponent implements OnInit {
   //Funcion del modulo ngx-ui-switch que utilizamos para elegir el tipo de usuario a elegir
   manualUpdateEvent(value: boolean) {
     this.switch_user = value;
+    this.Alumno.reset();
+    this.Profesor.reset();
   }
 
   gotoLogin() {
