@@ -7,10 +7,13 @@
     background: rgba(0, 0, 0, 0.693);
     border-radius: 5px;
 }
+
 .scroll-height{
   max-height: 85vh;
 }
 
-.cont_Marco{
-
+.posi{
+  margin: auto;
+  width: 70%;
+  margin-bottom: 15px;
 }

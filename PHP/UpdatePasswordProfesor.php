@@ -7,8 +7,6 @@ header("Allow: GET, POST, OPTIONS, PUT, DELETE");
 
 require('BD.php');
 
-
-
   $con = conexion();
 
   $json = file_get_contents("php://input");
@@ -16,7 +14,7 @@ require('BD.php');
   $params = json_decode($json);
 
 
-  $response = mysqli_query($con, "UPDATE profesores SET nombre='$params->nombre',apellido='$params->apellido', email='$params->correo' WHERE nick='$params->nombre_Usuario'");
+  $response = mysqli_query($con, "UPDATE profesores SET password='$params->password' WHERE nick='$params->nombre_Usuario'");
 
 
   header('Content-Type: application/json');

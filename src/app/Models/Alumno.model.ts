@@ -7,8 +7,9 @@ export class Alumno {
     correo?: string;
     nombre?: string;
     apellido?: string;
-    centro?: string;
+    curso?: string;
     img?: string;
+
 
 
 }

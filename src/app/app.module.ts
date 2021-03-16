@@ -16,6 +16,7 @@ import { PerfilComponent } from './Components/perfil/perfil.component';
 import { UiSwitchModule } from 'ngx-ui-switch';
 import { LoginProfComponent } from './Components/login-prof/login-prof.component';
 import { ContraComponent } from './Components/perfil/contra/contra.component';
+import { ActualizarComponent } from './Components/perfil/actualizar/actualizar.component';
 
 
 
@@ -31,7 +32,8 @@ import { ContraComponent } from './Components/perfil/contra/contra.component';
     HeaderComponent,
     PerfilComponent,
     LoginProfComponent,
-    ContraComponent
+    ContraComponent,
+    ActualizarComponent
   ],
   imports: [
     BrowserModule,

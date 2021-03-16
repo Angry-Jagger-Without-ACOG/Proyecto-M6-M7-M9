@@ -1,20 +1,23 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Alumno } from 'src/app/Models/Alumno.model';
 import { Profesor } from 'src/app/Models/Profesor.model';
-import { environment } from 'src/environments/environment';
 import { ProfeToolsService } from '../../servicios/profe-tools.service';
+import { Router } from '@angular/router';
+import { result } from 'lodash';
 import Swal from 'sweetalert2';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-perfil',
   templateUrl: './perfil.component.html',
   styleUrls: ['./perfil.component.css']
 })
+
 export class PerfilComponent implements OnInit {
 
   Profesores: Profesor[] = [];
   Alumnos: Alumno[] = [];
-  ModoCambio : boolean= false;
+  ModoCambio: String = "Perfil";
 
   //Variable para indicar el tipo de usuario
   Tipo: boolean = true;
@@ -27,7 +30,7 @@ export class PerfilComponent implements OnInit {
   password: string;
   email: string;
 
-  usuario: Object = {
+  usuario: any = {
 
     nick: null,
     password: null,
@@ -39,8 +42,7 @@ export class PerfilComponent implements OnInit {
 
   }
 
-
-  constructor(private BD: ProfeToolsService) { }
+  constructor(private BD: ProfeToolsService, public router: Router) { }
 
   ngOnInit(): void {
     this.tipo_Usuario = localStorage.getItem('Tipo');
@@ -54,6 +56,7 @@ export class PerfilComponent implements OnInit {
       this.GetAlumno(this.nombre_Usuario);
 
     }
+
   }
 
   GetProfesor(nombre_Usuario) {
@@ -61,6 +64,7 @@ export class PerfilComponent implements OnInit {
       result => this.usuario = result[0]
 
     );
+
   }
 
   GetAlumno(nombre_Usuario) {
@@ -70,111 +74,10 @@ export class PerfilComponent implements OnInit {
     );
   }
 
-  Cambiar_Contra(op: boolean): void{
+  Cambiar_Opcion(op: String): void {
     this.ModoCambio = op;
   }
 
-  Cambiar_Datos() {
 
-    if (this.Tipo == true) {
-      // Formulario Profesor
-      Swal.mixin({
-        input: 'text',
-        confirmButtonText: 'Next &rarr;',
-        showCancelButton: true,
-        progressSteps: ['1', '2', '3']
-      }).queue([
-        {
-          title: 'Nombre',
-          text: 'Estar seguro de que quieres este nombre?'
-        },
-        {
-          title: 'Apellidos',
-          text: 'Estar seguro de que quieres estos apellidos?'
-        },
-        {
-          title: 'Correo',
-          text: 'Estar seguro de que quieres este correo?'
-        }
-      ]).then((result) => {
-        if (result) {
-          var answers = JSON.stringify(result)
-
-          Swal.fire({
-            title: 'Estas seguro de tu cambios?',
-            html: `Your answers: <pre><code>${answers}</code></pre>`,
-            showDenyButton: true,
-            showCancelButton: true,
-            confirmButtonText: `Save`,
-            denyButtonText: `Don't save`,
-          }).then((result) => {
-            if (result.isConfirmed) {
-
-              Swal.fire('Saved!', '', 'success')
-
-            } else if (result.isDenied) {
-
-              Swal.fire('Changes are not saved', '', 'info')
-
-            }
-          })
-        }
-      })
-
-    } else {
-      // Formulario Alumno
-      Swal.mixin({
-        input: 'text',
-        confirmButtonText: 'Next &rarr;',
-        showCancelButton: true,
-        progressSteps: [this.nombre, this.apellido, this.email]
-      }).queue([
-        {
-          title: 'Nombre',
-          text: 'Estar seguro de que quieres este nombre?'
-        },
-        {
-          title: 'Apellidos',
-          text: 'Estar seguro de que quieres estos apellidos?'
-        },
-        {
-          title: 'Correo',
-          text: 'Estar seguro de que quieres estos correo?'
-        }
-      ]).then((result) => {
-        if (result) {
-          var update = JSON.stringify(result)
-
-          Swal.fire({
-            title: 'Estas seguro de tu cambios?',
-            html: `Your answers: <pre><code>${update}</code></pre>`,
-            showDenyButton: true,
-            showCancelButton: true,
-            confirmButtonText: `Save`,
-            denyButtonText: `Don't save`,
-          }).then((result) => {
-            if (result.isConfirmed) {
-
-              Swal.fire('Saved!', '', 'success')
-              this.UpdateAlumno(update);
-              console.log();
-
-            } else if (result.isDenied) {
-
-              Swal.fire('Changes are not saved', '', 'info')
-
-            }
-          })
-        }
-      })
-
-    }
-  }
-
-  UpdateAlumno(update) {
-    this.BD.CambiosPerfil(update).subscribe(
-
-    )
-  }
 
 }

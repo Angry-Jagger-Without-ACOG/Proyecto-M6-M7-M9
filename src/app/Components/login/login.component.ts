@@ -40,15 +40,13 @@ export class LoginComponent implements OnInit {
   //Funcion del modulo ngx-ui-switch que utilizamos para elegir el tipo de login
   manualUpdateEvent(value: boolean) {
     this.switch_user = value;
+    this.Usuario.reset();
   }
 
   gotoRegistro() {
     this.router.navigate(['REG']);
   }
 
-  ///////////////////////////////////////////////////////////////////////////////////
-  // Hace falta montar las funciones para el login de profe y alumno correctamente //
-  ///////////////////////////////////////////////////////////////////////////////////
   Comporbar() {
 
     //Alumno
@@ -59,13 +57,10 @@ export class LoginComponent implements OnInit {
           environment.vsession = this.user.nick;
           localStorage.setItem("Name", environment.vsession);
           localStorage.setItem("Tipo", "Alumno");
-          this.session = environment.vsession;
           this.BD.setDatos(datos);
-          this.BD.setSession(this.session);
           this.router.navigate(['Perfil']);
-          console.log(datos);
         } else {
-          Swal.fire('Error', '', datos['mensaje']);
+          Swal.fire('Error', '');
         }
       }
     );
@@ -75,19 +70,14 @@ export class LoginComponent implements OnInit {
 
       this.BD.loginProfe(this.user).subscribe(
         datos => {
-          console.log(datos);
           if (datos['response'] == 'OK') {
             environment.vsession = this.user.nick;
             localStorage.setItem("Name", environment.vsession);
             localStorage.setItem("Tipo", "Profesor");
-            this.session = environment.vsession;
             this.BD.setDatos(datos);
-            console.log(datos['alumno']);
-            this.BD.setSession(this.session);
             this.router.navigate(['Perfil']);
           } else {
-            alert(datos['mensaje']);
-
+            Swal.fire('Error', '');
           }
         }
       );
