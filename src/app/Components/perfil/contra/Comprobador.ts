@@ -1,12 +1,12 @@
 import { FormGroup } from '@angular/forms';
 
 // Validador personalizado para comprobar que Contra (Contraseña) y RepContra (Repetir Contraseña) coinciden
-export function Comprobacion(contra: string, rep_contra: string) {
+export function Comprobacion(new_cont: string, rep_contra: string) {
     return (formGroup: FormGroup) => {
-        const control = formGroup.controls[contra];
+        const control = formGroup.controls[new_cont];
         const matchingControl = formGroup.controls[rep_contra];
 
-        if (matchingControl.errors && !matchingControl.errors.mustMatch) {
+        if (matchingControl.errors) {
             return;
         }
 
