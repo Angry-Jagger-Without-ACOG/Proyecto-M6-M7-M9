@@ -35,7 +35,7 @@ export class ContraComponent implements OnInit {
       rep_cont: ['', Validators.required]
     },
     {
-      validator: Comprobacion('cont', 'rep_cont')});
+      validator: Comprobacion('new_cont', 'rep_cont')});
 
   }
 
