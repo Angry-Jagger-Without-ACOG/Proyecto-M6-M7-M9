@@ -35,43 +35,42 @@ export class ProfeToolsService {
     return this.http.get(`${environment.serverUrl}SelectPrueba.php`);
   }
 
-  RegistroAlumno(alumno){
+  RegistroAlumno(alumno) {
     return this.http.post(`${environment.serverUrl}RegistroUsuario.php`, JSON.stringify(alumno));
   }
 
-  GetProfesor(nombre_Usuario){
-    return this.http.post(`${environment.serverUrl}SelectProfesor.php`,JSON.stringify(nombre_Usuario));
+  GetProfesor(nombre_Usuario) {
+    return this.http.post(`${environment.serverUrl}SelectProfesor.php`, JSON.stringify(nombre_Usuario));
   }
 
-  GetAlumno(nombre_Usuario){
-    return this.http.post(`${environment.serverUrl}SelectAlumno.php`,JSON.stringify(nombre_Usuario));
+  GetAlumno(nombre_Usuario) {
+    return this.http.post(`${environment.serverUrl}SelectAlumno.php`, JSON.stringify(nombre_Usuario));
   }
 
-  CambiosPerfilProfe(update){
+  CambiosPerfilProfe(update) {
 
-    return this.http.put(`${environment.serverUrl}UpdateProfesor.php`,JSON.stringify(update));
+    return this.http.put(`${environment.serverUrl}UpdateProfesor.php`, JSON.stringify(update));
   }
 
-  CambiosPerfilAlumno(update){
-    return this.http.put(`${environment.serverUrl}UpdateUsuario.php`,JSON.stringify(update));
+  CambiosPerfilAlumno(update) {
+    return this.http.put(`${environment.serverUrl}UpdateUsuario.php`, JSON.stringify(update));
   }
 
-  cambiarContraseñaAlumno(profesor){
+  cambiarContraseñaAlumno(profesor) {
 
-      return this.http.put(`${environment.serverUrl}UpdatePasswordProfesor.php`,JSON.stringify(profesor));
+    return this.http.put(`${environment.serverUrl}UpdatePasswordProfesor.php`, JSON.stringify(profesor));
 
   }
 
-  cambiarContraseñaProfesor(profesor){
+  cambiarContraseñaProfesor(profesor) {
 
-    return this.http.put(`${environment.serverUrl}UpdatePasswordProfesor.php`,JSON.stringify(profesor));
+    return this.http.put(`${environment.serverUrl}UpdatePasswordProfesor.php`, JSON.stringify(profesor));
 
-}
-
-
+  }
 
 
-   //token prueba
+
+  //token prueba
   setToken(token: String) {
     this.cookies.set("token", "token");
   }
@@ -80,22 +79,21 @@ export class ProfeToolsService {
     return this.cookies.get("token");
   }
 
-  getDatos(): any{
+  getDatos(): any {
     return this.datos;
   }
 
-  setDatos(usuario) : any{
+  setDatos(usuario): any {
     this.datos = usuario;
   }
-  borrarDatos(): any{
+  borrarDatos(): any {
     this.datos = "";
   }
-  setSession(session) : any{
+  setSession(session): any {
     this.vsession = session;
   }
-  getSession(){
+  getSession() {
     return this.vsession;
   }
-
-
 }
+

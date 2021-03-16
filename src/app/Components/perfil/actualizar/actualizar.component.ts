@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProfeToolsService } from 'src/app/servicios/profe-tools.service';
 
@@ -20,7 +20,7 @@ export class ActualizarComponent implements OnInit {
     nombre_Usuario: null
   }
 
-  constructor(private BD: ProfeToolsService,private formBuilder: FormBuilder) {}
+  constructor(private BD: ProfeToolsService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.tipo_Usuario = localStorage.getItem('Tipo');
@@ -65,7 +65,7 @@ export class ActualizarComponent implements OnInit {
     this.UpdateCont();
   }
 
-  UpdateCont(){
+  UpdateCont() {
     this.refresh();
   }
 

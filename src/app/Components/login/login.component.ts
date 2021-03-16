@@ -63,7 +63,7 @@ export class LoginComponent implements OnInit {
           this.BD.setDatos(datos);
           this.router.navigate(['Perfil']);
         } else {
-          Swal.fire('Error', '', datos['mensaje']);
+          Swal.fire('Error', '');
         }
       }
     );
@@ -73,7 +73,6 @@ export class LoginComponent implements OnInit {
 
       this.BD.loginProfe(this.user).subscribe(
         datos => {
-          console.log(datos);
           if (datos['response'] == 'OK') {
             environment.vsession = this.user.nick;
             localStorage.setItem("Name", environment.vsession);
@@ -81,8 +80,7 @@ export class LoginComponent implements OnInit {
             this.BD.setDatos(datos);
             this.router.navigate(['Perfil']);
           } else {
-            alert(datos['mensaje']);
-
+            Swal.fire('Error', '');
           }
         }
       );
