@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 .fondo{
-  background-image: url("assets/img/descarga.jpg");
+  background-image: url("assets/img/background.png");
+  background-repeat: no-repeat;
+  background-size: 150%;
 }
