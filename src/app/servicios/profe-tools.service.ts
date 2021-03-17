@@ -58,7 +58,7 @@ export class ProfeToolsService {
 
   cambiarContraseñaAlumno(profesor) {
 
-    return this.http.put(`${environment.serverUrl}UpdatePasswordProfesor.php`, JSON.stringify(profesor));
+    return this.http.put(`${environment.serverUrl}UpdatePasswordAlumno.php`, JSON.stringify(profesor));
 
   }
 
