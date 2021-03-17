@@ -20,7 +20,7 @@ $con=conexion();
 
 
 
-$resultado = mysqli_query($con,"insert into profesores (iDProf,nick,password,email,nombre,apellido,centro,image) VALUES ('$params->null','$params->nick','$params->password','$params->correo','$params->nombre','$params->apellido','$params->centro','$params->null')");
+$resultado = mysqli_query($con,"INSERT into profesores (nick,password,email,nombre,apellido,image,centro) VALUES ('$params->nick','$params->password','$params->correo','$params->nombre','$params->apellido','$params->null','$params->centro',)");
 
 
  class Result {}

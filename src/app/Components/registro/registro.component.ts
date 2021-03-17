@@ -20,12 +20,15 @@ export class RegistroComponent implements OnInit {
   user = new Profesor();
   alumno = new Alumno();
 
+
   //Variable que indica que registro se va a utilizar: Alumno(true) o Profesor(false)
   switch_user = false;
 
   constructor(private formBuilder: FormBuilder, private BD: ProfeToolsService, public router: Router) { }
 
   ngOnInit(): void {
+
+
 
     this.Alumno = this.formBuilder.group({
       nick_a: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9_]+')]],
@@ -90,10 +93,12 @@ export class RegistroComponent implements OnInit {
       if (result.isConfirmed && this.switch_user == true) {
 
 
+
         this.BD.RegistroAlumno(this.alumno).subscribe(
 
           (respuesta: any) => {
 
+            this.Ayudame();
             Swal.fire('¡Creado!', '', 'success')
           },
           (error: any) => {
@@ -112,7 +117,10 @@ export class RegistroComponent implements OnInit {
 
   }
 
-  RegistroProfesor() {
+  Ayudame() {
+    this.BD.GetAlumno(this.user).subscribe(
+
+    );
 
   }
 

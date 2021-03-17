@@ -47,6 +47,8 @@ export class ProfeToolsService {
     return this.http.post(`${environment.serverUrl}SelectAlumno.php`, JSON.stringify(nombre_Usuario));
   }
 
+
+
   CambiosPerfilProfe(update) {
 
     return this.http.put(`${environment.serverUrl}UpdateProfesor.php`, JSON.stringify(update));
