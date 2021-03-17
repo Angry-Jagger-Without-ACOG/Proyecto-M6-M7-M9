@@ -3,7 +3,8 @@
 
   <!-- Componente del modulo ngx-ui-switch que utilizamos para elegir el tipo de usuario para crear la cuenta-->
   <ui-switch class="float-right mt-1 pr-2 mr-5" [ngModel]="switch_user" (ngModelChange)="manualUpdateEvent($event)" checkedLabel="Alumno"
-  uncheckedLabel="Profesor" size="large" checkedTextColor="white"></ui-switch>
+  checkedLabel="Alumno" uncheckedLabel="Profesor" size="large" defaultBgColor="#07d8e3"
+    color="#FFFFFF"  uncheckedTextColor="white"></ui-switch>
 
   <!-- Formulario Alumno -->
   <div *ngIf="switch_user == true" class="rounded mt-5 mr-5 ml-5">
