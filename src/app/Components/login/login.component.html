@@ -1,7 +1,8 @@
 <div class="container-fluid form">
 
   <ui-switch class="float-right" [ngModel]="switch_user" (ngModelChange)="manualUpdateEvent($event)"
-    checkedLabel="Alumno" uncheckedLabel="Profesor" size="large" checkedTextColor="white"></ui-switch>
+    checkedLabel="Alumno" uncheckedLabel="Profesor" size="large" defaultBgColor="#07d8e3"
+    color="#FFFFFF"  uncheckedTextColor="white"></ui-switch>
 
   <div *ngIf="switch_user == false">
     <form class="altura" [formGroup]="Usuario" (ngSubmit)="Comporbar()" method="POST">
