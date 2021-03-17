@@ -34,11 +34,23 @@
       <!-- Contraseña -->
       <div class="form-group">
         <label class="text-light">Contraseña</label>
-        <input type="password" placeholder="Entra tu contraseña"[(ngModel)]="alumno.password"  formControlName="cont_a" class="form-control"
+        <input type="password" placeholder="Entra tu contraseña" formControlName="cont_a" class="form-control"
           [ngClass]="{'is-invalid': A.cont_a.touched && A.cont_a.errors}">
 
         <div *ngIf="A.cont_a.touched && A.cont_a.errors" class="invalid-feedback">
           <div *ngIf="A.cont_a.errors.required">El campo Contraseña esta vacio!!</div>
+        </div>
+      </div>
+
+      <!-- Contraseña repetida Alumno -->
+      <div class="form-group">
+        <label class="text-light">Repite la Contraseña</label>
+        <input type="password" placeholder="Repite tu contraseña" [(ngModel)]="alumno.password" formControlName="rep_cont_a" class="form-control"
+          [ngClass]="{'is-invalid': A.rep_cont_a.touched && A.rep_cont_a.errors}">
+
+        <div *ngIf="A.rep_cont_a.touched && A.rep_cont_a.errors" class="invalid-feedback">
+          <div *ngIf="A.rep_cont_a.errors.required"> El campo Contraseña  esta vacio!!</div>
+          <div *ngIf= "A.rep_cont_a.errors.Comprobacion"> La contraseña no coincide</div>
         </div>
       </div>
 
@@ -131,11 +143,23 @@
       <!-- Contraseña Professor -->
       <div class="form-group">
         <label class="text-light">Contraseña</label>
-        <input type="password" placeholder="Entra tu contraseña" [(ngModel)]="user.password" formControlName="cont_p" class="form-control"
+        <input type="text" placeholder="Entra tu contraseña" formControlName="cont_p" class="form-control"
           [ngClass]="{'is-invalid': P.cont_p.touched && P.cont_p.errors}">
 
         <div *ngIf="P.cont_p.touched && P.cont_p.errors" class="invalid-feedback">
           <div *ngIf="P.cont_p.errors.required"> El campo Contraseña esta vacio!!</div>
+        </div>
+      </div>
+
+      <!-- Contraseña repetida Professor -->
+      <div class="form-group">
+        <label class="text-light">Repite la Contraseña</label>
+        <input type="password" placeholder="Repite tu contraseña" [(ngModel)]="user.password" formControlName="rep_cont_p" class="form-control"
+          [ngClass]="{'is-invalid': P.rep_cont_p.touched && P.rep_cont_p.errors}">
+
+        <div *ngIf="P.rep_cont_p.touched && P.rep_cont_p.errors" class="invalid-feedback">
+          <div *ngIf="P.rep_cont_p.errors.required"> El campo Contraseña  esta vacio!!</div>
+          <div *ngIf= "P.rep_cont_p.errors.Comprobacion"> La contraseña no coincide</div>
         </div>
       </div>
 

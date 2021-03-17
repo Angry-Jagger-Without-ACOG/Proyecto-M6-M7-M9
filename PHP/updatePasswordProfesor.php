@@ -14,7 +14,7 @@ require('BD.php');
   $params = json_decode($json);
 
 
-  $response = mysqli_query($con, "UPDATE profesores SET password='$params->password' WHERE nick='$params->nombre_Usuario'");
+  $response = mysqli_query($con, "UPDATE profesores SET password='$params->password3' WHERE nick='$params->nombre_Usuario'");
 
 
   header('Content-Type: application/json');

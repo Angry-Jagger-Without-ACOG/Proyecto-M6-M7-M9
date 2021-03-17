@@ -1,5 +1,5 @@
 import { Component, OnInit} from '@angular/core';
-import {Comprobacion} from './Comprobador'
+import {Comprobacion} from './Comprobador';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProfeToolsService } from '../../../servicios/profe-tools.service';
 

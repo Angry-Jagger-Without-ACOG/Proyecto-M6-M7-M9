@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProfeToolsService } from '../../servicios/profe-tools.service';
 import { Profesor } from 'src/app/Models/Profesor.model';
 import { Alumno } from 'src/app/Models/Alumno.model';
+import { Comprobacion } from './Comprobador';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
@@ -22,11 +23,7 @@ export class RegistroComponent implements OnInit {
   //Variable que indica que registro se va a utilizar: Alumno(true) o Profesor(false)
   switch_user = false;
 
-  /////////////////////////////////////////////////////////////////////////////////////
-  // Hace falta que al cambiar de tipo de registro se limpien los campos y los fallos//
-  /////////////////////////////////////////////////////////////////////////////////////
-
-  constructor(private formBuilder: FormBuilder,private BD: ProfeToolsService,public router: Router) { }
+  constructor(private formBuilder: FormBuilder, private BD: ProfeToolsService, public router: Router) { }
 
   ngOnInit(): void {
 
@@ -34,20 +31,26 @@ export class RegistroComponent implements OnInit {
       nick_a: ['', Validators.required],
       correo_a: ['', [Validators.required, Validators.email]],
       cont_a: ['', Validators.required],
+      rep_cont_a: ['', Validators.required],
       nombre_a: ['', Validators.required],
       apell_a: ['', Validators.required],
       curso: ['', Validators.required],
       img: ['', Validators.required]
+    }, {
+      validator: Comprobacion('cont_a', 'rep_cont_a')
     });
 
     this.Profesor = this.formBuilder.group({
       nick_p: ['', Validators.required],
       correo_p: ['', [Validators.required, Validators.email]],
       cont_p: ['', Validators.required],
+      rep_cont_p: ['', Validators.required],
       nombre_p: ['', Validators.required],
       apell_p: ['', Validators.required],
       centro: ['', Validators.required],
       img: ['', Validators.required]
+    }, {
+      validator: Comprobacion('cont_p', 'rep_cont_p')
     });
 
   }
@@ -96,12 +99,10 @@ export class RegistroComponent implements OnInit {
           (error: any) => {
 
             Swal.fire('¡Error!', '', 'error')
-          }
-          );
+          });
 
 
-
-      }else if(result.isConfirmed && this.switch_user == false){
+      } else if (result.isConfirmed && this.switch_user == false) {
         this.BD.RegistrarProfesor(this.user).subscribe();
 
 
@@ -113,6 +114,6 @@ export class RegistroComponent implements OnInit {
 
   RegistroProfesor() {
 
-    }
+  }
 
 }
