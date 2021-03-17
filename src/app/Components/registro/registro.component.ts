@@ -28,7 +28,7 @@ export class RegistroComponent implements OnInit {
   ngOnInit(): void {
 
     this.Alumno = this.formBuilder.group({
-      nick_a: ['', Validators.required],
+      nick_a: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9_]+')]],
       correo_a: ['', [Validators.required, Validators.email]],
       cont_a: ['', Validators.required],
       rep_cont_a: ['', Validators.required],
@@ -41,7 +41,7 @@ export class RegistroComponent implements OnInit {
     });
 
     this.Profesor = this.formBuilder.group({
-      nick_p: ['', Validators.required],
+      nick_p: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9_]+')]],
       correo_p: ['', [Validators.required, Validators.email]],
       cont_p: ['', Validators.required],
       rep_cont_p: ['', Validators.required],

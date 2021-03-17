@@ -16,6 +16,7 @@
 
         <div *ngIf="A.nick_a.touched && A.nick_a.errors" class="invalid-feedback">
           <div *ngIf="A.nick_a.errors.required">El campo Nick esta vacio!!</div>
+          <div *ngIf= "A.nick_a.errors.pattern"> Solo se admiten letras , numeros y barras bajas</div>
         </div>
       </div>
 
@@ -125,6 +126,7 @@
 
         <div *ngIf="P.nick_p.touched && P.nick_p.errors" class="invalid-feedback">
           <div *ngIf="P.nick_p.errors.required"> El campo Nick esta vacio!!</div>
+          <div *ngIf= "P.nick_p.errors.pattern"> Solo se admiten letras , numeros y barras bajas</div>
         </div>
       </div>
 
