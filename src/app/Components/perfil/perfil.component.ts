@@ -45,6 +45,7 @@ export class PerfilComponent implements OnInit {
   constructor(private BD: ProfeToolsService, public router: Router) { }
 
   ngOnInit(): void {
+
     this.tipo_Usuario = localStorage.getItem('Tipo');
     this.nombre_Usuario = localStorage.getItem('Name');
 
@@ -53,7 +54,7 @@ export class PerfilComponent implements OnInit {
       this.GetProfesor(this.nombre_Usuario);
     } else if (this.tipo_Usuario == "Alumno") {
       this.Tipo = false;
-      this.GetAlumno(this.nombre_Usuario);
+       this.GetAlumno(this.nombre_Usuario);
 
     }
 
@@ -63,8 +64,8 @@ export class PerfilComponent implements OnInit {
     this.BD.GetProfesor(nombre_Usuario).subscribe(
       result => this.usuario = result[0]
 
-    );
 
+    );
   }
 
   GetAlumno(nombre_Usuario) {
