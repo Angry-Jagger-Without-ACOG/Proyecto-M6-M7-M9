@@ -89,21 +89,28 @@ export class RegistroComponent implements OnInit {
 
       if (result.isConfirmed && this.switch_user == true) {
 
-
         this.BD.RegistroAlumno(this.alumno).subscribe(
-
-          (respuesta: any) => {
-
-            Swal.fire('¡Creado!', '', 'success')
-          },
-          (error: any) => {
-
-            Swal.fire('¡Error!', '', 'error')
-          });
-
+          datos => {
+            if (datos['response'] == 'OK') {
+              Swal.fire('Creado', '');
+              this.router.navigate(['LOG']);
+            } else {
+              Swal.fire('Usuario ya existe', '');
+            }
+          }
+        );
 
       } else if (result.isConfirmed && this.switch_user == false) {
-        this.BD.RegistrarProfesor(this.user).subscribe();
+        this.BD.RegistrarProfesor(this.user).subscribe(
+          datos => {
+            if (datos['response'] == 'OK') {
+              Swal.fire('Creado', '');
+              this.router.navigate(['LOG']);
+            } else {
+              Swal.fire('Usuario ya existe', '');
+            }
+          }
+        );
 
 
       }

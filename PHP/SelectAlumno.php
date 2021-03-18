@@ -18,6 +18,7 @@ $con=conexion();
 $vec = [];
 
 
+
 $resultado = mysqli_query($con,"SELECT * FROM alumnos WHERE nick='$params'");
 
 

@@ -13,25 +13,28 @@ $json = file_get_contents("php://input"); // Esto es un objeto JSON en formato s
 
 $params = json_decode($json);
 
-
+$con;
 $con=conexion();
 
 
 
-  $resultado = mysqli_query($con,"INSERT into profesores (nick,password,email,nombre,apellido,centro,image) VALUES ('$params->nick','$params->password','$params->correo','$params->nombre','$params->apellido','$params->centro','$params->img')");
 
+
+$resultado = mysqli_query($con,"INSERT into profesores (nick,password,email,nombre,apellido,image,centro) VALUES ('$params->nick','$params->password','$params->correo','$params->nombre','$params->apellido','','$params->centro')");
 
 
  class Result {}
 
    $response = new Result();
 
-   if($resultado->num_rows > 0 ) {
-     $response->response = 'OK';
+  if($resultado) {
+    $response->response = 'OK';
+    $response->mensaje = 'Registro exitoso';
 
- } else {
-     $response->response = 'FAIL';
- }
+} else {
+    $response->response = 'FAIL';
+    $response->mensaje = 'Registro Fallido';
+}
 
      header('Content-Type: application/json');
 

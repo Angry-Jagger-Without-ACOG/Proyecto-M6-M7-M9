@@ -1,7 +1,6 @@
 <?php
 
 
-
 header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
@@ -9,7 +8,7 @@ header("Allow: GET, POST, OPTIONS, PUT, DELETE");
 
 require("BD.php");
 
-$json = file_get_contents("php://input"); // Esto es un objeto JSON en formato string
+$json = file_get_contents("php://input");
 
 $params = json_decode($json);
 
@@ -17,14 +16,14 @@ $con;
 $con=conexion();
 
 
-$resultado = mysqli_query($con,"INSERT into alumnos (nick,password,email,nombre,apellido,image,curso) VALUES ('$params->nick','$params->password','$params->correo','$params->nombre','$params->apellido','$params->img','$params->curso')");
+$resultado = mysqli_query($con,"INSERT into alumnos (nick,password,email,nombre,apellido,image,curso) VALUES ('$params->nick','$params->password','$params->correo','$params->nombre','$params->apellido','','$params->curso')");
 
 
  class Result {}
 
    $response = new Result();
 
-   if($resultado->num_rows > 0 ) {
+   if($resultado) {
      $response->response = 'OK';
      $response->mensaje = 'Registro exitoso';
 
