@@ -7,7 +7,7 @@ header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Conte
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
 header("Allow: GET, POST, OPTIONS, PUT, DELETE");
 
-require("bd.php");
+require("BD.php");
 
 $json = file_get_contents("php://input"); // Esto es un objeto JSON en formato string
 
@@ -17,10 +17,7 @@ $con;
 $con=conexion();
 
 
-
-
-
-$resultado = mysqli_query($con,"insert into profesores (iDProf,nick,password,email,nombre,apellido,centro,image) VALUES ('$params->null','$params->nick','$params->password','$params->correo','$params->nombre','$params->apellido','$params->centro','$params->null')");
+$resultado = mysqli_query($con,"INSERT into profesores (nick,password,email,nombre,apellido,centro,image) VALUES ('$params->nick','$params->password','$params->correo','$params->nombre','$params->apellido','$params->centro','$params->img')");
 
 
  class Result {}

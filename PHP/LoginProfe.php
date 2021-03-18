@@ -5,7 +5,7 @@ header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Conte
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
 header("Allow: GET, POST, OPTIONS, PUT, DELETE");
 
-require("bd.php");
+require("BD.php");
 
 $json = file_get_contents("php://input"); // Esto es un objeto JSON en formato string
 

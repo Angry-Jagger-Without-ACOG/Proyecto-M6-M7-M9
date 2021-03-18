@@ -28,6 +28,7 @@ export class ProfeToolsService {
   }
 
   RegistrarProfesor(profesor) {
+    console.log(profesor);
     return this.http.post(`${environment.serverUrl}RegistroProfesor.php`, JSON.stringify(profesor));
   }
 
@@ -48,7 +49,6 @@ export class ProfeToolsService {
   }
 
   CambiosPerfilProfe(update) {
-
     return this.http.put(`${environment.serverUrl}UpdateProfesor.php`, JSON.stringify(update));
   }
 

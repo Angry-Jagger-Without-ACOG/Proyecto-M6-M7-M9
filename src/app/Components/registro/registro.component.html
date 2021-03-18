@@ -97,7 +97,7 @@
       <!-- Imagen -->
       <div class="form-group custom-file mt-3 mb-3">
         <label class="custom-file-label" for="img">Selecciona una Imagen</label>
-        <input type="file"[(ngModel)]="alumno.img"  class="custom-file-input form-control" formControlName="img"
+        <input type="file" [(ngModel)]="alumno.img"  class="custom-file-input form-control" formControlName="img"
         [ngClass]="{'is-invalid': A.img.touched && A.img.errors}">
 
         <div *ngIf="A.img.touched && A.img.errors" class="invalid-feedback">
@@ -202,7 +202,7 @@
       <!-- Imagen -->
       <div class="form-group custom-file mt-3 mb-3">
         <label class="custom-file-label" for="img">Selecciona una Imagen</label>
-        <input type="file" class="custom-file-input form-control" formControlName="img"
+        <input type="file" [(ngModel)]="user.img"  class="custom-file-input form-control" formControlName="img"
         [ngClass]="{'is-invalid': P.img.touched && P.img.errors}">
 
         <div *ngIf="P.img.touched && P.img.errors" class="invalid-feedback">
