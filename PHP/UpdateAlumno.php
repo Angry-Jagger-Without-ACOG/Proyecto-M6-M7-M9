@@ -5,42 +5,38 @@ header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Conte
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
 header("Allow: GET, POST, OPTIONS, PUT, DELETE");
 
-require("BD.php");
+require('BD.php');
 
 
-$json = file_get_contents("php://input"); // Esto es un objeto JSON en formato string
 
-$params = json_decode($json);
+  $con = conexion();
 
-$con;
-$con=conexion();
+  $json = file_get_contents("php://input");
 
-$passwowrd = $params->password;
+  $params = json_decode($json);
 
-$passoword_codificada = md5($passwowrd);
 
-$resultado = mysqli_query($con, "SELECT nick,password FROM profesores WHERE nick='$params->nick' AND password='$passoword_codificada'");
+  $resultado = mysqli_query($con, "UPDATE alumnos SET nombre='$params->nombre',apellido='$params->apellido', email='$params->correo' WHERE nick='$params->nombre_Usuario'");
 
 
   class Result {}
 
-
   $response = new Result();
 
-
   if($resultado->num_rows > 0) {
-
     $response->response = 'OK';
+    $response->mensaje = 'Registro exitoso';
 
 } else {
-
     $response->response = 'FAIL';
-
+    $response->mensaje = 'Registro Fallido';
 }
 
-  header('Content-Type: application/json');
+    header('Content-Type: application/json');
 
-  echo json_encode($response);
+ echo json_encode($response);
+
+
 
 
 ?>

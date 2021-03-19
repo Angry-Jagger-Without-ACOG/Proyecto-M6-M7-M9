@@ -16,7 +16,7 @@ $con;
 $con=conexion();
 
 
-$resultado = mysqli_query($con,"INSERT into alumnos (nick,password,email,nombre,apellido,image,curso) VALUES ('$params->nick','$params->password','$params->correo','$params->nombre','$params->apellido','','$params->curso')");
+$resultado = mysqli_query($con,"INSERT into alumnos (nick,password,email,nombre,apellido,image,curso) VALUES ('$params->nick','".md5($params->password)."','$params->correo','$params->nombre','$params->apellido','','$params->curso')");
 
 
  class Result {}

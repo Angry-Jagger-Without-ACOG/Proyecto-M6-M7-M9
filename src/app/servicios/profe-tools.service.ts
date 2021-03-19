@@ -20,7 +20,7 @@ export class ProfeToolsService {
 
 
   loginUsuario(login) {
-    return this.http.post(`${environment.serverUrl}LoginUsuario.php`, JSON.stringify(login));
+    return this.http.post(`${environment.serverUrl}LoginAlumno.php`, JSON.stringify(login));
   }
 
   loginProfe(login) {
@@ -37,7 +37,7 @@ export class ProfeToolsService {
   }
 
   RegistroAlumno(alumno) {
-    return this.http.post(`${environment.serverUrl}RegistroUsuario.php`, JSON.stringify(alumno));
+    return this.http.post(`${environment.serverUrl}RegistroAlumno.php`, JSON.stringify(alumno));
   }
 
   GetProfesor(nombre_Usuario) {
@@ -53,7 +53,7 @@ export class ProfeToolsService {
   }
 
   CambiosPerfilAlumno(update) {
-    return this.http.put(`${environment.serverUrl}UpdateUsuario.php`, JSON.stringify(update));
+    return this.http.put(`${environment.serverUrl}UpdateAlumno.php`, JSON.stringify(update));
   }
 
   cambiarContraseñaAlumno(profesor) {

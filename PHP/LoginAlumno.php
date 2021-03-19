@@ -1,6 +1,5 @@
 <?php
 
-session_start();
 
 header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
@@ -17,28 +16,33 @@ $params = json_decode($json);
 $con;
 $con=conexion();
 
+$passwowrd = $params->password;
 
-$resultado = mysqli_query($con, "SELECT * FROM alumnos WHERE nick='$params->nick' AND password='$params->password'");
+$passoword_codificada = md5($passwowrd);
+
+$resultado = mysqli_query($con, "SELECT nick,password FROM alumnos WHERE nick='$params->nick' AND password='$passoword_codificada'");
+
+
 
   class Result {}
 
+
   $response = new Result();
 
+
   if($resultado->num_rows > 0) {
+
     $response->response = 'OK';
 
-    $response -> alumno = json_encode(mysqli_fetch_assoc ($resultado));
-
-
-
 } else {
+
     $response->response = 'FAIL';
+
 }
 
-    header('Content-Type: application/json');
+  header('Content-Type: application/json');
 
     echo json_encode($response);
-
 
 
 ?>
