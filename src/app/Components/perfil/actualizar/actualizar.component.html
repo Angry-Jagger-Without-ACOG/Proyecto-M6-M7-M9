@@ -27,6 +27,7 @@
 
     <div *ngIf="data.correo.touched && data.correo.errors" class="invalid-feedback">
       <div *ngIf="data.correo.errors.required">El campo esta vacio !!</div>
+      <div *ngIf="data.correo.errors.email">Escribe correctamente el Correo</div>
     </div>
   </div>
 

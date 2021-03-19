@@ -30,7 +30,7 @@ export class ActualizarComponent implements OnInit {
     this.usuario = this.formBuilder.group({
       nombre: ['', Validators.required],
       apellido: ['', Validators.required],
-      correo: ['', Validators.required]
+      correo: ['', [Validators.required, Validators.email]]
     });
   }
 
