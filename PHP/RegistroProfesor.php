@@ -1,7 +1,6 @@
 <?php
 
 
-
 header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
@@ -18,7 +17,10 @@ $con=conexion();
 
 
 
-$resultado = mysqli_query($con,"INSERT into profesores (nick,password,email,nombre,apellido,image,centro) VALUES ('$params->nick','".md5($params->password)."','$params->correo','$params->nombre','$params->apellido','','$params->centro')");
+
+
+$resultado = mysqli_query($con,"INSERT into profesores (nick,password,email,nombre,apellido,image,centro) VALUES ('$params->nick','".md5($params->password)."','$params->correo','$params->nombre','$params->apellido','".str_replace( "\\", '/', $params->img )."','$params->centro')");
+
 
 
  class Result {}

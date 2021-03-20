@@ -23,7 +23,7 @@ require('BD.php');
 
   $response = new Result();
 
-  if($resultado->num_rows > 0) {
+  if($resultado) {
     $response->response = 'OK';
     $response->mensaje = 'Registro exitoso';
 

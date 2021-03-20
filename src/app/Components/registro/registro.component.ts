@@ -52,7 +52,6 @@ export class RegistroComponent implements OnInit {
     }, {
       validator: Comprobacion('cont_p', 'rep_cont_p')
     });
-
   }
 
   //Funcion del modulo ngx-ui-switch que utilizamos para elegir el tipo de usuario a elegir
@@ -89,11 +88,12 @@ export class RegistroComponent implements OnInit {
 
       if (result.isConfirmed && this.switch_user == true) {
 
+
         this.BD.RegistroAlumno(this.alumno).subscribe(
           datos => {
             if (datos['response'] == 'OK') {
               Swal.fire('Creado', '');
-              this.router.navigate(['LOG']);
+             // this.router.navigate(['LOG']);
             } else {
               Swal.fire('Usuario ya existe', '');
             }
@@ -101,11 +101,14 @@ export class RegistroComponent implements OnInit {
         );
 
       } else if (result.isConfirmed && this.switch_user == false) {
+
+
         this.BD.RegistrarProfesor(this.user).subscribe(
+
           datos => {
             if (datos['response'] == 'OK') {
               Swal.fire('Creado', '');
-              this.router.navigate(['LOG']);
+              //this.router.navigate(['LOG']);
             } else {
               Swal.fire('Usuario ya existe', '');
             }
@@ -118,6 +121,8 @@ export class RegistroComponent implements OnInit {
     })
 
   }
+
+
 
 
 }

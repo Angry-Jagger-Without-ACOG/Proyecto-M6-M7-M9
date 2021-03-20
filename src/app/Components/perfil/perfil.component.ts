@@ -15,20 +15,12 @@ import { environment } from 'src/environments/environment';
 
 export class PerfilComponent implements OnInit {
 
-  Profesores: Profesor[] = [];
-  Alumnos: Alumno[] = [];
   ModoCambio: String = "Perfil";
 
   //Variable para indicar el tipo de usuario
   Tipo: boolean = true;
-  usuarios = null;
   tipo_Usuario: String;
   nombre_Usuario: String;
-
-  nombre: string;
-  apellido: string;
-  password: string;
-  email: string;
 
   usuario: any = {
 
@@ -38,7 +30,8 @@ export class PerfilComponent implements OnInit {
     nombre: null,
     apellido: null,
     curso: null,
-    centro: null
+    centro: null,
+    image: null
 
   }
 
@@ -63,8 +56,6 @@ export class PerfilComponent implements OnInit {
   GetProfesor(nombre_Usuario) {
     this.BD.GetProfesor(nombre_Usuario).subscribe(
       result => this.usuario = result[0]
-
-
     );
   }
 
@@ -73,6 +64,7 @@ export class PerfilComponent implements OnInit {
       result => this.usuario = result[0]
 
     );
+
   }
 
   Cambiar_Opcion(op: String): void {

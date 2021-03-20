@@ -14,14 +14,7 @@ export class ActualizarComponent implements OnInit {
   tipo_Usuario: String;
   usuario: FormGroup;
 
-  profe: any = {
-    nombre: null,
-    apellido: null,
-    correo: null,
-    nombre_Usuario: null
-  }
-
-  usuarios: any = {
+  datos: any = {
 
     nick: null,
     password: null,
@@ -30,6 +23,15 @@ export class ActualizarComponent implements OnInit {
     apellido: null,
     curso: null,
     centro: null,
+    nombre_Usuario: null
+  }
+
+  usuarios: any = {
+
+    nick: null,
+    nombre: null,
+    apellido: null,
+    correo: null,
     nombre_Usuario: null
   }
 
@@ -80,7 +82,7 @@ export class ActualizarComponent implements OnInit {
     this.BD.CambiosPerfilProfe(this.usuarios).subscribe(
       datos => {
         if (datos['response'] == 'OK') {
-          //this.UpdateCont();
+          this.UpdateCont();
         } else {
           Swal.fire('Error', '');
         }
@@ -92,7 +94,7 @@ export class ActualizarComponent implements OnInit {
     this.BD.CambiosPerfilAlumno(this.usuarios).subscribe(
       datos => {
         if (datos['response'] == 'OK') {
-          //this.UpdateCont();
+          this.UpdateCont();
         } else {
           Swal.fire('Error', '');
         }
@@ -111,7 +113,7 @@ export class ActualizarComponent implements OnInit {
 
   GetProfesor(nombre_Usuario) {
     this.BD.GetProfesor(nombre_Usuario).subscribe(
-      result => this.usuarios = result[0]
+      result => this.datos = result[0]
 
 
     );
@@ -119,7 +121,7 @@ export class ActualizarComponent implements OnInit {
 
   GetAlumno(nombre_Usuario) {
     this.BD.GetAlumno(nombre_Usuario).subscribe(
-      result => this.usuarios = result[0]
+      result => this.datos = result[0]
 
     );
   }
