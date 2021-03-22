@@ -7,6 +7,7 @@
 
     <div *ngIf="data.nombre.dirty && data.nombre.errors" class="invalid-feedback">
       <div *ngIf="data.nombre.errors.required">El campo esta vacio !!</div>
+
     </div>
   </div>
 
@@ -31,7 +32,7 @@
     </div>
   </div>
 
-  <button type="submit" [disabled]="usuario.invalid" class="btn btn-light text-dark m-4">Cambiar Datos</button>
+  <button type="submit" [disabled]="usuarios.nombre === '' || usuarios.apellido === '' || usuarios.correo === ''" class="btn btn-light text-dark m-4">Cambiar Datos</button>
   <button type="button" (click)="UpdateCont()" class="btn btn-light text-dark m-4"> Atras</button>
 
 </form>
