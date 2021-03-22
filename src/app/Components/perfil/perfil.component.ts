@@ -22,16 +22,7 @@ export class PerfilComponent implements OnInit {
   tipo_Usuario: String;
   nombre_Usuario: String;
 
-  usuario: any = {
-
-    nick: null,
-    password: null,
-    correo: null,
-    nombre: null,
-    apellido: null,
-    curso: null,
-    centro: null,
-    image: null
+  usuario: Object = {
 
   }
 

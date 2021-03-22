@@ -15,12 +15,6 @@ $params = json_decode($json);
 $con;
 $con=conexion();
 
-$file = $params->img;
-echo basename( $file ) . "<br>";
-
-$file = str_replace( "\\", '/', $file );
-
-echo basename( $file ) . "<br>";
 
 
 $resultado = mysqli_query($con,"INSERT into alumnos (nick,password,email,nombre,apellido,image,curso) VALUES ('$params->nick','".md5($params->password)."','$params->correo','$params->nombre','$params->apellido','$params->img','$params->curso')");

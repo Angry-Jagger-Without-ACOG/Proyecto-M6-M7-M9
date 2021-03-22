@@ -15,7 +15,6 @@ require('BD.php');
 
   $params = json_decode($json);
 
-
   $resultado = mysqli_query($con, "UPDATE profesores SET nombre='$params->nombre',apellido='$params->apellido', email='$params->correo' WHERE nick='$params->nombre_Usuario'");
 
 

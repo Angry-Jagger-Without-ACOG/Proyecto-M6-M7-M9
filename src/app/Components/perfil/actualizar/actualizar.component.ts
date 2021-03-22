@@ -16,30 +16,21 @@ export class ActualizarComponent implements OnInit {
 
   datos: any = {
 
-    nick: null,
-    password: null,
-    correo: null,
-    nombre: null,
-    apellido: null,
-    curso: null,
-    centro: null,
-    nombre_Usuario: null
   }
 
   usuarios: any = {
 
-    nick: null,
     nombre: null,
     apellido: null,
     correo: null,
     nombre_Usuario: null
+
   }
 
 
   constructor(private BD: ProfeToolsService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-
 
     this.tipo_Usuario = localStorage.getItem('Tipo');
     this.nombre_Usuario = localStorage.getItem('Name');
@@ -79,6 +70,29 @@ export class ActualizarComponent implements OnInit {
   }
 
   cambiarDatosProfe() {
+
+    if (this.usuarios.nombre == null){
+
+      this.usuarios.nombre = this.datos.nick;
+
+    }
+
+    if (this.usuarios.apellido == null){
+
+      this.usuarios.apellido = this.datos.apellido;
+
+    }
+
+    if (this.usuarios.correo == null){
+
+      this.usuarios.correo = this.datos.email;
+
+    }
+
+    console.log(this.usuarios.nombre);
+    console.log(this.usuarios.apellido);
+    console.log(this.usuarios.correo);
+
     this.BD.CambiosPerfilProfe(this.usuarios).subscribe(
       datos => {
         if (datos['response'] == 'OK') {
@@ -91,6 +105,26 @@ export class ActualizarComponent implements OnInit {
   }
 
   cambiarDatosAlumno() {
+
+    if (this.usuarios.nombre == null){
+
+      this.usuarios.nombre = this.datos.nick;
+
+    }
+
+    if (this.usuarios.apellido == null){
+
+      this.usuarios.apellido = this.datos.apellido;
+
+    }
+
+    if (this.usuarios.correo == null){
+
+      this.usuarios.correo = this.datos.email;
+
+    }
+
+    console.log(this.usuarios)
     this.BD.CambiosPerfilAlumno(this.usuarios).subscribe(
       datos => {
         if (datos['response'] == 'OK') {
