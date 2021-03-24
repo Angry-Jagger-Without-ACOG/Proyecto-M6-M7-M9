@@ -20,7 +20,7 @@ export class ProfeToolsService {
 
 
   loginUsuario(login) {
-    return this.http.post(`${environment.serverUrl}LoginUsuario.php`, JSON.stringify(login));
+    return this.http.post(`${environment.serverUrl}LoginAlumno.php`, JSON.stringify(login));
   }
 
   loginProfe(login) {
@@ -28,6 +28,7 @@ export class ProfeToolsService {
   }
 
   RegistrarProfesor(profesor) {
+    console.log(profesor);
     return this.http.post(`${environment.serverUrl}RegistroProfesor.php`, JSON.stringify(profesor));
   }
 
@@ -36,7 +37,7 @@ export class ProfeToolsService {
   }
 
   RegistroAlumno(alumno) {
-    return this.http.post(`${environment.serverUrl}RegistroUsuario.php`, JSON.stringify(alumno));
+    return this.http.post(`${environment.serverUrl}RegistroAlumno.php`, JSON.stringify(alumno));
   }
 
   GetProfesor(nombre_Usuario) {
@@ -50,12 +51,11 @@ export class ProfeToolsService {
 
 
   CambiosPerfilProfe(update) {
-
     return this.http.put(`${environment.serverUrl}UpdateProfesor.php`, JSON.stringify(update));
   }
 
   CambiosPerfilAlumno(update) {
-    return this.http.put(`${environment.serverUrl}UpdateUsuario.php`, JSON.stringify(update));
+    return this.http.put(`${environment.serverUrl}UpdateAlumno.php`, JSON.stringify(update));
   }
 
   cambiarContraseñaAlumno(profesor) {
@@ -65,8 +65,7 @@ export class ProfeToolsService {
   }
 
   cambiarContraseñaProfesor(profesor) {
-
-    return this.http.put(`${environment.serverUrl}UpdatePasswordProfesor.php`, JSON.stringify(profesor));
+    return this.http.put(`${environment.serverUrl}updatePasswordProfesor.php`, JSON.stringify(profesor));
 
   }
 

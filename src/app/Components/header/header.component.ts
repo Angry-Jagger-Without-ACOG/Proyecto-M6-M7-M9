@@ -41,7 +41,6 @@ export class HeaderComponent implements OnInit {
         environment.vsession = "";
         sessionStorage.clear();
         this.BD.borrarDatos;
-        console.log(this.BD.getDatos());
         this.router.navigate(['LOG']);
       }
     })

@@ -16,12 +16,26 @@ require('BD.php');
   $params = json_decode($json);
 
 
-  $response = mysqli_query($con, "UPDATE profesores SET nombre='$params->nombre',apellido='$params->apellido', email='$params->correo' WHERE nick='$params->nombre_Usuario'");
+  $resultado = mysqli_query($con, "UPDATE profesores SET nombre='$params->nombre',apellido='$params->apellido', email='$params->correo' WHERE nick='$params->nombre_Usuario'");
 
 
-  header('Content-Type: application/json');
+  class Result {}
 
-  echo json_encode($response);
+  $response = new Result();
+
+  if($resultado) {
+    $response->response = 'OK';
+    $response->mensaje = 'Registro exitoso';
+
+} else {
+    $response->response = 'FAIL';
+    $response->mensaje = 'Registro Fallido';
+}
+
+    header('Content-Type: application/json');
+
+ echo json_encode($response);
+
 
 
 ?>

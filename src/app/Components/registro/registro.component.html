@@ -3,7 +3,8 @@
 
   <!-- Componente del modulo ngx-ui-switch que utilizamos para elegir el tipo de usuario para crear la cuenta-->
   <ui-switch class="float-right mt-1 pr-2 mr-5" [ngModel]="switch_user" (ngModelChange)="manualUpdateEvent($event)" checkedLabel="Alumno"
-  uncheckedLabel="Profesor" size="large" checkedTextColor="white"></ui-switch>
+  checkedLabel="Alumno" uncheckedLabel="Profesor" size="large" defaultBgColor="#07d8e3"
+    color="#FFFFFF"  uncheckedTextColor="white"></ui-switch>
 
   <!-- Formulario Alumno -->
   <div *ngIf="switch_user == true" class="rounded mt-5 mr-5 ml-5">
@@ -96,7 +97,7 @@
       <!-- Imagen -->
       <div class="form-group custom-file mt-3 mb-3">
         <label class="custom-file-label" for="img">Selecciona una Imagen</label>
-        <input type="file"[(ngModel)]="alumno.img"  class="custom-file-input form-control" formControlName="img"
+        <input type="file" [(ngModel)]="alumno.img"  class="custom-file-input form-control" formControlName="img"
         [ngClass]="{'is-invalid': A.img.touched && A.img.errors}">
 
         <div *ngIf="A.img.touched && A.img.errors" class="invalid-feedback">
@@ -201,7 +202,7 @@
       <!-- Imagen -->
       <div class="form-group custom-file mt-3 mb-3">
         <label class="custom-file-label" for="img">Selecciona una Imagen</label>
-        <input type="file" class="custom-file-input form-control"  formControlName="img"
+        <input type="file" [(ngModel)]="user.img"  class="custom-file-input form-control" formControlName="img"
         [ngClass]="{'is-invalid': P.img.touched && P.img.errors}">
 
         <div *ngIf="P.img.touched && P.img.errors" class="invalid-feedback">
