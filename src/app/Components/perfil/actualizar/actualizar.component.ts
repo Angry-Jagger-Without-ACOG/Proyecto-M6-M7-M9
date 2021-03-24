@@ -39,9 +39,9 @@ export class ActualizarComponent implements OnInit {
 
     this.usuario = this.formBuilder.group({
       nombre: ['', [Validators.required, Validators.minLength(2),
-      Validators.maxLength(20), Validators.pattern('[a-zA-Z]*[^[\s]{0}[a-zA-Z]*]?')]],
+      Validators.maxLength(20), Validators.pattern('[a-zA-Z]*[^[\s]{1}[a-zA-Z]*]?')]],
       apellido: ['', [Validators.required, Validators.minLength(2),
-      Validators.maxLength(20), Validators.pattern('[a-zA-Z]*[^[\s]{0}[a-zA-Z]*]?')]],
+      Validators.maxLength(20), Validators.pattern('[a-zA-Z]*[^[\s]{1}[a-zA-Z]*]?')]],
       correo: ['', [Validators.required, Validators.email]]
     });
   }

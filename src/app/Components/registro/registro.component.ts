@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProfeToolsService } from '../../servicios/profe-tools.service';
-import { Profesor } from 'src/app/Models/Profesor.model';
-import { Alumno } from 'src/app/Models/Alumno.model';
 import { Comprobacion } from './Comprobador';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
@@ -17,8 +15,6 @@ export class RegistroComponent implements OnInit {
 
   Alumno: FormGroup;
   Profesor: FormGroup;
-  user = new Profesor();
-  alumno = new Alumno();
 
   //Variable que indica que registro se va a utilizar: Alumno(true) o Profesor(false)
   switch_user = false;
@@ -88,12 +84,11 @@ export class RegistroComponent implements OnInit {
 
       if (result.isConfirmed && this.switch_user == true) {
 
-
-        this.BD.RegistroAlumno(this.alumno).subscribe(
+        this.BD.RegistroAlumno(this.Alumno.getRawValue()).subscribe(
           datos => {
             if (datos['response'] == 'OK') {
               Swal.fire('Creado', '');
-             // this.router.navigate(['LOG']);
+              this.router.navigate(['LOG']);
             } else {
               Swal.fire('Usuario ya existe', '');
             }
@@ -103,26 +98,22 @@ export class RegistroComponent implements OnInit {
       } else if (result.isConfirmed && this.switch_user == false) {
 
 
-        this.BD.RegistrarProfesor(this.user).subscribe(
+        this.BD.RegistrarProfesor(this.Profesor.getRawValue()).subscribe(
 
           datos => {
             if (datos['response'] == 'OK') {
               Swal.fire('Creado', '');
-              //this.router.navigate(['LOG']);
+              this.router.navigate(['LOG']);
             } else {
               Swal.fire('Usuario ya existe', '');
             }
           }
         );
 
-
       }
 
     })
 
   }
-
-
-
 
 }

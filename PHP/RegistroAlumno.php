@@ -1,6 +1,5 @@
 <?php
 
-
 header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
@@ -15,10 +14,7 @@ $params = json_decode($json);
 $con;
 $con=conexion();
 
-
-
-$resultado = mysqli_query($con,"INSERT into alumnos (nick,password,email,nombre,apellido,image,curso) VALUES ('$params->nick','".md5($params->password)."','$params->correo','$params->nombre','$params->apellido','$params->img','$params->curso')");
-
+$resultado = mysqli_query($con,"INSERT into alumnos (nick,password,email,nombre,apellido,image,curso) VALUES ('$params->nick_a','".md5($params->rep_cont_a)."','$params->correo_a','$params->nombre_a','$params->apell_a','$params->img','$params->curso')");
 
  class Result {}
 
