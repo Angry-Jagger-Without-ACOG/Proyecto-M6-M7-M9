@@ -13,18 +13,13 @@ export class ActualizarComponent implements OnInit {
   nombre_Usuario: String;
   tipo_Usuario: String;
   usuario: FormGroup;
+  datos: any = {}
 
-  datos: any = {
-
-  }
-
-  usuarios: any = {
-
+  Datos_Usuario: any = {
     nombre: null,
     apellido: null,
     correo: null,
     nombre_Usuario: null
-
   }
 
 
@@ -34,15 +29,13 @@ export class ActualizarComponent implements OnInit {
 
     this.tipo_Usuario = localStorage.getItem('Tipo');
     this.nombre_Usuario = localStorage.getItem('Name');
-    this.usuarios.nombre_Usuario = this.nombre_Usuario;
 
     if (this.tipo_Usuario == "Profesor") {
       this.GetProfesor(this.nombre_Usuario);
+    }
 
-    } else if (this.tipo_Usuario == "Alumno") {
-
+    else if (this.tipo_Usuario == "Alumno") {
       this.GetAlumno(this.nombre_Usuario);
-
     }
 
     this.usuario = this.formBuilder.group({
@@ -59,43 +52,26 @@ export class ActualizarComponent implements OnInit {
   }
 
   cambiarDatos() {
-
     if (this.tipo_Usuario == "Profesor") {
-
       this.cambiarDatosProfe();
+    }
 
-    } else if (this.tipo_Usuario == "Alumno") {
-
+    else if (this.tipo_Usuario == "Alumno") {
       this.cambiarDatosAlumno();
-
     }
   }
 
   cambiarDatosProfe() {
 
-    if (this.usuarios.nombre == null) {
+    this.Datos_Usuario.nombre = this.usuario.controls.nombre.value;
 
-      this.usuarios.nombre = this.datos.nick;
+    this.Datos_Usuario.apellido = this.usuario.controls.apellido.value;
 
-    }
+    this.Datos_Usuario.correo = this.usuario.controls.correo.value;
 
-    if (this.usuarios.apellido == null) {
+    this.Datos_Usuario.nombre_Usuario = this.nombre_Usuario;
 
-      this.usuarios.apellido = this.datos.apellido;
-
-    }
-
-    if (this.usuarios.correo == null) {
-
-      this.usuarios.correo = this.datos.email;
-
-    }
-
-    console.log(this.usuarios.nombre);
-    console.log(this.usuarios.apellido);
-    console.log(this.usuarios.correo);
-
-    this.BD.CambiosPerfilProfe(this.usuarios).subscribe(
+    this.BD.CambiosPerfilProfe(this.Datos_Usuario).subscribe(
       datos => {
         if (datos['response'] == 'OK') {
           this.UpdateCont();
@@ -108,26 +84,16 @@ export class ActualizarComponent implements OnInit {
 
   cambiarDatosAlumno() {
 
-    if (this.usuarios.nombre == null) {
+    this.Datos_Usuario.nombre = this.usuario.controls.nombre.value;
 
-      this.usuarios.nombre = this.datos.nick;
+    this.Datos_Usuario.apellido = this.usuario.controls.apellido.value;
 
-    }
+    this.Datos_Usuario.correo = this.usuario.controls.correo.value;
 
-    if (this.usuarios.apellido == null) {
+    this.Datos_Usuario.nombre_Usuario = this.nombre_Usuario;
 
-      this.usuarios.apellido = this.datos.apellido;
-
-    }
-
-    if (this.usuarios.correo == null) {
-
-      this.usuarios.correo = this.datos.email;
-
-    }
-
-    console.log(this.usuarios)
-    this.BD.CambiosPerfilAlumno(this.usuarios).subscribe(
+    console.log(this.Datos_Usuario)
+    this.BD.CambiosPerfilAlumno(this.Datos_Usuario).subscribe(
       datos => {
         if (datos['response'] == 'OK') {
           this.UpdateCont();
@@ -136,7 +102,6 @@ export class ActualizarComponent implements OnInit {
         }
       }
     )
-
   }
 
   UpdateCont() {
@@ -152,13 +117,11 @@ export class ActualizarComponent implements OnInit {
       result => {
         this.datos = result[0];
         // this.usuario.controls.nombre.setValue(this.datos['nombre']);
-
         this.usuario.setValue({
           'nombre': this.datos['nombre'],
           'apellido': this.datos['apellido'],
           'correo': this.datos['email']
         });
-        console.log(this.usuario);
       }
     );
   }
@@ -166,20 +129,14 @@ export class ActualizarComponent implements OnInit {
   GetAlumno(nombre_Usuario) {
     this.BD.GetAlumno(nombre_Usuario).subscribe(
       result => {
-        console.log(result[0]);
         this.datos = result[0];
         // this.usuario.controls.nombre.setValue(this.datos['nombre']);
-
         this.usuario.setValue({
           'nombre': this.datos['nombre'],
           'apellido': this.datos['apellido'],
           'correo': this.datos['email']
         });
-        console.log(this.usuario);
       }
-
     );
   }
-
-
 }
