@@ -146,7 +146,7 @@
       <!-- Contraseña Professor -->
       <div class="form-group">
         <label class="text-light">Contraseña</label>
-        <input type="text" placeholder="Entra tu contraseña" formControlName="cont_p" class="form-control"
+        <input type="password" placeholder="Entra tu contraseña" formControlName="cont_p" class="form-control"
           [ngClass]="{'is-invalid': P.cont_p.touched && P.cont_p.errors}">
 
         <div *ngIf="P.cont_p.touched && P.cont_p.errors" class="invalid-feedback">
