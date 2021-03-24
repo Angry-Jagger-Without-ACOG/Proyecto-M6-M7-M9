@@ -19,18 +19,25 @@ export class LoginComponent implements OnInit {
   //Variable que indica que registro se va a utilizar: Alumno(true) o Profesor(false)
   switch_user = false;
   session: String;
+  tipo_Usuario: String;
 
   constructor(private formBuilder: FormBuilder, private BD: ProfeToolsService, public router: Router) { }
 
   ngOnInit(): void {
 
-    localStorage.clear();
-
+    this.tipo_Usuario = localStorage.getItem('Tipo');
     this.Usuario = this.formBuilder.group({
       nick: ['', Validators.required],
       cont: ['', Validators.required]
     });
 
+    if (this.tipo_Usuario == "Profesor") {
+      this.switch_user = false;
+    } else if (this.tipo_Usuario == "Alumno") {
+      this.switch_user = true;
+
+    }
+    localStorage.clear();
   }
 
   get U() {

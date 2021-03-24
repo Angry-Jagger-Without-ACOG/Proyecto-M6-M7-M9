@@ -87,6 +87,7 @@ export class RegistroComponent implements OnInit {
         this.BD.RegistroAlumno(this.Alumno.getRawValue()).subscribe(
           datos => {
             if (datos['response'] == 'OK') {
+              localStorage.setItem("Tipo", "Alumno");
               Swal.fire('Creado', '');
               this.router.navigate(['LOG']);
             } else {
@@ -102,6 +103,7 @@ export class RegistroComponent implements OnInit {
 
           datos => {
             if (datos['response'] == 'OK') {
+              localStorage.setItem("Tipo", "Profesor");
               Swal.fire('Creado', '');
               this.router.navigate(['LOG']);
             } else {
