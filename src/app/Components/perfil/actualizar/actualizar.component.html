@@ -7,7 +7,9 @@
 
     <div *ngIf="data.nombre.dirty && data.nombre.errors" class="invalid-feedback">
       <div *ngIf="data.nombre.errors.required">El campo esta vacio !!</div>
-
+      <div *ngIf="data.nombre.errors.pattern">No se admiten espacios en blanco</div>
+      <div *ngIf="data.nombre.errors.minlength">Minimo debe contener 2 letras</div>
+      <div *ngIf="data.nombre.errors.maxlength">Maximo debe contener 20 letras</div>
     </div>
   </div>
 
@@ -18,6 +20,9 @@
 
     <div *ngIf="data.apellido.dirty && data.apellido.errors" class="invalid-feedback">
       <div *ngIf="data.apellido.errors.required">El campo esta vacio !!</div>
+      <div *ngIf="data.apellido.errors.pattern">No se admiten espacios en blanco</div>
+      <div *ngIf="data.apellido.errors.minlength">Minimo debe contener 2 letras</div>
+      <div *ngIf="data.apellido.errors.maxlength">Maximo debe contener 20 letras</div>
     </div>
   </div>
 

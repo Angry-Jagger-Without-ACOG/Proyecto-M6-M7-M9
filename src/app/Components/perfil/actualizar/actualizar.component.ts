@@ -22,7 +22,6 @@ export class ActualizarComponent implements OnInit {
     nombre_Usuario: null
   }
 
-
   constructor(private BD: ProfeToolsService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
@@ -40,15 +39,23 @@ export class ActualizarComponent implements OnInit {
 
     this.usuario = this.formBuilder.group({
       nombre: ['', [Validators.required, Validators.minLength(2),
-      Validators.maxLength(20), Validators.pattern('[a-zA-Z]*[^[\s]{1}[a-zA-Z]*]?')]],
+      Validators.maxLength(20), Validators.pattern('[a-zA-Z]*[^[\s]{0}[a-zA-Z]*]?')]],
       apellido: ['', [Validators.required, Validators.minLength(2),
-      Validators.maxLength(20), Validators.pattern('[a-zA-Z]*[^[\s]{1}[a-zA-Z]*]?')]],
+      Validators.maxLength(20), Validators.pattern('[a-zA-Z]*[^[\s]{0}[a-zA-Z]*]?')]],
       correo: ['', [Validators.required, Validators.email]]
     });
   }
 
   get data() {
     return this.usuario.controls;
+  }
+
+  UpdateCont() {
+    this.refresh();
+  }
+
+  refresh(): void {
+    window.location.reload();
   }
 
   cambiarDatos() {
@@ -63,12 +70,11 @@ export class ActualizarComponent implements OnInit {
 
   cambiarDatosProfe() {
 
+    //Paso de datos del FromGroup y el nick del usuario a un Objeto para el update,
+    //ya que el formgroup no cuenta con todos los campos
     this.Datos_Usuario.nombre = this.usuario.controls.nombre.value;
-
     this.Datos_Usuario.apellido = this.usuario.controls.apellido.value;
-
     this.Datos_Usuario.correo = this.usuario.controls.correo.value;
-
     this.Datos_Usuario.nombre_Usuario = this.nombre_Usuario;
 
     this.BD.CambiosPerfilProfe(this.Datos_Usuario).subscribe(
@@ -84,12 +90,11 @@ export class ActualizarComponent implements OnInit {
 
   cambiarDatosAlumno() {
 
+    //Paso de datos del FromGroup y el nick del usuario a un Objeto para el update,
+    //ya que el formgroup no cuenta con todos los campos
     this.Datos_Usuario.nombre = this.usuario.controls.nombre.value;
-
     this.Datos_Usuario.apellido = this.usuario.controls.apellido.value;
-
     this.Datos_Usuario.correo = this.usuario.controls.correo.value;
-
     this.Datos_Usuario.nombre_Usuario = this.nombre_Usuario;
 
     console.log(this.Datos_Usuario)
@@ -102,14 +107,6 @@ export class ActualizarComponent implements OnInit {
         }
       }
     )
-  }
-
-  UpdateCont() {
-    this.refresh();
-  }
-
-  refresh(): void {
-    window.location.reload();
   }
 
   GetProfesor(nombre_Usuario) {
@@ -139,4 +136,5 @@ export class ActualizarComponent implements OnInit {
       }
     );
   }
+
 }
