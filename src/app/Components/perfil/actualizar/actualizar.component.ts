@@ -41,13 +41,15 @@ export class ActualizarComponent implements OnInit {
 
     } else if (this.tipo_Usuario == "Alumno") {
 
-       this.GetAlumno(this.nombre_Usuario);
+      this.GetAlumno(this.nombre_Usuario);
 
     }
 
-   this.usuario = this.formBuilder.group({
-      nombre: ['', [Validators.required], Validators.minLength(2),Validators.maxLength(20),Validators.pattern('[a-zA-Z]*[^[\s]{1}[a-zA-Z]*]?')],
-      apellido: ['', [Validators.required],Validators.minLength(2),Validators.maxLength(20),Validators.pattern('[a-zA-Z]*[^[\s]{1}[a-zA-Z]*]?')],
+    this.usuario = this.formBuilder.group({
+      nombre: ['', [Validators.required, Validators.minLength(2),
+      Validators.maxLength(20), Validators.pattern('[a-zA-Z]*[^[\s]{1}[a-zA-Z]*]?')]],
+      apellido: ['', [Validators.required, Validators.minLength(2),
+      Validators.maxLength(20), Validators.pattern('[a-zA-Z]*[^[\s]{1}[a-zA-Z]*]?')]],
       correo: ['', [Validators.required, Validators.email]]
     });
   }
@@ -71,19 +73,19 @@ export class ActualizarComponent implements OnInit {
 
   cambiarDatosProfe() {
 
-    if (this.usuarios.nombre == null){
+    if (this.usuarios.nombre == null) {
 
       this.usuarios.nombre = this.datos.nick;
 
     }
 
-    if (this.usuarios.apellido == null){
+    if (this.usuarios.apellido == null) {
 
       this.usuarios.apellido = this.datos.apellido;
 
     }
 
-    if (this.usuarios.correo == null){
+    if (this.usuarios.correo == null) {
 
       this.usuarios.correo = this.datos.email;
 
@@ -106,19 +108,19 @@ export class ActualizarComponent implements OnInit {
 
   cambiarDatosAlumno() {
 
-    if (this.usuarios.nombre == null){
+    if (this.usuarios.nombre == null) {
 
       this.usuarios.nombre = this.datos.nick;
 
     }
 
-    if (this.usuarios.apellido == null){
+    if (this.usuarios.apellido == null) {
 
       this.usuarios.apellido = this.datos.apellido;
 
     }
 
-    if (this.usuarios.correo == null){
+    if (this.usuarios.correo == null) {
 
       this.usuarios.correo = this.datos.email;
 
@@ -147,15 +149,34 @@ export class ActualizarComponent implements OnInit {
 
   GetProfesor(nombre_Usuario) {
     this.BD.GetProfesor(nombre_Usuario).subscribe(
-      result => this.datos = result[0]
+      result => {
+        this.datos = result[0];
+        // this.usuario.controls.nombre.setValue(this.datos['nombre']);
 
-
+        this.usuario.setValue({
+          'nombre': this.datos['nombre'],
+          'apellido': this.datos['apellido'],
+          'correo': this.datos['email']
+        });
+        console.log(this.usuario);
+      }
     );
   }
 
   GetAlumno(nombre_Usuario) {
     this.BD.GetAlumno(nombre_Usuario).subscribe(
-      result => this.datos = result[0]
+      result => {
+        console.log(result[0]);
+        this.datos = result[0];
+        // this.usuario.controls.nombre.setValue(this.datos['nombre']);
+
+        this.usuario.setValue({
+          'nombre': this.datos['nombre'],
+          'apellido': this.datos['apellido'],
+          'correo': this.datos['email']
+        });
+        console.log(this.usuario);
+      }
 
     );
   }

@@ -2,7 +2,7 @@
 
   <div class="form-group p-4">
     <h3 class="text-light">Entra tu nombre</h3>
-    <input type="text" class="mt-3" placeholder="Entra tu nombre" value="{{datos.nombre}}" formControlName="nombre" [(ngModel)]="usuarios.nombre" name="nombre"
+    <input type="text" class="mt-3" placeholder="Entra tu nombre" formControlName="nombre"
     [ngClass]="{'is-invalid': data.nombre.dirty && data.nombre.errors}">
 
     <div *ngIf="data.nombre.dirty && data.nombre.errors" class="invalid-feedback">
@@ -13,7 +13,7 @@
 
   <div class="form-group p-4">
     <h3 class="text-light">Entra tu apellido</h3>
-    <input type="text" class="mt-3" placeholder="Entra tu apellido" value="{{datos.apellido}}" formControlName="apellido" [(ngModel)]="usuarios.apellido" name="apellido"
+    <input type="text" class="mt-3" placeholder="Entra tu apellido" formControlName="apellido"
     [ngClass]="{'is-invalid': data.apellido.dirty && data.apellido.errors}">
 
     <div *ngIf="data.apellido.dirty && data.apellido.errors" class="invalid-feedback">
@@ -23,7 +23,7 @@
 
   <div class="form-group p-4">
     <h3 class="text-light">Entra tu correo</h3>
-    <input type="email" class="mt-3" value="{{datos.email}}" formControlName="correo" [(ngModel)]="usuarios.correo" name="correo"
+    <input type="email" class="mt-3" formControlName="correo"
     [ngClass]="{'is-invalid': data.correo.dirty && data.correo.errors}">
 
     <div *ngIf="data.correo.dirty && data.correo.errors" class="invalid-feedback">
@@ -32,7 +32,7 @@
     </div>
   </div>
 
-  <button type="submit" [disabled]="" class="btn btn-light text-dark m-4">Cambiar Datos</button>
+  <button type="submit" [disabled]="usuario.invalid" class="btn btn-light text-dark m-4">Cambiar Datos</button>
   <button type="button" (click)="UpdateCont()" class="btn btn-light text-dark m-4"> Atras</button>
 
 </form>
