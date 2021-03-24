@@ -16,7 +16,7 @@ require('BD.php');
   $params = json_decode($json);
 
 
-  $resultado = mysqli_query($con, "UPDATE profesores SET nombre='$params->nombre',apellido='$params->apellido', email='$params->correo' WHERE nick='$params->nombre_Usuario'");
+  $resultado = mysqli_query($con, "UPDATE alumnos SET nombre='$params->nombre',apellido='$params->apellido', email='$params->correo' WHERE nick='$params->nombre_Usuario'");
 
 
   class Result {}
@@ -35,6 +35,7 @@ require('BD.php');
     header('Content-Type: application/json');
 
  echo json_encode($response);
+
 
 
 

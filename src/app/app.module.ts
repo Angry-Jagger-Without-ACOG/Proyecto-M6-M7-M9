@@ -14,6 +14,10 @@ import { ModificarRankingComponent } from './Components/ranking/modificar-rankin
 import { HeaderComponent } from './Components/header/header.component';
 import { PerfilComponent } from './Components/perfil/perfil.component';
 import { UiSwitchModule } from 'ngx-ui-switch';
+import { LoginProfComponent } from './Components/login-prof/login-prof.component';
+import { ContraComponent } from './Components/perfil/contra/contra.component';
+import { ActualizarComponent } from './Components/perfil/actualizar/actualizar.component';
+
 
 
 @NgModule({
@@ -26,7 +30,10 @@ import { UiSwitchModule } from 'ngx-ui-switch';
     RankingSoloComponent,
     ModificarRankingComponent,
     HeaderComponent,
-    PerfilComponent
+    PerfilComponent,
+    LoginProfComponent,
+    ContraComponent,
+    ActualizarComponent
   ],
   imports: [
     BrowserModule,

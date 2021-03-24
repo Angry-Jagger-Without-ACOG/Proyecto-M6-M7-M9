@@ -2,14 +2,14 @@
   <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
 
     <a class="navbar-brand">
-      <img src="assets/img/fondo.png" alt="logo" style="width:40px;">
+      <img src="assets/img/default_img.png" alt="logo" style="width:40px;">
     </a>
       <ul class="navbar-nav mr-auto">
           <li class="nav-item">
               <a class="nav-link">Rankings</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" >Perfil</a>
+              <a class="nav-link" [routerLink]="['/Perfil']" routerLinkActive="active">Perfil</a>
           </li>
       </ul>
   </div>
@@ -22,7 +22,7 @@
   <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
       <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-              <a class="nav-link active" href="#">Log out</a>
+              <a class="nav-link active btn btn-link" (click)="logout()">Log out {{firstName}}</a>
           </li>
       </ul>
   </div>

@@ -1,13 +1,15 @@
 export class Alumno {
 
-  constructor(
-    public Nick: string,
-    public Correo : string,
-    public Contraseña : string,
-    public Nombre: string,
-    public Apellido: string,
-    public Curso : string,
-    public Img : string
-  ){}
+
+    nick?: string;
+    password?: string;
+    password2?: string;
+    correo?: string;
+    nombre?: string;
+    apellido?: string;
+    curso?: string;
+    img?: string;
+
+
 
 }
