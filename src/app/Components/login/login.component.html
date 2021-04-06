@@ -12,7 +12,7 @@
       <div class="form-group mt-2">
 
         <p class="text-light">Nick</p>
-        <input type="text" placeholder="Entra tu Nick de profesor" formControlName="nick" [(ngModel)]="user.nick"
+        <input type="text" placeholder="Entra tu Nick de profesor" formControlName="nick"
           class="form-control" [ngClass]="{'is-invalid': U.nick.touched && U.nick.errors}">
 
         <div *ngIf="U.nick.touched && U.nick.errors" class="invalid-feedback">
@@ -23,7 +23,7 @@
 
       <div class="form-group mt-5">
         <p class="text-light">Contraseña</p>
-        <input type="password" placeholder="Entra tu Contraseña de profesor" formControlName="cont" [(ngModel)]="user.password"
+        <input type="password" placeholder="Entra tu Contraseña de profesor" formControlName="cont"
           class="form-control" [ngClass]="{'is-invalid':U.cont.touched && U.cont.errors}">
 
         <div *ngIf="U.cont.touched && U.cont.errors" class="invalid-feedback">
@@ -45,7 +45,7 @@
       <div class="form-group mt-2">
 
         <p class="text-light">Nick</p>
-        <input type="text" placeholder="Entra tu Nick de alumno" formControlName="nick" [(ngModel)]="user.nick"
+        <input type="text" placeholder="Entra tu Nick de alumno" formControlName="nick"
           class="form-control" [ngClass]="{'is-invalid': U.nick.touched && U.nick.errors}">
 
         <div *ngIf="U.nick.touched && U.nick.errors" class="invalid-feedback">
@@ -57,7 +57,7 @@
       <div class="form-group mt-5">
 
         <p class="text-light">Contraseña</p>
-        <input type="password" placeholder="Entra tu Contraseña de alumno" formControlName="cont" [(ngModel)]="user.password"
+        <input type="password" placeholder="Entra tu Contraseña de alumno" formControlName="cont"
           class="form-control" [ngClass]="{'is-invalid':U.cont.touched && U.cont.errors}">
 
         <div *ngIf="U.cont.touched && U.cont.errors" class="invalid-feedback">
