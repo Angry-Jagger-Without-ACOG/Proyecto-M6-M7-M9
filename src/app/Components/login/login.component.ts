@@ -58,6 +58,8 @@ export class LoginComponent implements OnInit {
 
     //Alumno
     if (this.switch_user == true) {
+    this.user.nick = this.U.nick.value;
+    this.user.password = this.U.cont.value;
     this.BD.loginUsuario(this.user).subscribe(
       datos => {
         if (datos['response'] == 'OK') {
@@ -74,7 +76,8 @@ export class LoginComponent implements OnInit {
 
     //Professor
     }else if(this.switch_user == false){
-
+      this.user.nick = this.U.nick.value;
+      this.user.password = this.U.cont.value;
       this.BD.loginProfe(this.user).subscribe(
         datos => {
           if (datos['response'] == 'OK') {

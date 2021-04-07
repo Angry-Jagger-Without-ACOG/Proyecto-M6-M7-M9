@@ -8,7 +8,6 @@ import { CrearRankingComponent } from './Components/ranking/crear-ranking/crear-
 import { RankingGrupoComponent } from './Components/ranking/ranking-grupo/ranking-grupo.component';
 import { RankingSoloComponent } from './Components/ranking/ranking-solo/ranking-solo.component';
 import { ModificarRankingComponent } from './Components/ranking/modificar-ranking/modificar-ranking.component';
-import { LoginProfComponent } from './Components/login-prof/login-prof.component';
 
 const routes: Routes = [
 { path: '', pathMatch: 'full', redirectTo: 'RC'},
@@ -19,8 +18,7 @@ const routes: Routes = [
 { path: 'RGC', component: RankingGrupoComponent},
 { path: 'RSC', component: RankingSoloComponent},
 { path: 'MRC', component: ModificarRankingComponent},
-{ path: 'Perfil', component: PerfilComponent},
-{ path: 'LogProf', component: LoginProfComponent}];
+{ path: 'Perfil', component: PerfilComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

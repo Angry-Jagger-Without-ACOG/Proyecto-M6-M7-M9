@@ -14,9 +14,10 @@ import { ModificarRankingComponent } from './Components/ranking/modificar-rankin
 import { HeaderComponent } from './Components/header/header.component';
 import { PerfilComponent } from './Components/perfil/perfil.component';
 import { UiSwitchModule } from 'ngx-ui-switch';
-import { LoginProfComponent } from './Components/login-prof/login-prof.component';
 import { ContraComponent } from './Components/perfil/contra/contra.component';
 import { ActualizarComponent } from './Components/perfil/actualizar/actualizar.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ShowHidePasswordModule } from 'ngx-show-hide-password';
 
 
 
@@ -31,7 +32,6 @@ import { ActualizarComponent } from './Components/perfil/actualizar/actualizar.c
     ModificarRankingComponent,
     HeaderComponent,
     PerfilComponent,
-    LoginProfComponent,
     ContraComponent,
     ActualizarComponent
   ],
@@ -41,7 +41,9 @@ import { ActualizarComponent } from './Components/perfil/actualizar/actualizar.c
     FormsModule,
     ReactiveFormsModule,
     UiSwitchModule,
-    HttpClientModule
+    HttpClientModule,
+    FontAwesomeModule,
+    ShowHidePasswordModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,8 +1,8 @@
 <div class="container-fluid form">
 
   <ui-switch class="float-right" [ngModel]="switch_user" (ngModelChange)="manualUpdateEvent($event)"
-    checkedLabel="Alumno" uncheckedLabel="Profesor" size="large" defaultBgColor="#07d8e3"
-    color="#FFFFFF"  uncheckedTextColor="white"></ui-switch>
+    checkedLabel="Alumno" uncheckedLabel="Profesor" size="large" defaultBgColor="#07d8e3" color="#FFFFFF"
+    uncheckedTextColor="white"></ui-switch>
 
   <div *ngIf="switch_user == false">
     <form class="altura" [formGroup]="Usuario" (ngSubmit)="Comporbar()" method="POST">
@@ -12,8 +12,8 @@
       <div class="form-group mt-2">
 
         <p class="text-light">Nick</p>
-        <input type="text" placeholder="Entra tu Nick de profesor" formControlName="nick" [(ngModel)]="user.nick"
-          class="form-control" [ngClass]="{'is-invalid': U.nick.touched && U.nick.errors}">
+        <input type="text" placeholder="Entra tu Nick de profesor" formControlName="nick" class="form-control"
+          [ngClass]="{'is-invalid': U.nick.touched && U.nick.errors}">
 
         <div *ngIf="U.nick.touched && U.nick.errors" class="invalid-feedback">
           <div *ngIf="U.nick.errors.required">El campo Nick esta vacio!!</div>
@@ -22,12 +22,27 @@
       </div>
 
       <div class="form-group mt-5">
-        <p class="text-light">Contraseña</p>
-        <input type="password" placeholder="Entra tu Contraseña de profesor" formControlName="cont" [(ngModel)]="user.password"
-          class="form-control" [ngClass]="{'is-invalid':U.cont.touched && U.cont.errors}">
 
-        <div *ngIf="U.cont.touched && U.cont.errors" class="invalid-feedback">
-          <div *ngIf="U.cont.errors.required">El campo Contraseña esta vacio!!</div>
+        <p class="text-light">Contraseña</p>
+
+        <div class="input-group">
+
+          <input class="form-control" type="password" id="cont_p" formControlName="cont"
+            placeholder="Entra tu Contraseña de profesor" [ngClass]="{'is-invalid':U.cont.touched && U.cont.errors}"
+            showHideInput>
+
+          <div class="input-group-append ngx-show-hide-password">
+
+            <button class="btn btn-outline-light" type="button" showHideTrigger="cont_p">
+              <i class="fa" [showHideStatus]="{show: 'fa-eye', hide: 'fa-eye-slash', id: 'cont_p'}"></i>
+            </button>
+
+          </div>
+
+          <div *ngIf="U.cont.touched && U.cont.errors" class="invalid-feedback">
+            <div *ngIf="U.cont.errors.required">El campo Contraseña esta vacio!!</div>
+          </div>
+
         </div>
 
       </div>
@@ -45,8 +60,8 @@
       <div class="form-group mt-2">
 
         <p class="text-light">Nick</p>
-        <input type="text" placeholder="Entra tu Nick de alumno" formControlName="nick" [(ngModel)]="user.nick"
-          class="form-control" [ngClass]="{'is-invalid': U.nick.touched && U.nick.errors}">
+        <input class="form-control" type="text" placeholder="Entra tu Nick de alumno" formControlName="nick"
+          [ngClass]="{'is-invalid': U.nick.touched && U.nick.errors}">
 
         <div *ngIf="U.nick.touched && U.nick.errors" class="invalid-feedback">
           <div *ngIf="U.nick.errors.required">El campo Nick esta vacio!!</div>
@@ -57,11 +72,24 @@
       <div class="form-group mt-5">
 
         <p class="text-light">Contraseña</p>
-        <input type="password" placeholder="Entra tu Contraseña de alumno" formControlName="cont" [(ngModel)]="user.password"
-          class="form-control" [ngClass]="{'is-invalid':U.cont.touched && U.cont.errors}">
 
-        <div *ngIf="U.cont.touched && U.cont.errors" class="invalid-feedback">
-          <div *ngIf="U.cont.errors.required">El campo Contraseña esta vacio!!</div>
+        <div class="input-group">
+          <input class="form-control" type="password" formControlName="cont" id="cont_a"
+            placeholder="Entra tu Contraseña de alumno" [ngClass]="{'is-invalid':U.cont.touched && U.cont.errors}"
+            showHideInput>
+
+          <div class="input-group-append ngx-show-hide-password">
+
+            <button class="btn btn-outline-light" type="button" showHideTrigger="cont_a">
+              <i class="fa" [showHideStatus]="{show: 'fa-eye', hide: 'fa-eye-slash', id: 'cont_a'}"></i>
+            </button>
+
+          </div>
+
+          <div *ngIf="U.cont.touched && U.cont.errors" class="invalid-feedback">
+            <div *ngIf="U.cont.errors.required">El campo Contraseña esta vacio!!</div>
+          </div>
+
         </div>
 
       </div>
