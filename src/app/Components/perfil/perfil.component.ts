@@ -1,11 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Alumno } from 'src/app/Models/Alumno.model';
-import { Profesor } from 'src/app/Models/Profesor.model';
 import { ProfeToolsService } from '../../servicios/profe-tools.service';
 import { Router } from '@angular/router';
-import { result } from 'lodash';
-import Swal from 'sweetalert2';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-perfil',
