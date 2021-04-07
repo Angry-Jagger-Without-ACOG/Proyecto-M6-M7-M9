@@ -16,6 +16,8 @@ import { PerfilComponent } from './Components/perfil/perfil.component';
 import { UiSwitchModule } from 'ngx-ui-switch';
 import { ContraComponent } from './Components/perfil/contra/contra.component';
 import { ActualizarComponent } from './Components/perfil/actualizar/actualizar.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ShowHidePasswordModule } from 'ngx-show-hide-password';
 
 
 
@@ -39,7 +41,9 @@ import { ActualizarComponent } from './Components/perfil/actualizar/actualizar.c
     FormsModule,
     ReactiveFormsModule,
     UiSwitchModule,
-    HttpClientModule
+    HttpClientModule,
+    FontAwesomeModule,
+    ShowHidePasswordModule
   ],
   providers: [],
   bootstrap: [AppComponent]
