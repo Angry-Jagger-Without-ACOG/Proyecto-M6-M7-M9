@@ -1,38 +1,84 @@
-
 <form class="form p-5 mt-4 align-content-center" [formGroup]="usuario" (ngSubmit)="cambiarDatos()">
 
   <div class="form-group p-4">
+
     <h3 class="text-light">Entra tu contraseña Actual</h3>
-    <input type="password" class="mt-3" placeholder="Entra tu contraseña Actual" formControlName="cont"
-    [ngClass]="{'is-invalid': data.cont.touched && data.cont.errors}">
 
-    <div *ngIf="data.cont.touched && data.cont.errors" class="invalid-feedback">
-      <div *ngIf="data.cont.errors.required">El campo esta vacio !!</div>
+    <div class="input-group">
+
+      <input class="form-control mt-3" type="password" id="cont_act" formControlName="cont"
+        placeholder="Entra tu contraseña Actual" [ngClass]="{'is-invalid': data.cont.touched && data.cont.errors}"
+        showHideInput>
+
+      <div class="input-group-append ngx-show-hide-password">
+
+        <button class="btn btn-outline-light mt-3" type="button" showHideTrigger="cont_act">
+          <i class="fa" [showHideStatus]="{show: 'fa-eye', hide: 'fa-eye-slash', id: 'cont_act'}"></i>
+        </button>
+
+      </div>
+
+      <div *ngIf="data.cont.touched && data.cont.errors" class="invalid-feedback">
+        <div *ngIf="data.cont.errors.required">El campo esta vacio !!</div>
+      </div>
+
     </div>
   </div>
 
   <div class="form-group p-4">
+
     <h3 class="text-light">Entra tu Nueva contraseña</h3>
-    <input type="password" class="mt-3" placeholder="Entra tu Nueva contraseña" formControlName="new_cont"
-    [ngClass]="{'is-invalid': data.new_cont.touched && data.new_cont.errors}">
 
-    <div *ngIf="data.new_cont.touched && data.new_cont.errors" class="invalid-feedback">
-      <div *ngIf="data.new_cont.errors.required">El campo esta vacio !!</div>
+    <div class="input-group">
+
+      <input class="form-control mt-3" type="password" id="cont_new" formControlName="new_cont"
+        placeholder="Entra tu Nueva contraseña"
+        [ngClass]="{'is-invalid': data.new_cont.touched && data.new_cont.errors}" showHideInput>
+
+      <div class="input-group-append ngx-show-hide-password">
+
+        <button class="btn btn-outline-light mt-3" type="button" showHideTrigger="cont_new">
+          <i class="fa" [showHideStatus]="{show: 'fa-eye', hide: 'fa-eye-slash', id: 'cont_new'}"></i>
+        </button>
+
+      </div>
+
+      <div *ngIf="data.new_cont.touched && data.new_cont.errors" class="invalid-feedback">
+        <div *ngIf="data.new_cont.errors.required">El campo esta vacio !!</div>
+      </div>
+
     </div>
+
   </div>
 
   <div class="form-group p-4">
-    <h3 class="text-light">Repite tu nueva contraseña</h3>
-    <input type="password" class="mt-3" placeholder="Repite tu contraseña" formControlName="rep_cont"
-    [ngClass]="{'is-invalid': data.rep_cont.touched && data.rep_cont.errors}">
 
-    <div *ngIf="data.rep_cont.touched && data.rep_cont.errors" class="invalid-feedback">
-      <div *ngIf="data.rep_cont.errors.required">El campo esta vacio !!</div>
-      <div *ngIf= "data.rep_cont.errors.Comprobacion"> La contraseña no coincide</div>
+    <h3 class="text-light">Repite tu nueva contraseña</h3>
+
+    <div class="input-group">
+
+      <input class="form-control mt-3" type="password" id="rep_new_cont" formControlName="rep_cont"
+        placeholder="Repite tu contraseña" [ngClass]="{'is-invalid': data.rep_cont.touched && data.rep_cont.errors}"
+        showHideInput>
+
+      <div class="input-group-append ngx-show-hide-password">
+
+        <button class="btn btn-outline-light mt-3" type="button" showHideTrigger="rep_new_cont">
+          <i class="fa" [showHideStatus]="{show: 'fa-eye', hide: 'fa-eye-slash', id: 'rep_new_cont'}"></i>
+        </button>
+
+      </div>
+
+      <div *ngIf="data.rep_cont.touched && data.rep_cont.errors" class="invalid-feedback">
+        <div *ngIf="data.rep_cont.errors.required">El campo esta vacio !!</div>
+        <div *ngIf="data.rep_cont.errors.Comprobacion"> La contraseña no coincide</div>
+      </div>
+
     </div>
+
   </div>
 
-  <button type="submit" [disabled]="usuario.invalid" class="btn btn-light text-dark m-4">Cambiar contraseña</button>
-  <button type="button" (click)="UpdateCont()" class="btn btn-light text-dark m-4"> Atras</button>
+  <button class="btn btn-light text-dark m-4" type="submit" [disabled]="usuario.invalid">Cambiar contraseña</button>
+  <button class="btn btn-light text-dark m-4" type="button" (click)="UpdateCont()"> Atras</button>
 
 </form>

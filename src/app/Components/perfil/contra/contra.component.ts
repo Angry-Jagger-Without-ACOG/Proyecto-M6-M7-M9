@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { Comprobacion } from './Comprobador';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProfeToolsService } from '../../../servicios/profe-tools.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Comprobacion } from './Comprobador';
 
 @Component({
   selector: 'app-contra',
   templateUrl: './contra.component.html',
   styleUrls: ['./contra.component.css']
 })
+
 export class ContraComponent implements OnInit {
 
   nombre_Usuario: String;
