@@ -10,7 +10,7 @@ import { RankingSoloComponent } from './Components/ranking/ranking-solo/ranking-
 import { ModificarRankingComponent } from './Components/ranking/modificar-ranking/modificar-ranking.component';
 
 const routes: Routes = [
-{ path: '', pathMatch: 'full', redirectTo: 'RC'},
+{ path: '', pathMatch: 'full', redirectTo: 'LOG'},
 { path: 'LOG', component: LoginComponent},
 { path: 'REG', component: RegistroComponent},
 { path: 'RC', component: RankingComponent},

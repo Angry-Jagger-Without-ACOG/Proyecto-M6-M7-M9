@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { RegistroComponent } from './Components/registro/registro.component';
 import { LoginComponent } from './Components/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
+import { RankingComponent } from './Components/ranking/ranking.component';
 import { CrearRankingComponent } from './Components/ranking/crear-ranking/crear-ranking.component';
 import { RankingGrupoComponent } from './Components/ranking/ranking-grupo/ranking-grupo.component';
 import { RankingSoloComponent } from './Components/ranking/ranking-solo/ranking-solo.component';
@@ -26,6 +27,7 @@ import { ShowHidePasswordModule } from 'ngx-show-hide-password';
     AppComponent,
     RegistroComponent,
     LoginComponent,
+    RankingComponent,
     CrearRankingComponent,
     RankingGrupoComponent,
     RankingSoloComponent,

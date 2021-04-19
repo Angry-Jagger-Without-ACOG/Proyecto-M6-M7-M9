@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfeToolsService } from '../../servicios/profe-tools.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-perfil',
@@ -12,16 +11,14 @@ export class PerfilComponent implements OnInit {
 
   ModoCambio: String = "Perfil";
 
-  //Variable para indicar el tipo de usuario
+  //Variables para indicar el tipo de usuario
   Tipo: boolean = true;
   tipo_Usuario: String;
   nombre_Usuario: String;
 
-  usuario: Object = {
+  usuario: Object = {}
 
-  }
-
-  constructor(private BD: ProfeToolsService, public router: Router) { }
+  constructor(private BD: ProfeToolsService) { }
 
   ngOnInit(): void {
 
@@ -34,7 +31,6 @@ export class PerfilComponent implements OnInit {
     } else if (this.tipo_Usuario == "Alumno") {
       this.Tipo = false;
        this.GetAlumno(this.nombre_Usuario);
-
     }
 
   }
@@ -56,7 +52,5 @@ export class PerfilComponent implements OnInit {
   Cambiar_Opcion(op: String): void {
     this.ModoCambio = op;
   }
-
-
 
 }

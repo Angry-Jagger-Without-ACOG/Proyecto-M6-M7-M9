@@ -1,36 +1,52 @@
-<div class="container-fluid">
+<app-header></app-header>
 
-  <button type="button" class="btn btn-dark mt-2">Crear nuevo ranking</button>
+<div class="container-fluid mt-5">
 
-  <table class="table table-dark pre-scrollable mt-2 table-striped">
+  <!-- Profesor -->
+  <div *ngIf="Tipo == true">
 
-    <thead>
-      <tr>
-        <th>Nombre</th>
-        <th>Estilo</th>
-        <th>Equipos</th>
-        <th>Borrar</th>
-        <th>Modificar</th>
-      </tr>
-    </thead>
+    <div *ngIf="ModoCambio==='RC'">
+      <button type="button" (click)='Cambiar_Opcion("Crear")' class="btn btn-dark mt-5">Crear nuevo ranking</button>
 
-    <!-- <ui-switch [disabled]="true"></ui-switch> -->
-    <tbody>
-        <tr *ngFor="let Equipo of Lista_Equipos;index as i">
-          <div class="Index">
-            {{i+1}}
-          </div>
-          <td>{{Equipo.Nombre}}</td>
-          <td>{{Equipo.Estilo}}</td>
-          <td>
-            <div *ngIf="Equipo.Equipos == true"><p>A</p></div>
-            <div *ngIf="Equipo.Equipos == false"><p>B</p></div>
-          </td>
-          <td><button type="button" class="btn btn-light">Modificar</button></td>
-          <td><button type="button" class="btn btn-light">Eliminar</button></td>
-        </tr>
-    </tbody>
+      <div *ngIf="Lista_Equipos.length !=0">
+        <table class="table table-dark pre-scrollable mt-3 table-striped rounded text-center">
 
-  </table>
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th></th>
+              <th>Modificar</th>
+              <th>Borrar</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let Equipo of Lista_Equipos;index as i">
+              <div class="Index"> {{i+1}}</div>
+              <td>{{Equipo.Nombre}}</td>
+              <td><button type="button" (click)='Cambiar_Opcion("Ver")' class="btn btn-light">Ver Datos</button></td>
+              <td><button type="button" (click)='Cambiar_Opcion("Modificar")' class="btn btn-light">Modificar</button>
+              </td>
+              <td><button type="button" (click)='BorrarRanking(i)' class="btn btn-light">Borrar</button></td>
+            </tr>
+          </tbody>
+
+        </table>
+      </div>
+
+      <div class="info" *ngIf="Lista_Equipos.length === 0">
+        <h1>Aun no has creado ningun ranking</h1>
+      </div>
+    </div>
+
+    <div *ngIf="ModoCambio==='Crear'"></div>
+    <div *ngIf="ModoCambio==='Modificar'"></div>
+
+  </div>
+
+  <!-- Alumno -->
+  <div *ngIf="Tipo == false">
+    <h1>Este componente no esta habilitado para alumnos!!</h1>
+  </div>
 
 </div>

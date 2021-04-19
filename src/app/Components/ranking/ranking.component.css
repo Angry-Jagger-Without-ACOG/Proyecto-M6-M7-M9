@@ -1,3 +1,10 @@
 .Index{
   display: none;
 }
+
+.info{
+  margin-top: 15%;
+  margin-left: 25%;
+  width: 50%;
+  text-align: center;
+}
