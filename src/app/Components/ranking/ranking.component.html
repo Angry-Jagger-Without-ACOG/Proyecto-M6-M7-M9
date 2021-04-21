@@ -8,12 +8,13 @@
     <div *ngIf="ModoCambio==='RC'">
       <button type="button" (click)='Cambiar_Opcion("Crear")' class="btn btn-dark mt-5">Crear nuevo ranking</button>
 
-      <div *ngIf="Lista_Equipos.length !=0">
+      <div *ngIf="Rankings.length !=0">
         <table class="table table-dark pre-scrollable mt-3 table-striped rounded text-center">
 
           <thead>
             <tr>
-              <th>Nombre</th>
+              <th>Ranking</th>
+              <th>Codigo</th>
               <th></th>
               <th>Modificar</th>
               <th>Borrar</th>
@@ -21,9 +22,10 @@
           </thead>
 
           <tbody>
-            <tr *ngFor="let Equipo of Lista_Equipos;index as i">
+            <tr *ngFor="let Equipo of Rankings;index as i">
               <div class="Index"> {{i+1}}</div>
-              <td>{{Equipo.Nombre}}</td>
+              <td>{{Equipo.nombre}}</td>
+              <td>{{Equipo.codigo}}</td>
               <td><button type="button" (click)='Cambiar_Opcion("Ver")' class="btn btn-light">Ver Datos</button></td>
               <td><button type="button" (click)='Cambiar_Opcion("Modificar")' class="btn btn-light">Modificar</button>
               </td>
@@ -34,7 +36,7 @@
         </table>
       </div>
 
-      <div class="info" *ngIf="Lista_Equipos.length === 0">
+      <div class="info" *ngIf="Rankings.length === 0">
         <h1>Aun no has creado ningun ranking</h1>
       </div>
     </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Equipo } from '../../Models/Equipo.model';
+import { Ranking } from '../../Models/Ranking.model';
+import { Tarea } from '../../Models/Tarea.model';
 import { ProfeToolsService } from '../../servicios/profe-tools.service';
 
 @Component({
@@ -19,7 +20,7 @@ export class RankingComponent implements OnInit {
   usuario: Object = {}
 
   //Variable Ejemplo
-  Lista_Equipos : Equipo[]= [];
+  Rankings : Ranking[]= [];
 
   constructor(private BD: ProfeToolsService) { }
 
@@ -37,9 +38,8 @@ export class RankingComponent implements OnInit {
     }
 
     //Ejemplos
-    this.Lista_Equipos.push(new Equipo('R_Prueba1','Clasico',true));
-    this.Lista_Equipos.push(new Equipo('R_Prueba2','Clasico',false));
-    this.Lista_Equipos.push(new Equipo('R_Prueba3','Clasico',true));
+    this.Rankings.push(new Ranking());
+    this.Rankings.push(new Ranking());
   }
 
   GetProfesor(nombre_Usuario) {
