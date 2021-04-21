@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Ranking } from '../../Models/Ranking.model';
-import { Tarea } from '../../Models/Tarea.model';
 import { ProfeToolsService } from '../../servicios/profe-tools.service';
 import Swal from 'sweetalert2';
 
@@ -39,8 +38,8 @@ export class RankingComponent implements OnInit {
     }
 
     //Ejemplos
-    // this.Rankings.push(new Ranking());
-    // this.Rankings.push(new Ranking());
+     this.Rankings.push(new Ranking());
+     this.Rankings.push(new Ranking());
   }
 
   GetProfesor(nombre_Usuario) {

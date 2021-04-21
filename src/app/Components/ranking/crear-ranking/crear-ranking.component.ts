@@ -23,7 +23,8 @@ export class CrearRankingComponent implements OnInit {
   ngOnInit(): void {
 
     this.NewRank = this.formBuilder.group({
-      nombre: ['', Validators.required]
+      nombre_rank: ['', Validators.required],
+      nombre_tarea: ['', Validators.required]
     });
 
     this.tipo_Usuario = localStorage.getItem('Tipo');
@@ -57,7 +58,7 @@ export class CrearRankingComponent implements OnInit {
   Crear() {
     Swal.fire({
       title: 'Estas seguro?',
-      text: "No podras cambiar el nombre!",
+      text: "No podras cambiar los nombres!",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -72,11 +73,7 @@ export class CrearRankingComponent implements OnInit {
         //                       el ranking antes de la alerta confimando                        //
         ///////////////////////////////////////////////////////////////////////////////////////////
 
-        Swal.fire(
-          'Creado!',
-          'Your file has been deleted.',
-          'success'
-        )
+        Swal.fire('Creado sin problemas')
 
       }
 

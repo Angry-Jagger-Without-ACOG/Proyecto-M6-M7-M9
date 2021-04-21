@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ProfeToolsService } from '../../../servicios/profe-tools.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-modificar-ranking',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModificarRankingComponent implements OnInit {
 
-  constructor() { }
+  constructor(private BD: ProfeToolsService) { }
 
   ngOnInit(): void {
   }

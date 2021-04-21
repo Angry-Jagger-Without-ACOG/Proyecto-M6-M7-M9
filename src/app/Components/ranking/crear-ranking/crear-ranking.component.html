@@ -3,11 +3,21 @@
 
   <div class="form-group">
     <p class="text-light">Nombre para el nuevo Ranking</p>
-    <input type="text" formControlName="nombre" class="form-control"
-      [ngClass]="{'is-invalid': R.nombre.touched && R.nombre.errors}" >
+    <input type="text" formControlName="nombre_rank" class="form-control"
+      [ngClass]="{'is-invalid': R.nombre_rank.touched && R.nombre_rank.errors}" >
 
-    <div *ngIf="R.nombre.touched && R.nombre.errors" class="invalid-feedback">
-      <div *ngIf="R.nombre.errors.required">El campo Nick esta vacio!!</div>
+    <div *ngIf="R.nombre_rank.touched && R.nombre_rank.errors" class="invalid-feedback">
+      <div *ngIf="R.nombre_rank.errors.required">El ranking no tiene nombre!</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <p class="text-light">Nombre para la 1ª Tarea</p>
+    <input type="text" formControlName="nombre_tarea" class="form-control"
+      [ngClass]="{'is-invalid': R.nombre_tarea.touched && R.nombre_tarea.errors}" >
+
+    <div *ngIf="R.nombre_tarea.touched && R.nombre_tarea.errors" class="invalid-feedback">
+      <div *ngIf="R.nombre_tarea.errors.required">La primera tarea no tiene nombre!</div>
     </div>
   </div>
 
