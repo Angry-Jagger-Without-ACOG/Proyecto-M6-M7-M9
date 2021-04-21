@@ -3,6 +3,7 @@ import { Ranking } from '../../Models/Ranking.model';
 import { Tarea } from '../../Models/Tarea.model';
 import { ProfeToolsService } from '../../servicios/profe-tools.service';
 
+
 @Component({
   selector: 'app-ranking',
   templateUrl: './ranking.component.html',
@@ -20,7 +21,7 @@ export class RankingComponent implements OnInit {
   usuario: Object = {}
 
   //Variable Ejemplo
-  Rankings : Ranking[]= [];
+  Rankings: Ranking[] = [];
 
   constructor(private BD: ProfeToolsService) { }
 
@@ -34,7 +35,7 @@ export class RankingComponent implements OnInit {
       this.GetProfesor(this.nombre_Usuario);
     } else if (this.tipo_Usuario == "Alumno") {
       this.Tipo = false;
-       this.GetAlumno(this.nombre_Usuario);
+      this.GetAlumno(this.nombre_Usuario);
     }
 
     //Ejemplos
@@ -54,11 +55,11 @@ export class RankingComponent implements OnInit {
     );
   }
 
-  Cambiar_Opcion(op: String): void{
+  Cambiar_Opcion(op: String): void {
     this.ModoCambio = op;
   }
 
-  BorrarRanking(i:number){
+  BorrarRanking(i: number) {
 
   }
 }

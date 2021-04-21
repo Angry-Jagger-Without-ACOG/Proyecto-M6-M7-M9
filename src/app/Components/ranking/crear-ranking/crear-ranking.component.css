@@ -1,0 +1,7 @@
+.color{
+  background-color: rgba(0, 0, 0, 0.693);
+  border-radius: 4px;
+  box-shadow: 0 4px 10px 4px rgba(0, 0, 0, 0.3);
+  margin-top: 20%;
+  padding: 4%;
+}
