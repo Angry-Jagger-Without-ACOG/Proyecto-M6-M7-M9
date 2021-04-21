@@ -36,15 +36,19 @@
         </table>
       </div>
 
-      <div class="info" *ngIf="Rankings.length === 0">
-        <h1>Aun no has creado ningun ranking</h1>
+      <div *ngIf="Rankings.length === 0">
+        <h1 class="info">Aun no has creado ningun ranking</h1>
+        <img class="inf_img mx-auto d-block mt-2" src="assets\img\rank.png">
       </div>
     </div>
 
     <div *ngIf="ModoCambio==='Crear'">
       <app-crear-ranking></app-crear-ranking>
     </div>
-    <div *ngIf="ModoCambio==='Modificar'"></div>
+
+    <div *ngIf="ModoCambio==='Modificar'">
+      <app-modificar-ranking></app-modificar-ranking>
+    </div>
 
   </div>
 

@@ -63,14 +63,14 @@ export class CrearRankingComponent implements OnInit {
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
       confirmButtonText: 'Crear',
-      cancelButtonText:'Cancelar'
+      cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.isConfirmed) {
 
-      ///////////////////////////////////////////////////////////////////////////////////////////
-      // Comprobar que no exista el nombre del ranking y comprobar que realmente se ha creado  //
-      //                       el ranking antes de la alerta confimando                        //
-      ///////////////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // Comprobar que no exista el nombre del ranking y comprobar que realmente se ha creado  //
+        //                       el ranking antes de la alerta confimando                        //
+        ///////////////////////////////////////////////////////////////////////////////////////////
 
         Swal.fire(
           'Creado!',

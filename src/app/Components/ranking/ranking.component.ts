@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Ranking } from '../../Models/Ranking.model';
 import { Tarea } from '../../Models/Tarea.model';
 import { ProfeToolsService } from '../../servicios/profe-tools.service';
-
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-ranking',
@@ -39,8 +39,8 @@ export class RankingComponent implements OnInit {
     }
 
     //Ejemplos
-    this.Rankings.push(new Ranking());
-    this.Rankings.push(new Ranking());
+    // this.Rankings.push(new Ranking());
+    // this.Rankings.push(new Ranking());
   }
 
   GetProfesor(nombre_Usuario) {
@@ -59,7 +59,30 @@ export class RankingComponent implements OnInit {
     this.ModoCambio = op;
   }
 
-  BorrarRanking(i: number) {
 
+
+  BorrarRanking(i: number) {
+    Swal.fire({
+      title: 'Estas seguro de borrar este ranking?',
+      text: "No podras recuperar este Ranking!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Borrar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+
+      //////////////////////////////////////////////////////////
+      // Funcion encargada de borrar los rankings selecionados//
+      //////////////////////////////////////////////////////////
+
+        Swal.fire(
+          'Borrado sin problemas'
+        )
+      }
+    })
   }
+
 }
