@@ -1,0 +1,15 @@
+.info{
+  margin-top: 15%;
+  margin-left: 25%;
+  width: 50%;
+  text-align: center;
+}
+
+.inf_img{
+  max-width: 220px;
+  max-height: 220px;
+}
+
+.Index{
+  display: none;
+}
