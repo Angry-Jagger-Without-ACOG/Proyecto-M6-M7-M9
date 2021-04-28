@@ -84,7 +84,17 @@ export class CrearRankingComponent implements OnInit {
         this.BD.crearRanking(this.ranking).subscribe(
           datos => {
             if (datos['response'] == 'OK') {
-              Swal.fire('Creado sin problemas')
+
+              Swal.fire({
+
+                icon: 'success',
+                title: 'Your work has been saved',
+                showConfirmButton: false,
+                timer: 1500
+
+              })
+              this.crearTablaTareas();
+
             } else {
               Swal.fire('Creado sin problemas', 'error' )
 
@@ -97,6 +107,15 @@ export class CrearRankingComponent implements OnInit {
 
   }
 
+  crearTablaTareas()
+  {
+    this.BD.crearTablaTarea(this.ranking).subscribe(
+      this.refresh
+    )
+  }
+
+
+
   generaNss() {
     let result = '';
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -107,6 +126,8 @@ export class CrearRankingComponent implements OnInit {
 
     return result;
 }
+
+
 
 
 
