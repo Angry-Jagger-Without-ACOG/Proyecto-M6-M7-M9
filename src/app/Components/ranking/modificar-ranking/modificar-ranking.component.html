@@ -1,14 +1,44 @@
-<div class="btn-group float-right mt-5">
-  <button type="button" class="btn btn-dark">Añadir Tarea</button>
-  <div class="btn-group">
-    <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown">
-      Selecionar Tarea
-    </button>
-    <div class="dropdown-menu"><!-- Añadir ngfor para que salgan todas las tareas -->
-      <a class="dropdown-item">Tablet</a>
-      <a class="dropdown-item">Smartphone</a>
+  <!--<div *ngIf="">
+ Comprobar que hay registros en la Tabla Tarea que coincidan(si hay registros) </div>-->
+  <div class="btn-group float-right mt-5 mb-4">
+
+    <button type="button" class="btn btn-dark">Añadir Tarea</button>
+
+    <div class="btn-group">
+
+      <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown">
+        Selecionar Tarea
+      </button>
+
+      <div class="dropdown-menu">
+        <!-- Añadir ngfor para que salgan todas las tareas -->
+        <a class="dropdown-item">Tablet</a>
+        <a class="dropdown-item">Smartphone</a>
+      </div>
     </div>
+
   </div>
+
+  <div class="table-responsive">
+    <table class="table table-bordered table-dark table-striped rounded text-center">
+      <thead>
+        <tr *ngFor="let Usuario of Tarea">
+          <th>Nombre</th>
+          <th>Puntuacion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{Usuario.Nombre}}</td>
+          <td>{{Usuario.Puntuacion}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+<div *ngIf="">
+  <!-- Comprobar que hay registros en la Tabla Tarea que coincidan(no hay registros) -->
+  <h1 class="info">Aun no hay alumnos</h1>
+  <img class="inf_img mx-auto d-block mt-2" src="assets\img\rank.png">
 </div>
-
-

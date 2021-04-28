@@ -29,7 +29,7 @@
               <td><button type="button" (click)='Cambiar_Opcion("Ver")' class="btn btn-light">Ver Datos</button></td>
               <td><button type="button" (click)='Cambiar_Opcion("Modificar")' class="btn btn-light">Modificar</button>
               </td>
-              <td><button type="button" (click)='BorrarRanking(i)' class="btn btn-light">Borrar</button></td>
+              <td><button type="button" (click)='BorrarRanking(ggsdfsfds)' class="btn btn-light">Borrar</button></td>
             </tr>
           </tbody>
 
@@ -47,7 +47,7 @@
     </div>
 
     <div *ngIf="ModoCambio==='Modificar'">
-      <app-modificar-ranking [codigo_ranking]="codigo"></app-modificar-ranking>
+      <app-modificar-ranking></app-modificar-ranking>
     </div>
 
   </div>

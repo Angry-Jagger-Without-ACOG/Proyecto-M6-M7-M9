@@ -57,10 +57,9 @@ export class RankingComponent implements OnInit {
 
   Cambiar_Opcion(op: String): void {
     this.ModoCambio = op;
-
   }
 
-  BorrarRanking(i: number) {
+  BorrarRanking(codigo: String) {
     Swal.fire({
       title: 'Estas seguro de borrar este ranking?',
       text: "No podras recuperar este Ranking!",

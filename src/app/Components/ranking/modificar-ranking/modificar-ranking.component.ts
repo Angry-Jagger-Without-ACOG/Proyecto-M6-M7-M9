@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter  } from '@angular/core';
 import { ProfeToolsService } from '../../../servicios/profe-tools.service';
 import { Tarea } from '../../../Models/Tarea.model';
 import Swal from 'sweetalert2';
@@ -10,11 +10,15 @@ import Swal from 'sweetalert2';
 })
 export class ModificarRankingComponent implements OnInit {
 
+  @Input() codigo_ranking:String;
+
   //Variables para indicar el tipo de usuario
   Tipo: boolean = true;
   tipo_Usuario: String;
   nombre_Usuario: String;
   usuario: Object = {}
+
+
 
   constructor(private BD: ProfeToolsService) { }
 
@@ -29,6 +33,7 @@ export class ModificarRankingComponent implements OnInit {
   }
 
   GetProfesor(nombre_Usuario) {
+    console.log(this.codigo_ranking);
     this.BD.GetProfesor(nombre_Usuario).subscribe(
       result => this.usuario = result[0]
     );
