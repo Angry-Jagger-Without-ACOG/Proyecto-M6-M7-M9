@@ -18,6 +18,17 @@ export class CrearRankingComponent implements OnInit {
   nombre_Usuario: String;
   usuario: Object = {}
 
+  numeroRandom: String;
+
+  ranking: any = {
+
+    numeroRandom: String,
+    nombre_Usuario: String,
+    nombre_Ranking: String
+
+  }
+
+
   constructor(private formBuilder: FormBuilder, private BD: ProfeToolsService) { }
 
   ngOnInit(): void {
@@ -29,11 +40,6 @@ export class CrearRankingComponent implements OnInit {
     this.tipo_Usuario = localStorage.getItem('Tipo');
     this.nombre_Usuario = localStorage.getItem('Name');
 
-    if (this.tipo_Usuario == "Profesor") {
-      this.Tipo = true;
-      this.GetProfesor(this.nombre_Usuario);
-    }
-
   }
 
   UpdateCont() {
@@ -44,11 +50,6 @@ export class CrearRankingComponent implements OnInit {
     window.location.reload();
   }
 
-  GetProfesor(nombre_Usuario) {
-    this.BD.GetProfesor(nombre_Usuario).subscribe(
-      result => this.usuario = result[0]
-    );
-  }
 
   get R() {
     return this.NewRank.controls;
@@ -66,6 +67,18 @@ export class CrearRankingComponent implements OnInit {
       cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.isConfirmed) {
+        this.numeroRandom = this.generaNss();
+
+        this.ranking.nombre_Usuario = this.nombre_Usuario;
+        this.ranking.numeroRandom = this.numeroRandom;
+        this.ranking.nombre_Ranking = this.NewRank.getRawValue();
+
+
+        this.BD.crearRanking(this.ranking).subscribe(
+
+        )
+
+
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         // Comprobar que no exista el nombre del ranking y comprobar que realmente se ha creado  //
@@ -79,5 +92,18 @@ export class CrearRankingComponent implements OnInit {
     })
 
   }
+
+  generaNss() {
+    let result = '';
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    const charactersLength = characters.length;
+    for (let i = 0; i < 20 ; i++) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+
+    return result;
+}
+
+
 
 }
