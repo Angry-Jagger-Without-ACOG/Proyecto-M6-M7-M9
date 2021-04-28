@@ -23,8 +23,7 @@ export class CrearRankingComponent implements OnInit {
   ngOnInit(): void {
 
     this.NewRank = this.formBuilder.group({
-      nombre_rank: ['', Validators.required],
-      nombre_tarea: ['', Validators.required]
+      nombre_rank: ['', Validators.required]
     });
 
     this.tipo_Usuario = localStorage.getItem('Tipo');

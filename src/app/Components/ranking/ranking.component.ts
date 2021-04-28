@@ -18,6 +18,7 @@ export class RankingComponent implements OnInit {
   tipo_Usuario: String;
   nombre_Usuario: String;
   usuario: Object = {}
+  codigo:String;
 
   //Variable Ejemplo
   Rankings: Ranking[] = [];
@@ -56,9 +57,8 @@ export class RankingComponent implements OnInit {
 
   Cambiar_Opcion(op: String): void {
     this.ModoCambio = op;
+
   }
-
-
 
   BorrarRanking(i: number) {
     Swal.fire({

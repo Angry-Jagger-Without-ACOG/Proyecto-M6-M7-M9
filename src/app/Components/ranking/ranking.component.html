@@ -16,16 +16,16 @@
               <th>Ranking</th>
               <th>Codigo</th>
               <th></th>
-              <th>Modificar</th>
-              <th>Borrar</th>
+              <th></th>
+              <th></th>
             </tr>
           </thead>
 
           <tbody>
-            <tr *ngFor="let Equipo of Rankings;index as i">
+            <tr *ngFor="let Rank of Rankings;index as i">
               <div class="Index"> {{i+1}}</div>
-              <td>{{Equipo.nombre}}</td>
-              <td>{{Equipo.codigo}}</td>
+              <td>{{Rank.nombre}}</td>
+              <td>{{Rank.codigo}}</td>
               <td><button type="button" (click)='Cambiar_Opcion("Ver")' class="btn btn-light">Ver Datos</button></td>
               <td><button type="button" (click)='Cambiar_Opcion("Modificar")' class="btn btn-light">Modificar</button>
               </td>
@@ -47,7 +47,7 @@
     </div>
 
     <div *ngIf="ModoCambio==='Modificar'">
-      <app-modificar-ranking></app-modificar-ranking>
+      <app-modificar-ranking [codigo_ranking]="codigo"></app-modificar-ranking>
     </div>
 
   </div>
