@@ -17,14 +17,16 @@ export class CrearRankingComponent implements OnInit {
   tipo_Usuario: String;
   nombre_Usuario: String;
   usuario: Object = {}
+  nombre_Rank: String;
 
-  numeroRandom: String;
+
+  codigoRanking: String;
 
   ranking: any = {
 
-    numeroRandom: String,
+    codigoRanking: String,
     nombre_Usuario: String,
-    nombre_Ranking: String
+    nombre_ranking: String
 
   }
 
@@ -67,17 +69,11 @@ export class CrearRankingComponent implements OnInit {
       cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.numeroRandom = this.generaNss();
+        this.codigoRanking = this.generaNss();
 
         this.ranking.nombre_Usuario = this.nombre_Usuario;
-        this.ranking.numeroRandom = this.numeroRandom;
-        this.ranking.nombre_Ranking = this.NewRank.getRawValue();
-
-
-        this.BD.crearRanking(this.ranking).subscribe(
-
-        )
-
+        this.ranking.codigoRanking = this.codigoRanking;
+        this.ranking.nombre_ranking = this.R.nombre_rank.value
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////
@@ -85,8 +81,16 @@ export class CrearRankingComponent implements OnInit {
         //                       el ranking antes de la alerta confimando                        //
         ///////////////////////////////////////////////////////////////////////////////////////////
 
-        Swal.fire('Creado sin problemas')
+        this.BD.crearRanking(this.ranking).subscribe(
+          datos => {
+            if (datos['response'] == 'OK') {
+              Swal.fire('Creado sin problemas')
+            } else {
+              Swal.fire('Creado sin problemas', 'error' )
 
+            }
+          }
+        );
       }
 
     })

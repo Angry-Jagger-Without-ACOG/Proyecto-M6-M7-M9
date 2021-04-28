@@ -11,12 +11,10 @@ $json = file_get_contents("php://input");
 
 $params = json_decode($json);
 
-echo json_encode($params);
-
 $con;
 $con=conexion();
 
-$resultado = mysqli_query($con,"INSERT into ranking VALUES ('$params->nombre')");
+$resultado = mysqli_query($con,"INSERT into rankings (nombre,nombre_Profe,codigo) VALUES ('$params->nombre_ranking','$params->nombre_Usuario','$params->codigoRanking')");
 
  class Result {}
 
@@ -24,20 +22,14 @@ $resultado = mysqli_query($con,"INSERT into ranking VALUES ('$params->nombre')")
 
    if($resultado) {
      $response->response = 'OK';
-     $response->mensaje = 'Registro exitoso';
 
  } else {
      $response->response = 'FAIL';
-     $response->mensaje = 'Registro Fallido';
  }
 
      header('Content-Type: application/json');
 
   echo json_encode($response);
-
-
-?>
-
 
 
 ?>
