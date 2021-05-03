@@ -16,6 +16,7 @@ export class ProfeToolsService {
   cookies: any;
   datos: Object;
   vsession: String;
+  CrearRanking: boolean;
 
   constructor(private http: HttpClient) { }
 
@@ -81,6 +82,14 @@ export class ProfeToolsService {
     return this.http.put(`${environment.serverUrl}CrearTablaTareas.php`, JSON.stringify(ranking))
   }
 
+  selectRankings(nombre_Usuario){
+    return this.http.post(`${environment.serverUrl}SelectRanking.php`,JSON.stringify(nombre_Usuario));
+  }
+
+  getTotalRankings(nombre_Usuario){
+    return this.http.post(`${environment.serverUrl}CountRankings.php`,JSON.stringify(nombre_Usuario))
+  }
+
 
   //token prueba
   setToken(token: String) {
@@ -107,5 +116,7 @@ export class ProfeToolsService {
   getSession() {
     return this.vsession;
   }
+
+
 }
 

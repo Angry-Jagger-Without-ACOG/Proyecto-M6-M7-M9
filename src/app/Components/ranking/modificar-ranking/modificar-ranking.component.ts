@@ -18,6 +18,11 @@ export class ModificarRankingComponent implements OnInit {
   nombre_Usuario: String;
   usuario: Object = {}
 
+  Usuario: any = {
+    Nombre: String,
+    Puntuacion: Number
+  }
+
 
 
   constructor(private BD: ProfeToolsService) { }

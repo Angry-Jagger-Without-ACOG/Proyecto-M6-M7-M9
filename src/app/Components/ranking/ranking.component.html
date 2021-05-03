@@ -24,8 +24,8 @@
           <tbody>
             <tr *ngFor="let Rank of Rankings;index as i">
               <div class="Index"> {{i+1}}</div>
-              <td>{{Rank.nombre}}</td>
-              <td>{{Rank.codigo}}</td>
+              <td>{{ranking.nombre}}</td>
+              <td>{{ranking.codigo}}</td>
               <td><button type="button" (click)='Cambiar_Opcion("Ver")' class="btn btn-light">Ver Datos</button></td>
               <td><button type="button" (click)='Cambiar_Opcion("Modificar")' class="btn btn-light">Modificar</button>
               </td>

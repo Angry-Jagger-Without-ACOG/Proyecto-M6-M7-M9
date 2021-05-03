@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Ranking } from '../../Models/Ranking.model';
 import { ProfeToolsService } from '../../servicios/profe-tools.service';
 import Swal from 'sweetalert2';
+import { result } from 'lodash';
 
 @Component({
   selector: 'app-ranking',
@@ -19,8 +20,15 @@ export class RankingComponent implements OnInit {
   nombre_Usuario: String;
   usuario: Object = {}
   codigo:String;
+  ContadorRanking: Number;
 
-  //Variable Ejemplo
+
+  ranking: Object = {
+    nombre: String,
+    codigo: String
+  }
+
+
   Rankings: Ranking[] = [];
 
   constructor(private BD: ProfeToolsService) { }
@@ -33,14 +41,31 @@ export class RankingComponent implements OnInit {
     if (this.tipo_Usuario == "Profesor") {
       this.Tipo = true;
       this.GetProfesor(this.nombre_Usuario);
+      this.GetRanking(this.nombre_Usuario);
+      this.CountRanking(this.nombre_Usuario);
     } else if (this.tipo_Usuario == "Alumno") {
       this.Tipo = false;
       this.GetAlumno(this.nombre_Usuario);
     }
 
-    //Ejemplos
-     this.Rankings.push(new Ranking());
-     this.Rankings.push(new Ranking());
+
+  }
+
+  CountRanking(nombre_Usuario){
+    this.BD.getTotalRankings(nombre_Usuario).subscribe(
+
+      )
+      console.log(this.ContadorRanking)
+  }
+
+  GetRanking(nombre_Usuario){
+    this.BD.selectRankings(nombre_Usuario).subscribe(
+      result => this.ranking = result[0]
+
+    )
+    this.Rankings.push(this.ranking);
+
+
   }
 
   GetProfesor(nombre_Usuario) {
@@ -82,5 +107,6 @@ export class RankingComponent implements OnInit {
       }
     })
   }
+
 
 }

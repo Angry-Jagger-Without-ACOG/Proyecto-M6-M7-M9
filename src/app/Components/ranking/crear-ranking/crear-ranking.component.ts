@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProfeToolsService } from '../../../servicios/profe-tools.service';
 import Swal from 'sweetalert2';
+import { Ranking } from 'src/app/Models/Ranking.model';
 
 @Component({
   selector: 'app-crear-ranking',
@@ -21,6 +22,7 @@ export class CrearRankingComponent implements OnInit {
 
 
   codigoRanking: String;
+  crear: Boolean;
 
   ranking: any = {
 
@@ -85,6 +87,7 @@ export class CrearRankingComponent implements OnInit {
           datos => {
             if (datos['response'] == 'OK') {
 
+
               Swal.fire({
 
                 icon: 'success',
@@ -113,6 +116,7 @@ export class CrearRankingComponent implements OnInit {
       this.refresh
     )
   }
+
 
 
 
