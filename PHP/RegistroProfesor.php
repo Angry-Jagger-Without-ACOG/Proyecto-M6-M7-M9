@@ -14,7 +14,7 @@ $params = json_decode($json);
 $con;
 $con=conexion();
 
-$resultado = mysqli_query($con,"INSERT into profesores (nick,password,email,nombre,apellido,image,centro) VALUES ('$params->nick_p','".md5($params->rep_cont_p)."','$params->correo_p','$params->nombre_p','$params->apell_p','".str_replace( "\\", '/', $params->img )."','$params->centro')");
+$resultado = mysqli_query($con,"INSERT into profesores (nick,password,email,nombre,apellido,centro) VALUES ('$params->nick_p','".md5($params->rep_cont_p)."','$params->correo_p','$params->nombre_p','$params->apell_p','".str_replace( "\\", '/', $params->img )."','$params->centro')");
 
  class Result {}
 

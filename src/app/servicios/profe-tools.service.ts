@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { Profesor } from '../Models/Profesor.model';
 import { Observable } from 'rxjs';
 import { User } from '../Models/user';
+import { FormGroup } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -27,9 +28,17 @@ export class ProfeToolsService {
     return this.http.post(`${environment.serverUrl}LoginProfe.php`, JSON.stringify(login));
   }
 
-  RegistrarProfesor(profesor) {
-    console.log(profesor);
-    return this.http.post(`${environment.serverUrl}RegistroProfesor.php`, JSON.stringify(profesor));
+  insertImagen(profesor: FormGroup) {
+    const formData = new FormData();
+    const nombreid = new FormData();
+
+    //  formData.set('String', profesor.get('nick_p').value);
+     formData.set('file', profesor.get('imgSource').value);
+
+    return this.http.post(`${environment.serverUrl}InsertImagen.php`, formData);
+  }
+  registroProfesor(profesor){
+  return this.http.post(`${environment.serverUrl}registroProfesor.php`,JSON.stringify(profesor));
   }
 
   listarusuarios() {
@@ -46,6 +55,9 @@ export class ProfeToolsService {
 
   GetAlumno(nombre_Usuario) {
     return this.http.post(`${environment.serverUrl}SelectAlumno.php`, JSON.stringify(nombre_Usuario));
+  }
+  verImagen(){
+
   }
 
 

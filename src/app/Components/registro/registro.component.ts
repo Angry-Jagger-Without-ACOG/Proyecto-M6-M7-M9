@@ -15,13 +15,20 @@ export class RegistroComponent implements OnInit {
 
   Alumno: FormGroup;
   Profesor: FormGroup;
+  ImagenSource: Blob;
+
+
+
 
   //Variable que indica que registro se va a utilizar: Alumno(true) o Profesor(false)
   switch_user = false;
 
+
   constructor(private formBuilder: FormBuilder, private BD: ProfeToolsService, public router: Router) { }
 
   ngOnInit(): void {
+
+
 
     this.Alumno = this.formBuilder.group({
       nick_a: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9_]+')]],
@@ -31,7 +38,8 @@ export class RegistroComponent implements OnInit {
       nombre_a: ['', Validators.required],
       apell_a: ['', Validators.required],
       curso: ['', Validators.required],
-      img: ['', Validators.required]
+      img: ['', Validators.required],
+      imgSource: ['', Validators.required]
     }, {
       validator: Comprobacion('cont_a', 'rep_cont_a')
     });
@@ -44,7 +52,8 @@ export class RegistroComponent implements OnInit {
       nombre_p: ['', Validators.required],
       apell_p: ['', Validators.required],
       centro: ['', Validators.required],
-      img: ['', Validators.required]
+      img: ['', Validators.required],
+      imgSource: ['', Validators.required]
     }, {
       validator: Comprobacion('cont_p', 'rep_cont_p')
     });
@@ -67,6 +76,28 @@ export class RegistroComponent implements OnInit {
 
   get P() {
     return this.Profesor.controls;
+  }
+
+  onFileChange(event) {
+
+    if (this.switch_user == true && event.target.files.length > 0) {
+
+      const file = event.target.files[0];
+      this.Alumno.patchValue({
+        imgSource: file
+      });
+
+    }
+    else if (this.switch_user == false && event.target.files.length > 0) {
+
+      const file = event.target.files[0];
+      this.Profesor.patchValue({
+        imgSource: file,
+
+      });
+
+    }
+
   }
 
   Comprobador() {
@@ -98,24 +129,50 @@ export class RegistroComponent implements OnInit {
 
       } else if (result.isConfirmed && this.switch_user == false) {
 
-
-        this.BD.RegistrarProfesor(this.Profesor.getRawValue()).subscribe(
-
+        this.BD.registroProfesor(this.Profesor.getRawValue()).subscribe(
           datos => {
+            console.log(datos);
+
+
             if (datos['response'] == 'OK') {
+
               localStorage.setItem("Tipo", "Profesor");
               Swal.fire('Creado', '');
-              this.router.navigate(['LOG']);
+
+            this.insertImagen();
             } else {
               Swal.fire('Usuario ya existe', '');
             }
           }
+
         );
 
       }
 
+
     })
 
   }
+    insertImagen(){
+
+      this.BD.insertImagen(this.Profesor).subscribe(
+
+        datos => {
+          console.log(datos);
+
+
+          if (datos['response'] == 'OK') {
+
+            localStorage.setItem("Tipo", "Profesor");
+            Swal.fire('Creado', '');
+            this.router.navigate(['LOG']);
+          } else {
+            Swal.fire('Usuario ya existe', '');
+          }
+        }
+      );
+
+
+    }
 
 }
