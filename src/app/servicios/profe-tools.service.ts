@@ -91,15 +91,6 @@ export class ProfeToolsService {
   }
 
 
-  //token prueba
-  setToken(token: String) {
-    this.cookies.set("token", "token");
-  }
-
-  getToken() {
-    return this.cookies.get("token");
-  }
-
   getDatos(): any {
     return this.datos;
   }
@@ -110,6 +101,7 @@ export class ProfeToolsService {
   borrarDatos(): any {
     this.datos = "";
   }
+
   setSession(session): any {
     this.vsession = session;
   }

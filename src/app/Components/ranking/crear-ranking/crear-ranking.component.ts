@@ -71,6 +71,7 @@ export class CrearRankingComponent implements OnInit {
       cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.isConfirmed) {
+
         this.codigoRanking = this.generaNss();
 
         this.ranking.nombre_Usuario = this.nombre_Usuario;
@@ -99,7 +100,7 @@ export class CrearRankingComponent implements OnInit {
               this.crearTablaTareas();
 
             } else {
-              Swal.fire('Creado sin problemas', 'error' )
+              Swal.fire('Error al crear el ranking', 'error' )
 
             }
           }

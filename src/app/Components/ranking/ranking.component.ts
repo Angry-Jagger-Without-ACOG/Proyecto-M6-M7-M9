@@ -18,10 +18,10 @@ export class RankingComponent implements OnInit {
   Tipo: boolean = true;
   tipo_Usuario: String;
   nombre_Usuario: String;
-  usuario: Object = {}
-  codigo:String;
-  ContadorRanking: Number;
 
+  ContadorRanking: Object = {
+    Rankings: String
+  }
 
   ranking: Object = {
     nombre: String,
@@ -40,45 +40,35 @@ export class RankingComponent implements OnInit {
 
     if (this.tipo_Usuario == "Profesor") {
       this.Tipo = true;
-      this.GetProfesor(this.nombre_Usuario);
       this.GetRanking(this.nombre_Usuario);
-      this.CountRanking(this.nombre_Usuario);
+      //this.CountRanking(this.nombre_Usuario);
     } else if (this.tipo_Usuario == "Alumno") {
       this.Tipo = false;
-      this.GetAlumno(this.nombre_Usuario);
     }
-
 
   }
 
   CountRanking(nombre_Usuario){
     this.BD.getTotalRankings(nombre_Usuario).subscribe(
+       result => this.ContadorRanking = result[0]
 
       )
       console.log(this.ContadorRanking)
   }
 
   GetRanking(nombre_Usuario){
+
     this.BD.selectRankings(nombre_Usuario).subscribe(
+
       result => this.ranking = result[0]
 
     )
     this.Rankings.push(this.ranking);
-
+    this.Rankings.push(this.ranking);
+    this.Rankings.push(this.ranking);
 
   }
 
-  GetProfesor(nombre_Usuario) {
-    this.BD.GetProfesor(nombre_Usuario).subscribe(
-      result => this.usuario = result[0]
-    );
-  }
-
-  GetAlumno(nombre_Usuario) {
-    this.BD.GetAlumno(nombre_Usuario).subscribe(
-      result => this.usuario = result[0]
-    );
-  }
 
   Cambiar_Opcion(op: String): void {
     this.ModoCambio = op;
