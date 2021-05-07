@@ -14,24 +14,18 @@ $params = json_decode($json);
 $con;
 $con=conexion();
 
-
 $vec = [];
 
-$resultado = mysqli_query($con,"SELECT * FROM rankings WHERE nombre_Profe='$params'");
+$resultado = mysqli_query($con,"SELECT nombre,codigo FROM rankings WHERE Nombre_Profesor='$params'");
 
 
-  class Result {}
-
-  $response = new Result();
-
-
-    while($reg = mysqli_fetch_assoc($resultado)){
+    while ($reg = mysqli_fetch_assoc($resultado)){
 
       $vec[]=$reg;
 
-      echo json_encode($vec);
     }
-
+    echo json_encode($vec);
+      
 
 
 ?>

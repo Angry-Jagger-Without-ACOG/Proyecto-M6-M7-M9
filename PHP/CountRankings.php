@@ -14,10 +14,10 @@ $params = json_decode($json);
 $con;
 $con=conexion();
 
-
 $vec;
 
-$resultado = mysqli_query($con,"SELECT COUNT(nombre_Profe) AS Rankings FROM rankings WHERE nombre_Profe like 'a2'");
+$resultado = mysqli_query($con,"SELECT COUNT(Nombre_Profesor) AS Rankings FROM rankings WHERE Nombre_Profesor= '$params'");
+
 
 
   class Result {}
@@ -29,6 +29,7 @@ $resultado = mysqli_query($con,"SELECT COUNT(nombre_Profe) AS Rankings FROM rank
 
         $vec= $reg;
 
+      
         echo json_encode($vec);
     
     }

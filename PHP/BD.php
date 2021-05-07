@@ -4,7 +4,7 @@ global $enlace;
 
 function conexion(){
 
- $enlace = mysqli_connect('localhost', 'root','', 'daw2_gamifikg2');
+ $enlace = mysqli_connect('localhost', 'root', '', 'daw2_gamifikg2');
 
    mysqli_set_charset($enlace,"utf8");
 

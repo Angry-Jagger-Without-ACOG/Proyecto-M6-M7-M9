@@ -14,18 +14,19 @@ $params = json_decode($json);
 $con;
 $con=conexion();
 
-$resultado = mysqli_query($con,"INSERT into rankings (nombre,nombre_Profe,codigo) VALUES ('$params->nombre_ranking','$params->nombre_Usuario','$params->codigoRanking')");
+
+$resultado = mysqli_query($con,"INSERT INTO rankings(nombre,Nombre_Profesor,codigo) VALUES ('$params->nombre_ranking','$params->nombre_Usuario','$params->codigoRanking')");
 
  class Result {}
 
    $response = new Result();
 
    if($resultado) {
-     $response->response = 'OK';
+      $response->response = 'OK';
 
- } else {
-     $response->response = 'FAIL';
- }
+    } else {
+      $response->response = 'FAIL';
+    }
 
      header('Content-Type: application/json');
 
