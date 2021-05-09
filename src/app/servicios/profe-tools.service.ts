@@ -4,7 +4,6 @@ import { environment } from 'src/environments/environment';
 import { Profesor } from '../Models/Profesor.model';
 import { Observable } from 'rxjs';
 import { User } from '../Models/user';
-import { faThumbsDown } from '@fortawesome/free-solid-svg-icons';
 import { Ranking } from '../Models/Ranking.model';
 
 @Injectable({

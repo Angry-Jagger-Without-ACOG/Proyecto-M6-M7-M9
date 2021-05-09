@@ -18,6 +18,7 @@ export class RankingComponent implements OnInit {
   Tipo: boolean = true;
   tipo_Usuario: String;
   nombre_Usuario: String;
+  creado: boolean;
 
   ContadorRanking: Object = {
     Rankings: String
@@ -41,31 +42,23 @@ export class RankingComponent implements OnInit {
     if (this.tipo_Usuario == "Profesor") {
       this.Tipo = true;
       this.GetRanking(this.nombre_Usuario);
-      //this.CountRanking(this.nombre_Usuario);
     } else if (this.tipo_Usuario == "Alumno") {
       this.Tipo = false;
     }
 
   }
 
-  CountRanking(nombre_Usuario){
-    this.BD.getTotalRankings(nombre_Usuario).subscribe(
-       result => this.ContadorRanking = result[0]
-
-      )
-      console.log(this.ContadorRanking)
-  }
-
   GetRanking(nombre_Usuario){
 
     this.BD.selectRankings(nombre_Usuario).subscribe(
 
-      result => this.ranking = result[0]
+      result => this.ranking = result
 
-    )
-    this.Rankings.push(this.ranking);
-    this.Rankings.push(this.ranking);
-    this.Rankings.push(this.ranking);
+    );
+
+      this.Rankings.push(this.ranking);
+
+
 
   }
 
@@ -87,9 +80,6 @@ export class RankingComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
 
-      //////////////////////////////////////////////////////////
-      // Funcion encargada de borrar los rankings selecionados//
-      //////////////////////////////////////////////////////////
 
         Swal.fire(
           'Borrado sin problemas'
