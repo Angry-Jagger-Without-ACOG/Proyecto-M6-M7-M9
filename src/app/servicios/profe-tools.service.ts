@@ -80,6 +80,9 @@ export class ProfeToolsService {
     console.log(ranking)
     return this.http.put(`${environment.serverUrl}CrearTablaTareas.php`, JSON.stringify(ranking))
   }
+  DeleteRanking(codigoRanking){
+    return this.http.put(`${environment.serverUrl}DeleteRanking.php`, JSON.stringify(codigoRanking))
+  }
 
   selectRankings(nombre_Usuario){
     return this.http.post(`${environment.serverUrl}SelectRanking.php`,JSON.stringify(nombre_Usuario));

@@ -62,6 +62,9 @@ export class RankingComponent implements OnInit {
 
   }
 
+  refresh(): void {
+    window.location.reload();
+  }
 
   Cambiar_Opcion(op: String): void {
     this.ModoCambio = op;
@@ -80,11 +83,12 @@ export class RankingComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
 
+        this.BD.DeleteRanking(codigo).subscribe();
 
-        Swal.fire(
-          'Borrado sin problemas'
-        )
-      }
+        }else{
+          Swal.fire('Error', '');
+          }
+      this.refresh();
     })
   }
 
