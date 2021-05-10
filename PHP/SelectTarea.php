@@ -19,7 +19,7 @@ $vec = [];
 
 $nombreRanking = strtolower($params);
 
-$resultado = mysqli_query($con,"SELECT Nombre,Apellido,Tarea1,Tarea2,Tarea3,Tarea4,Tarea5 FROM $nombreRanking");
+$resultado = mysqli_query($con,"SELECT Nombre,Apellido, (Tarea1 + Tarea2 + Tarea3 + Tarea4 + Tarea5) AS PuntuacionTotal FROM $nombreRanking");
 
 
     while ($reg = mysqli_fetch_assoc($resultado)){
