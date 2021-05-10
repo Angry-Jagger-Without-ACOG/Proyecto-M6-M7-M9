@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter  } from '@angular/core';
 import { ProfeToolsService } from '../../../servicios/profe-tools.service';
 import { Tarea } from '../../../Models/Tarea.model';
 import Swal from 'sweetalert2';
+import { result } from 'lodash';
 
 @Component({
   selector: 'app-modificar-ranking',
@@ -12,18 +13,22 @@ export class ModificarRankingComponent implements OnInit {
 
   @Input() codigo_ranking:String;
 
-  //Variables para indicar el tipo de usuario
   Tipo: boolean = true;
   tipo_Usuario: String;
   nombre_Usuario: String;
   usuario: Object = {}
 
-  Usuario: any = {
+  codigo: String;
+  ranking: String;
+
+  Usuario: Object = {
     Nombre: String,
-    Puntuacion: Number
+    Apellido: String,
+    Profesor: String
+
   }
 
-
+  Tareas: Tarea[] = [];
 
   constructor(private BD: ProfeToolsService) { }
 
@@ -31,18 +36,24 @@ export class ModificarRankingComponent implements OnInit {
     this.tipo_Usuario = localStorage.getItem('Tipo');
     this.nombre_Usuario = localStorage.getItem('Name');
 
-    if (this.tipo_Usuario == "Profesor") {
-      this.Tipo = true;
-      this.GetProfesor(this.nombre_Usuario);
-    }
+    this.codigo =  this.BD.getCodigo();
+    this.ranking = this.BD.getRanking();
+    console.log(this.codigo,this.ranking);
+
+    this.SelectRanking()
+
   }
 
-  GetProfesor(nombre_Usuario) {
-    console.log(this.codigo_ranking);
-    this.BD.GetProfesor(nombre_Usuario).subscribe(
-      result => this.usuario = result[0]
-    );
+  SelectRanking(){
+    this.BD.selectTareas(this.ranking).subscribe(
+
+      result => this.Usuario = result
+
+    )
+
   }
+
+
 
 
 }

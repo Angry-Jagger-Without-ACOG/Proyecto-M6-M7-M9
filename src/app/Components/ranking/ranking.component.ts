@@ -14,7 +14,6 @@ export class RankingComponent implements OnInit {
 
   ModoCambio: String = "RC";
 
-  //Variables para indicar el tipo de usuario
   Tipo: boolean = true;
   tipo_Usuario: String;
   nombre_Usuario: String;
@@ -58,16 +57,15 @@ export class RankingComponent implements OnInit {
 
       this.Rankings.push(this.ranking);
 
-
-
   }
 
   refresh(): void {
     window.location.reload();
   }
 
-  Cambiar_Opcion(op: String): void {
+  Cambiar_Opcion(op: String, codigo: String, ranking: String): void {
     this.ModoCambio = op;
+    this.BD.setCodigo(codigo,ranking);
   }
 
   BorrarRanking(codigo: String) {
@@ -80,17 +78,23 @@ export class RankingComponent implements OnInit {
       cancelButtonColor: '#d33',
       confirmButtonText: 'Borrar',
       cancelButtonText: 'Cancelar'
+
     }).then((result) => {
+
       if (result.isConfirmed) {
 
-        this.BD.DeleteRanking(codigo).subscribe();
+        this.BD.DeleteRanking(codigo).subscribe(
 
+        )
+
+        this.refresh();
         }else{
           Swal.fire('Error', '');
           }
-      this.refresh();
+
     })
   }
+
 
 
 }

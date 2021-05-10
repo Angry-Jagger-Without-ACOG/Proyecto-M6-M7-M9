@@ -16,6 +16,9 @@ export class ProfeToolsService {
   datos: Object;
   vsession: String;
   CrearRanking: boolean;
+  codigo: String;
+  ranking: String;
+
 
   constructor(private http: HttpClient) { }
 
@@ -89,9 +92,29 @@ export class ProfeToolsService {
   }
 
   getTotalRankings(nombre_Usuario){
-    return this.http.post(`${environment.serverUrl}CountRankings.php`,JSON.stringify(nombre_Usuario))
+    return this.http.post(`${environment.serverUrl}CountRankings.php`,JSON.stringify(nombre_Usuario));
   }
 
+  selectTareas(ranking){
+    return this.http.post(`${environment.serverUrl}SelectTarea.php`,JSON.stringify(ranking));
+  }
+
+
+
+
+
+  getRanking(){
+    return this.ranking;
+  }
+
+  getCodigo(){
+    return this.codigo;
+
+  }
+  setCodigo(codigo,ranking){
+    this.codigo = codigo;
+    this.ranking = ranking;
+  }
 
   getDatos(): any {
     return this.datos;

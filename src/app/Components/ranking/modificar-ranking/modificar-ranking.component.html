@@ -2,38 +2,43 @@
  Comprobar que hay registros en la Tabla Tarea que coincidan(si hay registros) </div>-->
   <div class="btn-group float-right mt-5 mb-4">
 
-    <button type="button" class="btn btn-dark">Añadir Tarea</button>
+    <button type="button" class="btn btn-dark">Modificar Tarea</button>
 
     <div class="btn-group">
 
       <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown">
-        Selecionar Tarea
+        Seleccionar Tarea
       </button>
 
       <div class="dropdown-menu">
-        <!-- Añadir ngfor para que salgan todas las tareas -->
-        <a class="dropdown-item">Tablet</a>
-        <a class="dropdown-item">Smartphone</a>
+          <a class="nav-link active btn btn-link">Tarea 1</a>
       </div>
     </div>
 
   </div>
 
   <div class="table-responsive">
-    <table class="table table-bordered table-dark table-striped rounded text-center">
-      <thead>
-        <tr *ngFor="let Usuario of Usuario">
-          <th>Nombre</th>
-          <th>Puntuacion</th>
+
+        <table class="table table-bordered table-dark table-striped rounded text-center">
+          <thead>
+            <tr>
+              <th>Nombre </th>
+              <th>Apellido</th>
+            </tr>
+          </thead>
+
+        <tr *ngFor="let usuario of Usuario;">
+          <div class="Index"></div>
+          <td>{{usuario.Nombre}}</td>
+          <td>{{usuario.Apellido}}</td>
+          <td>{{usuario.Tarea1}}</td>
+          <td>{{usuario.Tarea2}}</td>
+          <td>{{usuario.Tarea3}}</td>
+          <td>{{usuario.Tarea4}}</td>
+          <td>{{usuario.Tarea5}}</td>
         </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>{{Usuario.Nombre}}</td>
-          <td>{{Usuario.Puntuacion}}</td>
-        </tr>
-      </tbody>
-    </table>
+      </table>
+
   </div>
 
 

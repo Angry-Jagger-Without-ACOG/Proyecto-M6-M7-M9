@@ -26,8 +26,8 @@
               <div class="Index"></div>
               <td>{{rank.nombre}}</td>
               <td>{{rank.codigo}}</td>
-              <td><button type="button" (click)='Cambiar_Opcion("Ver")' class="btn btn-light">Ver Datos</button></td>
-              <td><button type="button" (click)='Cambiar_Opcion("Modificar")' class="btn btn-light">Modificar</button>
+              <td><button type="button" (click)='Cambiar_Opcion("Ver")' class="btn btn-light">Ver Ranking</button></td>
+              <td><button type="button" (click)='Cambiar_Opcion("Modificar",rank.codigo,rank.nombre)' class="btn btn-light">Modificar</button>
               </td>
               <td><button type="button" (click)='BorrarRanking(rank.codigo)' class="btn btn-light">Borrar</button></td>
             </tr>
