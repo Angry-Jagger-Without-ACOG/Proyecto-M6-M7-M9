@@ -16,7 +16,10 @@ $con=conexion();
 
 $vec = [];
 
-$resultado = mysqli_query($con,"SELECT nombre,codigo FROM rankings WHERE nombreProfesor='$params'");
+
+$nombreRanking = strtolower($params);
+
+$resultado = mysqli_query($con,"SELECT Nombre,Apellido,Tarea1,Tarea2,Tarea3,Tarea4,Tarea5 FROM $nombreRanking");
 
 
     while ($reg = mysqli_fetch_assoc($resultado)){

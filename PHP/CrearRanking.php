@@ -15,7 +15,7 @@ $con;
 $con=conexion();
 
 
-$resultado = mysqli_query($con,"INSERT INTO rankings(nombre,Nombre_Profesor,codigo) VALUES ('$params->nombre_ranking','$params->nombre_Usuario','$params->codigoRanking')");
+$resultado = mysqli_query($con,"INSERT INTO rankings(nombre,nombreProfesor,codigo) VALUES ('$params->nombre_ranking','$params->nombre_Usuario','$params->codigoRanking')");
 
  class Result {}
 

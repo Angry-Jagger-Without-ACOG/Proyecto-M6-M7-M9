@@ -15,9 +15,9 @@ $con;
 $con=conexion();
 
 $resultado = mysqli_query($con,"CREATE TABLE $params->nombre_ranking(
-                                idAlumno VARCHAR (255) NOT NULL,
+                                idAlumno VARCHAR (255) NOT NULL PRIMARY KEY,
                                 idProfessor VARCHAR(255) NOT NULL, 
-                                idRanking VARCHAR(255) NOT NULL PRIMARY KEY,
+                                idRanking VARCHAR(255) NOT NULL ,
                                 Tarea1 VARCHAR(255) NOT NULL,
                                 Tarea2 VARCHAR(255) NOT NULL,
                                 Tarea3 VARCHAR(255) NOT NULL,
