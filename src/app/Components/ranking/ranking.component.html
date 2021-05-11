@@ -18,6 +18,7 @@
               <th></th>
               <th></th>
               <th></th>
+              <th></th>
             </tr>
           </thead>
 
@@ -29,6 +30,7 @@
               <td><button type="button" (click)='Cambiar_Opcion("Ver")' class="btn btn-light">Ver Ranking</button></td>
               <td><button type="button" (click)='Cambiar_Opcion("Modificar",rank.codigo,rank.nombre)' class="btn btn-light">Modificar</button>
               </td>
+              <td><button type="button" (click)='Cambiar_Codigo()' class="btn btn-light">Generar Codigo</button></td>
               <td><button type="button" (click)='BorrarRanking(rank.codigo)' class="btn btn-light">Borrar</button></td>
             </tr>
           </tbody>

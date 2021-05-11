@@ -25,7 +25,6 @@ export class ModificarRankingComponent implements OnInit {
     Nombre: String,
     Apellido: String,
     Profesor: String
-
   }
 
   Tareas: Tarea[] = [];
@@ -46,14 +45,16 @@ export class ModificarRankingComponent implements OnInit {
 
   SelectRanking(){
     this.BD.selectTareas(this.ranking).subscribe(
-
       result => this.Usuario = result
-
     )
-
   }
 
+  UpdateCont() {
+    this.refresh();
+  }
 
-
+  refresh(): void {
+    window.location.reload();
+  }
 
 }

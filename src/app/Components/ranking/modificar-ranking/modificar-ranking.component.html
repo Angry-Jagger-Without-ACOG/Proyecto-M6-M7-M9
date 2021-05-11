@@ -2,7 +2,9 @@
  Comprobar que hay registros en la Tabla Tarea que coincidan(si hay registros) </div>-->
   <div class="btn-group float-right mt-5 mb-4">
 
+    <button type="button" (click)="UpdateCont()" class="btn btn-dark">Atras</button>
     <button type="button" class="btn btn-dark">Modificar Tarea</button>
+
 
     <div class="btn-group">
 
@@ -10,9 +12,10 @@
         Seleccionar Tarea
       </button>
 
-      <div class="dropdown-menu">
-          <a class="nav-link active btn btn-link">Tarea 1</a>
-      </div>
+      <!-- Pasar el objeto de las tareas para que funcione el bulce, esta comentado para que no de error -->
+      <!-- <div *ngFor="let tarea of tareas;" class="dropdown-menu">
+          <a class="nav-link active btn btn-link">{{tarea.nombre}}</a>
+      </div> -->
     </div>
 
   </div>

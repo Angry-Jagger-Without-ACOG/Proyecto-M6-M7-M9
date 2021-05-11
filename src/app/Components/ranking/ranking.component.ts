@@ -63,6 +63,24 @@ export class RankingComponent implements OnInit {
     window.location.reload();
   }
 
+  Cambiar_Codigo(){
+    Swal.fire({
+      title: 'Quieres volver a generar el Codigo?',
+      text: "Rescribiras el codigo de este ranking!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Genrar',
+      cancelButtonText: 'Cancelar'
+
+    }).then((result) => {
+      if (result.isConfirmed) {
+
+      }
+    })
+  }
+
   Cambiar_Opcion(op: String, codigo: String, ranking: String): void {
     this.ModoCambio = op;
     this.BD.setCodigo(codigo,ranking);
