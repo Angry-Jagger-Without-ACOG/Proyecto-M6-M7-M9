@@ -5,7 +5,9 @@
 
   <div class="btn-group float-right mt-5 mb-4">
 
+    <button type="button" class="btn btn-dark" (click)="SelectRanking()">Puntuacion Total</button>
     <button type="button" class="btn btn-dark">Modificar Tarea</button>
+    <button type="button" class="btn btn-dark">Añadir Tarea</button>
 
     <div class="btn-group">
 
@@ -36,7 +38,7 @@
             <tr>
               <th>Nombre </th>
               <th>Apellido</th>
-              <th>Puntuacion Total</th>
+              <th>Puntuacion</th>
             </tr>
           </thead>
 
@@ -44,7 +46,7 @@
           <div class="Index"></div>
           <td>{{usuario.Nombre}}</td>
           <td>{{usuario.Apellido}}</td>
-          <td>{{usuario.PuntuacionTotal}}</td>
+          <td>{{usuario.Puntuacion}}</td>
 
         </tr>
       </table>

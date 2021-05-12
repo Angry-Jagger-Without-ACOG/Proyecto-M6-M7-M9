@@ -107,10 +107,9 @@ export class ProfeToolsService {
     return this.http.post(`${environment.serverUrl}GenerarCodigo.php`,JSON.stringify(ranking));
   }
 
-  enviarNombreTarea(nombreTarea){
-    console.log(nombreTarea);
+  enviarNombreTarea(SelectTareas){
 
-    return this.http.post(`${environment.serverUrl}SelectTarea.php`,JSON.stringify(nombreTarea));
+    return this.http.post(`${environment.serverUrl}SelectTarea.php`,JSON.stringify(SelectTareas));
   }
 
 

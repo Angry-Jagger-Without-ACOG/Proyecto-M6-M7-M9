@@ -60,14 +60,11 @@ export class ModificarRankingComponent implements OnInit {
   // Supongo que aparte de pasar el nombre de la tarea , tambien tendria que actualizar los datos
   NombreTarea(nombreTarea:string){
 
-
     this.SelectTareas.nombreRanking = this.nombreRanking;
     this.SelectTareas.nombreTarea = nombreTarea;
 
-    console.log(this.SelectTareas);
-
-    this.BD.enviarNombreTarea(nombreTarea).subscribe(
-
+    this.BD.enviarNombreTarea(this.SelectTareas).subscribe(
+      result => this.Usuario = result
     )
 
 
