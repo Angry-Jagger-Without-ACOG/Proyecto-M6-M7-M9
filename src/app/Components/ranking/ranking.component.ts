@@ -92,7 +92,7 @@ export class RankingComponent implements OnInit {
     this.BD.setCodigo(codigo,nombre);
   }
 
-  BorrarRanking(codigo: String) {
+  BorrarRanking(codigo: String, NombreTabla : String) {
     Swal.fire({
       title: 'Estas seguro de borrar este ranking?',
       text: "No podras recuperar este Ranking!",
@@ -110,6 +110,7 @@ export class RankingComponent implements OnInit {
         this.BD.DeleteRanking(codigo).subscribe(
 
         )
+        this.BD.DropTableRanking(NombreTabla).subscribe()
 
         this.refresh();
         }else{

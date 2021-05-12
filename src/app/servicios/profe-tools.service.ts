@@ -86,6 +86,9 @@ export class ProfeToolsService {
   DeleteRanking(codigoRanking){
     return this.http.put(`${environment.serverUrl}DeleteRanking.php`, JSON.stringify(codigoRanking))
   }
+  DropTableRanking(NombreTabla){
+    return this.http.put(`${environment.serverUrl}DropTableRanking.php`, JSON.stringify(NombreTabla))
+  }
 
   selectRankings(nombre_Usuario){
     return this.http.post(`${environment.serverUrl}SelectRanking.php`,JSON.stringify(nombre_Usuario));
