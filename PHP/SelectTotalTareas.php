@@ -14,13 +14,12 @@ $params = json_decode($json);
 $con;
 $con=conexion();
 
-$vec;
+$vec = [];
 
-echo json_encode($params);
 
-$nombreRank = strtolower($params->nombreRanking);
-
-$resultado = mysqli_query($con,"SELECT Nombre,Apellido,$params->nombreTarea AS PuntuacionTotal FROM $nombreRank");
+$nombreRanking = strtolower($params);
+// falta recojer  Nick  y ORDER BY PuntuacionTotal
+$resultado = mysqli_query($con,"SELECT Nombre,Apellido, (Tarea1 + Tarea2 + Tarea3 + Tarea4 + Tarea5) AS PuntuacionTotal FROM $nombreRanking");
 
     while ($reg = mysqli_fetch_assoc($resultado)){
 
