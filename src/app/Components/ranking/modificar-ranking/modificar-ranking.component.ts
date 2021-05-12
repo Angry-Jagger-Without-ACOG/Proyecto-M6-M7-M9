@@ -37,9 +37,8 @@ export class ModificarRankingComponent implements OnInit {
 
     this.codigo = this.BD.getCodigo();
     this.ranking = this.BD.getRanking();
-    console.log(this.codigo, this.ranking);
 
-    this.SelectRanking()
+    this.SelectRanking();
 
   }
 

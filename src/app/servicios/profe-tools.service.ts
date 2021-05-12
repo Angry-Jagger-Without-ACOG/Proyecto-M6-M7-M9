@@ -100,6 +100,9 @@ export class ProfeToolsService {
     return this.http.post(`${environment.serverUrl}SelectTarea.php`,JSON.stringify(ranking));
   }
 
+  GenerarCodigo(ranking){
+    return this.http.post(`${environment.serverUrl}GenerarCodigo.php`,JSON.stringify(ranking));
+  }
 
 
   getRanking(){

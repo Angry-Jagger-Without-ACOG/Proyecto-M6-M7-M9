@@ -18,6 +18,7 @@ export class RankingComponent implements OnInit {
   tipo_Usuario: String;
   nombre_Usuario: String;
   creado: boolean;
+  codigo: String;
 
   ContadorRanking: Object = {
     Rankings: String
@@ -26,6 +27,11 @@ export class RankingComponent implements OnInit {
   ranking: Object = {
     nombre: String,
     codigo: String
+  }
+
+  actualizarCodigo: any = {
+    codigoViejo: String,
+    codigoNuevo: String
   }
 
 
@@ -113,6 +119,37 @@ export class RankingComponent implements OnInit {
     })
   }
 
+  CambiarCodigo(codigo: String){
+
+    this.codigo = this.generaNss();
+
+    this.actualizarCodigo.codigoViejo = codigo;
+    this.actualizarCodigo.codigoNuevo = this.codigo;
+
+
+
+    this.BD.GenerarCodigo(this.actualizarCodigo).subscribe(
+        datos =>{
+          if(datos['response'] == 'OK'){
+            this.refresh()
+          }else{
+            Swal.fire('Tiene algun error','','error')
+
+          }
+        }
+      )
+  }
+
+  generaNss() {
+    let result = '';
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    const charactersLength = characters.length;
+    for (let i = 0; i < 20 ; i++) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+
+    return result;
+}
 
 
 }

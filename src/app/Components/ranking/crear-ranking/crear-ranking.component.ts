@@ -78,12 +78,6 @@ export class CrearRankingComponent implements OnInit {
         this.ranking.codigoRanking = this.codigoRanking;
         this.ranking.nombre_ranking = this.R.nombre_rank.value
 
-
-        ///////////////////////////////////////////////////////////////////////////////////////////
-        // Comprobar que no exista el nombre del ranking y comprobar que realmente se ha creado  //
-        //                       el ranking antes de la alerta confimando                        //
-        ///////////////////////////////////////////////////////////////////////////////////////////
-
         this.BD.crearRanking(this.ranking).subscribe(
           datos => {
             if (datos['response'] == 'OK') {
