@@ -95,11 +95,10 @@ export class ProfeToolsService {
     return this.http.post(`${environment.serverUrl}CountRankings.php`,JSON.stringify(nombre_Usuario));
   }
 
+  // Select mejor para el componente ver ranking , ordenado por puntuacion
   selectTareas(ranking){
     return this.http.post(`${environment.serverUrl}SelectTarea.php`,JSON.stringify(ranking));
   }
-
-
 
 
 

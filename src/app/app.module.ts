@@ -14,10 +14,12 @@ import { HeaderComponent } from './Components/header/header.component';
 import { PerfilComponent } from './Components/perfil/perfil.component';
 import { ContraComponent } from './Components/perfil/contra/contra.component';
 import { ActualizarComponent } from './Components/perfil/actualizar/actualizar.component';
+import { VerRankingComponent } from './Components/ranking/ver-ranking/ver-ranking.component';
 
 import { UiSwitchModule } from 'ngx-ui-switch';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ShowHidePasswordModule } from 'ngx-show-hide-password';
+
 
 
 
@@ -32,7 +34,8 @@ import { ShowHidePasswordModule } from 'ngx-show-hide-password';
     HeaderComponent,
     PerfilComponent,
     ContraComponent,
-    ActualizarComponent
+    ActualizarComponent,
+    VerRankingComponent
   ],
   imports: [
     BrowserModule,

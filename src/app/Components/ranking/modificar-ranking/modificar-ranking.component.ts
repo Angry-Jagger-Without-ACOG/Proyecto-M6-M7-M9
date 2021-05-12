@@ -2,7 +2,6 @@ import { Component, OnInit, Input, Output, EventEmitter  } from '@angular/core';
 import { ProfeToolsService } from '../../../servicios/profe-tools.service';
 import { Tarea } from '../../../Models/Tarea.model';
 import Swal from 'sweetalert2';
-import { result } from 'lodash';
 
 @Component({
   selector: 'app-modificar-ranking',

@@ -66,7 +66,7 @@ export class RankingComponent implements OnInit {
   Cambiar_Codigo(){
     Swal.fire({
       title: 'Quieres volver a generar el Codigo?',
-      text: "Rescribiras el codigo de este ranking!",
+      text: "Ten cuidado!",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
