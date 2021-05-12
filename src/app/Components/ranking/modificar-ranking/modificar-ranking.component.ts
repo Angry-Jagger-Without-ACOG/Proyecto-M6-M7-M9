@@ -18,13 +18,18 @@ export class ModificarRankingComponent implements OnInit {
   usuario: Object = {}
 
   codigo: String;
-  ranking: String;
+  nombreRanking: String;
   tarea_name:String;
 
   Usuario: Object = {
     Nombre: String,
     Apellido: String,
     Profesor: String
+  }
+
+  SelectTareas: any = {
+    nombreRanking: String,
+    nombreTarea: String
   }
 
   Tareas: Tarea[] = [];
@@ -36,14 +41,14 @@ export class ModificarRankingComponent implements OnInit {
     this.nombre_Usuario = localStorage.getItem('Name');
 
     this.codigo = this.BD.getCodigo();
-    this.ranking = this.BD.getRanking();
+    this.nombreRanking = this.BD.getRanking();
 
     this.SelectRanking();
 
   }
 
   SelectRanking() {
-    this.BD.selectTareas(this.ranking).subscribe(
+    this.BD.selectTareas(this.nombreRanking).subscribe(
       result => this.Usuario = result
     )
   }
@@ -53,8 +58,19 @@ export class ModificarRankingComponent implements OnInit {
   }
 
   // Supongo que aparte de pasar el nombre de la tarea , tambien tendria que actualizar los datos
-  getTareaName(n:string){
-    this.tarea_name = n;
+  NombreTarea(nombreTarea:string){
+
+
+    this.SelectTareas.nombreRanking = this.nombreRanking;
+    this.SelectTareas.nombreTarea = nombreTarea;
+
+    console.log(this.SelectTareas);
+
+    this.BD.enviarNombreTarea(nombreTarea).subscribe(
+
+    )
+
+
   }
 
   refresh(): void {

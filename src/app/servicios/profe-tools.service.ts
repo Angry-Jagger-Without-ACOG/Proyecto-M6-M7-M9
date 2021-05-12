@@ -17,7 +17,7 @@ export class ProfeToolsService {
   vsession: String;
   CrearRanking: boolean;
   codigo: String;
-  ranking: String;
+  nombre: String;
 
 
   constructor(private http: HttpClient) { }
@@ -97,25 +97,31 @@ export class ProfeToolsService {
 
   // Select mejor para el componente ver ranking , ordenar-lo por puntuacion
   selectTareas(ranking){
-    return this.http.post(`${environment.serverUrl}SelectTarea.php`,JSON.stringify(ranking));
+    return this.http.post(`${environment.serverUrl}SelectTotalTareas.php`,JSON.stringify(ranking));
   }
 
   GenerarCodigo(ranking){
     return this.http.post(`${environment.serverUrl}GenerarCodigo.php`,JSON.stringify(ranking));
   }
 
+  enviarNombreTarea(nombreTarea){
+    console.log(nombreTarea);
+
+    return this.http.post(`${environment.serverUrl}SelectTarea.php`,JSON.stringify(nombreTarea));
+  }
+
 
   getRanking(){
-    return this.ranking;
+    return this.nombre;
   }
 
   getCodigo(){
     return this.codigo;
 
   }
-  setCodigo(codigo,ranking){
+  setCodigo(codigo,nombre){
     this.codigo = codigo;
-    this.ranking = ranking;
+    this.nombre = nombre;
   }
 
   getDatos(): any {

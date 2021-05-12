@@ -87,9 +87,9 @@ export class RankingComponent implements OnInit {
     })
   }
 
-  Cambiar_Opcion(op: String, codigo: String, ranking: String): void {
+  Cambiar_Opcion(op: String, codigo: String, nombre: String): void {
     this.ModoCambio = op;
-    this.BD.setCodigo(codigo,ranking);
+    this.BD.setCodigo(codigo,nombre);
   }
 
   BorrarRanking(codigo: String) {
