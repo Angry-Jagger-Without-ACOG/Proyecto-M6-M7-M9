@@ -13,9 +13,18 @@
         Seleccionar Tarea
       </button>
 
-      <!-- <div *ngFor="let tarea of tareas;" class="dropdown-menu">
-          <a class="nav-link active btn btn-link">{{tarea.nombre}}</a>
-      </div> -->
+      <div class="dropdown-menu">
+          <a  class="nav-link active btn btn-link" (click)='getTareaName("Tarea1")'>Tarea1</a>
+          <a  class="nav-link active btn btn-link" (click)='getTareaName("Tarea2")'>Tarea2</a>
+          <a  class="nav-link active btn btn-link" (click)='getTareaName("Tarea3")'>Tarea3</a>
+          <a  class="nav-link active btn btn-link" (click)='getTareaName("Tarea4")'>Tarea4</a>
+          <a  class="nav-link active btn btn-link" (click)='getTareaName("Tarea5")'>Tarea5</a>
+          <a  class="nav-link active btn btn-link" (click)='getTareaName("Tarea6")'>Tarea6</a>
+          <a  class="nav-link active btn btn-link" (click)='getTareaName("Tarea7")'>Tarea7</a>
+          <a  class="nav-link active btn btn-link" (click)='getTareaName("Tarea8")'>Tarea8</a>
+          <a  class="nav-link active btn btn-link" (click)='getTareaName("Tarea9")'>Tarea9</a>
+          <a  class="nav-link active btn btn-link" (click)='getTareaName("Tarea10")'>Tarea10</a>
+      </div>
     </div>
 
   </div>

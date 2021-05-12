@@ -13,3 +13,13 @@
 .Index{
   display: none;
 }
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
+a:hover{
+  background-color: rgb(215, 141, 245);
+  color: black;
+}
