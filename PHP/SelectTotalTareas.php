@@ -18,8 +18,8 @@ $vec = [];
 
 
 $nombreRanking = strtolower($params);
-// falta recojer  Nick  y ORDER BY PuntuacionTotal
-$resultado = mysqli_query($con,"SELECT Nombre,Apellido, (Tarea1 + Tarea2 + Tarea3 + Tarea4 + Tarea5) AS PuntuacionTotal FROM $nombreRanking");
+
+$resultado = mysqli_query($con,"SELECT Nombre,Apellido, (Tarea1 + Tarea2 + Tarea3 + Tarea4 + Tarea5) AS Puntuacion FROM $nombreRanking");
 
     while ($reg = mysqli_fetch_assoc($resultado)){
 
