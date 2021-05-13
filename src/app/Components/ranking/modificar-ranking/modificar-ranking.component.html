@@ -38,7 +38,7 @@
         <th>Nombre </th>
         <th>Apellido</th>
         <th>{{tarea_name}}</th>
-        <th *ngIf="tarea_name != 'Puntuacion Total'"></th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -47,7 +47,7 @@
         <td class="extra">{{usuario.Nombre}}</td>
         <td class="extra">{{usuario.Apellido}}</td>
         <td class="extra">{{usuario.Puntuacion}}</td>
-        <td *ngIf="tarea_name != 'Puntuacion Total'">
+        <td *ngIf="tarea_name 'Puntuacion Total'">
           <input type="number" min="0" max="10"><br>
           <button type="button" class="btn btn-light mt-2" (click)='modificarPuntuacion()'>Modificar puntuacion</button></td>
       </tr>
@@ -57,7 +57,7 @@
 </div>
 
 
-<div *ngIf="">
+<div *ngIf="isEmptyObject(Usuario)">
   <!-- Comprobar que hay registros en la Tabla Tarea que coincidan(no hay registros) -->
   <h1 class="info">Aun no hay alumnos</h1>
   <img class="inf_img mx-auto d-block mt-2" src="assets\img\rank.png">
