@@ -1,5 +1,4 @@
-<!--<div *ngIf="">
- Comprobar que hay registros en la Tabla Tarea que coincidan(si hay registros) </div>-->
+<div *ngIf="!isEmptyObject(Usuario)">
 
 <button type="button" (click)="UpdateCont()" class="btn btn-dark  mt-5">Atras</button>
 
@@ -55,10 +54,10 @@
   </table>
 
 </div>
-
+</div>
 
 <div *ngIf="isEmptyObject(Usuario)">
-  <!-- Comprobar que hay registros en la Tabla Tarea que coincidan(no hay registros) -->
-  <h1 class="info">Aun no hay alumnos</h1>
-  <img class="inf_img mx-auto d-block mt-2" src="assets\img\rank.png">
+  <button type="button" (click)="UpdateCont()" class="btn btn-dark mt-5">Atras</button>
+  <img class="inf_img mx-auto d-block mt-5" src="assets\img\rank.png">
+  <h1 class="info">Aun no hay alumnos en este ranking</h1>
 </div>
