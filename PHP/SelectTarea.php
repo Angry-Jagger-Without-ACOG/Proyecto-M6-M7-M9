@@ -18,7 +18,7 @@ $vec = [];
 
 $nombreRank = strtolower($params->nombreRanking);
 
-$resultado = mysqli_query($con,"SELECT Nombre,Apellido,$params->nombreTarea AS Puntuacion FROM $nombreRank");
+$resultado = mysqli_query($con,"SELECT Nombre,Apellido,$params->nombreTarea AS Puntuacion FROM $nombreRank ORDER BY Apellido ASC");
 
     while ($reg = mysqli_fetch_assoc($resultado)){
 

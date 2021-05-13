@@ -5,8 +5,7 @@
 
 <div class="btn-group float-right mt-5 mb-4">
 
-  <button type="button" class="btn btn-dark" (click)="SelectRanking()">Puntuacion Total</button>
-  <!-- <button type="button" class="btn btn-dark">Añadir Tarea</button> -->
+  <button type="button" (click)=" anadirTarea()" class="btn btn-dark">Añadir Tarea</button>
 
   <div class="btn-group">
 
@@ -37,7 +36,7 @@
       <tr>
         <th>Nombre </th>
         <th>Apellido</th>
-        <th>{{tarea_name}}</th>
+        <th>{{tarea_Name}}</th>
         <th></th>
       </tr>
     </thead>
@@ -47,7 +46,7 @@
         <td class="extra">{{usuario.Nombre}}</td>
         <td class="extra">{{usuario.Apellido}}</td>
         <td class="extra">{{usuario.Puntuacion}}</td>
-        <td *ngIf="tarea_name 'Puntuacion Total'">
+        <td *ngIf="tarea_Name 'Puntuacion Total'">
           <input type="number" min="0" max="10" #nuevaPutuacion><br>
           <button type="button" class="btn btn-light mt-2"  (click)='modificarPuntuacion(nuevaPutuacion.value,usuario.Nombre)'>Modificar puntuacion</button></td>
       </tr>

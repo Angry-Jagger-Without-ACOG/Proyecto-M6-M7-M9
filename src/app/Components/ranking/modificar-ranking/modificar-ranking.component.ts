@@ -16,12 +16,12 @@ export class ModificarRankingComponent implements OnInit {
   tipo_Usuario: String;
   nombre_Usuario: String;
   usuario: Object = {}
+  Tarea = 10;
 
   codigo: String;
   nombreRanking: String;
-  tarea_name:String;
+  tarea_Name:String;
   puntuacion: String;
-  puntuacionRanking: Number;
 
   Usuario: Object = {
     Nombre: String,
@@ -32,6 +32,14 @@ export class ModificarRankingComponent implements OnInit {
   SelectTareas: any = {
     nombreRanking: String,
     nombreTarea: String
+  }
+
+  PuntuacionNueva : any = {
+    nombreRanking: String,
+    puntuacionRanking: Number,
+    nombreAlumno: String,
+    Tarea: String
+
   }
 
 
@@ -50,7 +58,7 @@ export class ModificarRankingComponent implements OnInit {
   }
 
   SelectRanking() {
-    this.tarea_name = "Puntuacion Total";
+    this.tarea_Name = "Puntuacion Total";
     this.BD.selectTareas(this.nombreRanking).subscribe(
       result => this.Usuario = result
     )
@@ -63,7 +71,7 @@ export class ModificarRankingComponent implements OnInit {
   // Supongo que aparte de pasar el nombre de la tarea , tambien tendria que actualizar los datos
   NombreTarea(nombreTarea:string){
 
-    this.tarea_name = "Puntuacion "+nombreTarea;
+    this.tarea_Name = nombreTarea;
     this.SelectTareas.nombreRanking = this.nombreRanking;
     this.SelectTareas.nombreTarea = nombreTarea;
 
@@ -78,7 +86,20 @@ export class ModificarRankingComponent implements OnInit {
   }
 
   modificarPuntuacion(nuevaPuntuacion: Number,nombre: String){
-    console.log(nuevaPuntuacion, nombre);
+
+    this.PuntuacionNueva.nombreRanking = this.nombreRanking;
+    this.PuntuacionNueva.Tarea = this.tarea_Name;
+    this.PuntuacionNueva.puntuacionRanking = nuevaPuntuacion;
+    this.PuntuacionNueva.nombreAlumno = nombre;
+
+    this.BD.actualizarPuntuacionNueva(this.PuntuacionNueva).subscribe(
+
+    )
+  }
+
+  anadirTarea(){
+    this.Tarea = this.Tarea +1;
+    console.log(this.Tarea);
 
   }
 

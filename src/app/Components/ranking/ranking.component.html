@@ -27,7 +27,7 @@
               <div class="Index"></div>
               <td>{{rank.nombre}}</td>
               <td>{{rank.codigo}}</td>
-              <td><button type="button" (click)='Cambiar_Opcion("Ver")' class="btn btn-light">Ver Ranking</button></td>
+              <td><button type="button" (click)='Cambiar_Opcion("Ver",rank.codigo,rank.nombre)' class="btn btn-light">Ver Ranking</button></td>
               <td><button type="button" (click)='Cambiar_Opcion("Modificar",rank.codigo,rank.nombre)' class="btn btn-light">Modificar</button>
               </td>
               <td><button type="button" (click)='CambiarCodigo(rank.codigo)' class="btn btn-light">Generar Codigo</button></td>
@@ -50,6 +50,9 @@
 
     <div *ngIf="ModoCambio==='Modificar'">
       <app-modificar-ranking></app-modificar-ranking>
+    </div>
+    <div *ngIf="ModoCambio==='Ver'">
+      <app-ver-ranking></app-ver-ranking>
     </div>
 
   </div>

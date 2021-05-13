@@ -112,6 +112,16 @@ export class ProfeToolsService {
     return this.http.post(`${environment.serverUrl}SelectTarea.php`,JSON.stringify(SelectTareas));
   }
 
+  actualizarPuntuacionNueva(PuntuacionNueva){
+    console.log(PuntuacionNueva)
+
+    return this.http.put(`${environment.serverUrl}UpdatePuntuacionNueva.php`,JSON.stringify(PuntuacionNueva));
+  }
+
+  selectRankingOrdenPuntuacion(Ranking){
+    return this.http.post(`${environment.serverUrl}SelectRankingPuntuacion.php`,JSON.stringify(Ranking))
+  }
+
 
   getRanking(){
     return this.nombre;
