@@ -1,57 +1,58 @@
-  <!--<div *ngIf="">
+<!--<div *ngIf="">
  Comprobar que hay registros en la Tabla Tarea que coincidan(si hay registros) </div>-->
 
- <button type="button" (click)="UpdateCont()" class="btn btn-dark  mt-5">Atras</button>
+<button type="button" (click)="UpdateCont()" class="btn btn-dark  mt-5">Atras</button>
 
-  <div class="btn-group float-right mt-5 mb-4">
+<div class="btn-group float-right mt-5 mb-4">
 
-    <button type="button" class="btn btn-dark" (click)="SelectRanking()">Puntuacion Total</button>
-    <button type="button" class="btn btn-dark">Modificar Tarea</button>
-    <button type="button" class="btn btn-dark">Añadir Tarea</button>
+  <button type="button" class="btn btn-dark" (click)="SelectRanking()">Puntuacion Total</button>
+  <!-- <button type="button" class="btn btn-dark">Añadir Tarea</button> -->
 
-    <div class="btn-group">
+  <div class="btn-group">
 
-      <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown">
-        Seleccionar Tarea
-      </button>
+    <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown">
+      Seleccionar Tarea
+    </button>
 
-      <div class="dropdown-menu">
-          <a  class="nav-link active btn btn-link" (click)='NombreTarea("Tarea1")'>Tarea1</a>
-          <a  class="nav-link active btn btn-link" (click)='NombreTarea("Tarea2")'>Tarea2</a>
-          <a  class="nav-link active btn btn-link" (click)='NombreTarea("Tarea3")'>Tarea3</a>
-          <a  class="nav-link active btn btn-link" (click)='NombreTarea("Tarea4")'>Tarea4</a>
-          <a  class="nav-link active btn btn-link" (click)='NombreTarea("Tarea5")'>Tarea5</a>
-          <a  class="nav-link active btn btn-link" (click)='NombreTarea("Tarea6")'>Tarea6</a>
-          <a  class="nav-link active btn btn-link" (click)='NombreTarea("Tarea7")'>Tarea7</a>
-          <a  class="nav-link active btn btn-link" (click)='NombreTarea("Tarea8")'>Tarea8</a>
-          <a  class="nav-link active btn btn-link" (click)='NombreTarea("Tarea9")'>Tarea9</a>
-          <a  class="nav-link active btn btn-link" (click)='NombreTarea("Tarea10")'>Tarea10</a>
-      </div>
+    <div class="dropdown-menu">
+      <a class="nav-link active btn btn-link" (click)='NombreTarea("Tarea1")'>Tarea1</a>
+      <a class="nav-link active btn btn-link" (click)='NombreTarea("Tarea2")'>Tarea2</a>
+      <a class="nav-link active btn btn-link" (click)='NombreTarea("Tarea3")'>Tarea3</a>
+      <a class="nav-link active btn btn-link" (click)='NombreTarea("Tarea4")'>Tarea4</a>
+      <a class="nav-link active btn btn-link" (click)='NombreTarea("Tarea5")'>Tarea5</a>
+      <a class="nav-link active btn btn-link" (click)='NombreTarea("Tarea6")'>Tarea6</a>
+      <a class="nav-link active btn btn-link" (click)='NombreTarea("Tarea7")'>Tarea7</a>
+      <a class="nav-link active btn btn-link" (click)='NombreTarea("Tarea8")'>Tarea8</a>
+      <a class="nav-link active btn btn-link" (click)='NombreTarea("Tarea9")'>Tarea9</a>
+      <a class="nav-link active btn btn-link" (click)='NombreTarea("Tarea10")'>Tarea10</a>
     </div>
-
   </div>
 
-  <div class="table-responsive">
+</div>
 
-        <table class="table table-bordered table-dark table-striped rounded text-center">
-          <thead>
-            <tr>
-              <th>Nombre </th>
-              <th>Apellido</th>
-              <th>Puntuacion</th>
-            </tr>
-          </thead>
+<div class="table-responsive">
 
-        <tr *ngFor="let usuario of Usuario;">
-          <div class="Index"></div>
-          <td>{{usuario.Nombre}}</td>
-          <td>{{usuario.Apellido}}</td>
-          <td>{{usuario.Puntuacion}}</td>
+  <table class="table table-dark table-striped rounded text-center">
+    <thead>
+      <tr>
+        <th>Nombre </th>
+        <th>Apellido</th>
+        <th>{{tarea_name}}</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let usuario of Usuario;">
+        <div class="Index"></div>
+        <td>{{usuario.Nombre}}</td>
+        <td>{{usuario.Apellido}}</td>
+        <td>{{usuario.Puntuacion}}</td>
+        <td><button type="button" class="btn btn-light" (click)='modificarPuntuacion()'>Modificar puntuacion</button></td>
+      </tr>
+    </tbody>
+  </table>
 
-        </tr>
-      </table>
-
-  </div>
+</div>
 
 
 <div *ngIf="">
