@@ -44,10 +44,12 @@
     <tbody>
       <tr *ngFor="let usuario of Usuario;">
         <div class="Index"></div>
-        <td>{{usuario.Nombre}}</td>
-        <td>{{usuario.Apellido}}</td>
-        <td>{{usuario.Puntuacion}}</td>
-        <td><button type="button" class="btn btn-light" (click)='modificarPuntuacion()'>Modificar puntuacion</button></td>
+        <td class="extra">{{usuario.Nombre}}</td>
+        <td class="extra">{{usuario.Apellido}}</td>
+        <td class="extra">{{usuario.Puntuacion}}</td>
+        <td>
+          <input type="number"><br>
+          <button type="button" class="btn btn-light mt-2" (click)='modificarPuntuacion()'>Modificar puntuacion</button></td>
       </tr>
     </tbody>
   </table>

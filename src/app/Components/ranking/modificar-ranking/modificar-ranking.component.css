@@ -10,6 +10,10 @@
   max-height: 220px;
 }
 
+.extra{
+  padding-top:3%;
+}
+
 .Index{
   display: none;
 }

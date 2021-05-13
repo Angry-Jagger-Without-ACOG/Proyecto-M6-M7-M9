@@ -1,20 +1,49 @@
-<div class="table-responsive">
+<!-- <button type="button" (click)="UpdateCont()" class="btn btn-dark  mt-5">Atras</button>
 
-  <table class="table table-bordered table-dark table-striped rounded text-center">
-    <thead>
-      <tr>
-        <th>Nick</th>
-        <th>Nombre y Apellido</th>
-        <th>Puntuacion Total</th>
-      </tr>
-    </thead>
+<div class="btn-group float-right mt-5 mb-4">
 
-  <!-- <tr *ngFor="let usuario of Usuarios;">
-    <div class="Index"></div>
-    <td>{{usuario.Nick}}</td>
-    <td>{{usuario.Nombre}} {{usuario.Apellido}}</td>
-    <td>{{usuario.PuntuacionTotal}}</td>
-  </tr> -->
-</table>
+  <button type="button" class="btn btn-dark" (click)="SelectRanking()">Puntuacion Total</button>
+
+  <div class="btn-group">
+
+    <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown">
+      Seleccionar Tarea
+    </button>
+
+    <div class="dropdown-menu">
+      <a class="nav-link active btn btn-link" (click)='NombreTarea("Tarea1")'>Tarea1</a>
+      <a class="nav-link active btn btn-link" (click)='NombreTarea("Tarea2")'>Tarea2</a>
+      <a class="nav-link active btn btn-link" (click)='NombreTarea("Tarea3")'>Tarea3</a>
+      <a class="nav-link active btn btn-link" (click)='NombreTarea("Tarea4")'>Tarea4</a>
+      <a class="nav-link active btn btn-link" (click)='NombreTarea("Tarea5")'>Tarea5</a>
+      <a class="nav-link active btn btn-link" (click)='NombreTarea("Tarea6")'>Tarea6</a>
+      <a class="nav-link active btn btn-link" (click)='NombreTarea("Tarea7")'>Tarea7</a>
+      <a class="nav-link active btn btn-link" (click)='NombreTarea("Tarea8")'>Tarea8</a>
+      <a class="nav-link active btn btn-link" (click)='NombreTarea("Tarea9")'>Tarea9</a>
+      <a class="nav-link active btn btn-link" (click)='NombreTarea("Tarea10")'>Tarea10</a>
+    </div>
+  </div>
 
 </div>
+
+<div class="table-responsive">
+
+  <table class="table table-dark table-striped rounded text-center">
+    <thead>
+      <tr>
+        <th>Nombre </th>
+        <th>Apellido</th>
+        <th>{{tarea_name}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let usuario of Usuario;">
+        <div class="Index"></div>
+        <td>{{usuario.Nombre}}</td>
+        <td>{{usuario.Apellido}}</td>
+        <td>{{usuario.Puntuacion}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div> -->

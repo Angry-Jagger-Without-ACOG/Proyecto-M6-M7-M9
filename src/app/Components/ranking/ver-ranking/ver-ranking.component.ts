@@ -26,5 +26,11 @@ export class VerRankingComponent implements OnInit {
 
   }
 
+  UpdateCont() {
+    this.refresh();
+  }
 
+  refresh(): void {
+    window.location.reload();
+  }
 }
