@@ -128,7 +128,6 @@ export class RankingComponent implements OnInit {
     this.actualizarCodigo.codigoNuevo = this.codigo;
 
 
-
     this.BD.GenerarCodigo(this.actualizarCodigo).subscribe(
         datos =>{
           if(datos['response'] == 'OK'){

@@ -20,6 +20,8 @@ export class ModificarRankingComponent implements OnInit {
   codigo: String;
   nombreRanking: String;
   tarea_name:String;
+  puntuacion: String;
+  puntuacionRanking: Number;
 
   Usuario: Object = {
     Nombre: String,
@@ -31,6 +33,7 @@ export class ModificarRankingComponent implements OnInit {
     nombreRanking: String,
     nombreTarea: String
   }
+
 
   Tareas: Tarea[] = [];
 
@@ -74,7 +77,8 @@ export class ModificarRankingComponent implements OnInit {
     return (obj && (Object.keys(obj).length === 0));
   }
 
-  modificarPuntuacion(){
+  modificarPuntuacion(nuevaPuntuacion: Number,nombre: String){
+    console.log(nuevaPuntuacion, nombre);
 
   }
 
