@@ -1,3 +1,4 @@
+import { trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { faHighlighter, faTintSlash } from '@fortawesome/free-solid-svg-icons';
 import { result } from 'lodash';
@@ -22,11 +23,9 @@ export class PerfilComponent implements OnInit {
 
   usuario: Object = {}
 
-  ranking: any = {
-    nombreAlumno: String,
-    apellidoAlumno: String,
-    codigoRanking: String
-  }
+  ranking: any = {}
+
+  macagoendios: any = {}
 
   constructor(private BD: ProfeToolsService) { }
 
@@ -40,8 +39,10 @@ export class PerfilComponent implements OnInit {
       this.GetProfesor(this.nombre_Usuario);
     } else if (this.tipo_Usuario == "Alumno") {
       this.Tipo = false;
-       this.GetAlumno(this.nombre_Usuario);
+      this.GetAlumno(this.nombre_Usuario);
+
     }
+
 
   }
 
@@ -59,37 +60,29 @@ export class PerfilComponent implements OnInit {
 
   }
 
+
   Cambiar_Opcion(op: String): void {
     this.ModoCambio = op;
   }
 
   comprobarRanking(codigoRanking: String,apellido: String){
 
-    this.apellidoAlumno = apellido;
+    this.ranking.nombreAlumno = this.nombre_Usuario;
+    this.ranking.apellidoAlumno = apellido;
 
     this.BD.comprobarRanking(codigoRanking).subscribe(
       result => this.ranking = result
     )
-    this.ranking.codigoRanking = codigoRanking;
-    this.unirseRanking()
-  }
-
-  unirseRanking(){
-
-    this.ranking.nombreAlumno = this.nombre_Usuario;
-    this.ranking.apellidoAlumno = this.apellidoAlumno;
 
     console.log(this.ranking);
 
-
-    this.BD.unirseRanking(this.ranking).subscribe(
-      datos => {
-
-      }
-    )
+    this.BD.unirseRanking(this.ranking).subscribe();
 
   }
 
 
+  refresh(): void {
+    window.location.reload();
+  }
 
 }

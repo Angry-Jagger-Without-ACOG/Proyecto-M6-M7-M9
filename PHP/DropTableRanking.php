@@ -7,7 +7,7 @@ header("Allow: GET, POST, OPTIONS, PUT, DELETE");
 
 require("BD.php");
 
-$json = file_get_contents("php://input"); // Esto es un objeto JSON en formato string
+$json = file_get_contents("php://input");
 
 $params = json_decode($json);
 
@@ -15,24 +15,22 @@ $con;
 $con=conexion();
 
 
-$vec = [];
+$resultado = mysqli_query($con,"DROP TABLE $params");
 
+ class Result {}
 
-$resultado = mysqli_query($con,"SELECT * FROM profesores WHERE nick='$params'");
+   $response = new Result();
 
+   if($resultado) {
+      $response->response = 'OK';
 
-  class Result {}
-
-  $response = new Result();
-
-
-    while($reg = mysqli_fetch_assoc($resultado)){
-
-      $vec[]=$reg;
-
-      print json_encode($vec);
+    } else {
+      $response->response = 'FAIL';
     }
 
+     header('Content-Type: application/json');
+
+  echo json_encode($response);
 
 
 ?>

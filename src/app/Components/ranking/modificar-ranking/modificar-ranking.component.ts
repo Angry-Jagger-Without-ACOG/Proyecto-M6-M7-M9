@@ -59,7 +59,7 @@ export class ModificarRankingComponent implements OnInit {
   }
 
   SelectRanking() {
-    this.tarea_Name = "Puntuacion Total";
+    this.tarea_Name = "Puntuacion";
     this.BD.selectTareas(this.nombreRanking).subscribe(
       result => this.Usuario = result
     )
@@ -71,7 +71,7 @@ export class ModificarRankingComponent implements OnInit {
 
   NombreTarea(nombreTarea:string){
 
-    this.tarea_Name = nombreTarea;
+    //this.tarea_Name = nombreTarea;
     this.SelectTareas.nombreRanking = this.nombreRanking;
     this.SelectTareas.nombreTarea = nombreTarea;
 
@@ -87,7 +87,6 @@ export class ModificarRankingComponent implements OnInit {
 
   modificarPuntuacion(nuevaPuntuacion: Number,nombre: String){
 
-    let map = new Map();
 
     this.PuntuacionNueva.nombreRanking = this.nombreRanking;
     this.PuntuacionNueva.Tarea = this.tarea_Name;
@@ -98,8 +97,10 @@ export class ModificarRankingComponent implements OnInit {
     this.BD.actualizarPuntuacionNueva(this.PuntuacionNueva).subscribe(
       datos => {
         if(datos['response'] == 'OK'){
+          Swal.fire('Puntuacion actualizada', '')
 
          }
+         this.refresh()
       }
     )
   }

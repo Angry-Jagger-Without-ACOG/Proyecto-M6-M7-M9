@@ -113,7 +113,6 @@ export class ProfeToolsService {
   }
 
   actualizarPuntuacionNueva(PuntuacionNueva){
-    console.log(PuntuacionNueva)
 
     return this.http.put(`${environment.serverUrl}UpdatePuntuacionNueva.php`,JSON.stringify(PuntuacionNueva));
   }
@@ -123,14 +122,15 @@ export class ProfeToolsService {
   }
 
   comprobarRanking(codigoRanking){
-
     return this.http.post(`${environment.serverUrl}ComprobarRanking.php`,JSON.stringify(codigoRanking));
   }
 
   unirseRanking(datosRanking){
-console.log(datosRanking);
+    return this.http.put(`${environment.serverUrl}UnirseRanking.php`,JSON.stringify(datosRanking));
+  }
 
-    return this.http.post(`${environment.serverUrl}UnirseRanking.php`,JSON.stringify(datosRanking));
+  selectTodosRankings(){
+    return this.http.get(`${environment.serverUrl}GetRanking.php`);
   }
 
 

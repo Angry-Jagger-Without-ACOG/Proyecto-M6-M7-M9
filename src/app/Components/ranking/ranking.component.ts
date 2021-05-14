@@ -110,6 +110,7 @@ export class RankingComponent implements OnInit {
         this.BD.DeleteRanking(codigo).subscribe(
 
         )
+
         this.BD.DropTableRanking(NombreTabla).subscribe()
 
         this.refresh();
