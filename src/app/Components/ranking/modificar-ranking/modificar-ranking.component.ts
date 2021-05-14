@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ProfeToolsService } from '../../../servicios/profe-tools.service';
 import { Tarea } from '../../../Models/Tarea.model';
 import Swal from 'sweetalert2';
+import { map} from 'lodash';
 
 @Component({
   selector: 'app-modificar-ranking',
@@ -68,7 +69,6 @@ export class ModificarRankingComponent implements OnInit {
     this.refresh();
   }
 
-  // Supongo que aparte de pasar el nombre de la tarea , tambien tendria que actualizar los datos
   NombreTarea(nombreTarea:string){
 
     this.tarea_Name = nombreTarea;
@@ -87,13 +87,20 @@ export class ModificarRankingComponent implements OnInit {
 
   modificarPuntuacion(nuevaPuntuacion: Number,nombre: String){
 
+    let map = new Map();
+
     this.PuntuacionNueva.nombreRanking = this.nombreRanking;
     this.PuntuacionNueva.Tarea = this.tarea_Name;
     this.PuntuacionNueva.puntuacionRanking = nuevaPuntuacion;
     this.PuntuacionNueva.nombreAlumno = nombre;
 
-    this.BD.actualizarPuntuacionNueva(this.PuntuacionNueva).subscribe(
 
+    this.BD.actualizarPuntuacionNueva(this.PuntuacionNueva).subscribe(
+      datos => {
+        if(datos['response'] == 'OK'){
+
+         }
+      }
     )
   }
 

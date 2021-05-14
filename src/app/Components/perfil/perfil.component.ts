@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { faHighlighter, faTintSlash } from '@fortawesome/free-solid-svg-icons';
+import { result } from 'lodash';
+import Swal from 'sweetalert2';
 import { ProfeToolsService } from '../../servicios/profe-tools.service';
 
 @Component({
@@ -11,12 +14,19 @@ export class PerfilComponent implements OnInit {
 
   ModoCambio: String = "Perfil";
 
-  //Variables para indicar el tipo de usuario
   Tipo: boolean = true;
   tipo_Usuario: String;
   nombre_Usuario: String;
+  apellidoAlumno: String;
+  nombreRanking: any;
 
   usuario: Object = {}
+
+  ranking: any = {
+    nombreAlumno: String,
+    apellidoAlumno: String,
+    codigoRanking: String
+  }
 
   constructor(private BD: ProfeToolsService) { }
 
@@ -52,5 +62,34 @@ export class PerfilComponent implements OnInit {
   Cambiar_Opcion(op: String): void {
     this.ModoCambio = op;
   }
+
+  comprobarRanking(codigoRanking: String,apellido: String){
+
+    this.apellidoAlumno = apellido;
+
+    this.BD.comprobarRanking(codigoRanking).subscribe(
+      result => this.ranking = result
+    )
+    this.ranking.codigoRanking = codigoRanking;
+    this.unirseRanking()
+  }
+
+  unirseRanking(){
+
+    this.ranking.nombreAlumno = this.nombre_Usuario;
+    this.ranking.apellidoAlumno = this.apellidoAlumno;
+
+    console.log(this.ranking);
+
+
+    this.BD.unirseRanking(this.ranking).subscribe(
+      datos => {
+
+      }
+    )
+
+  }
+
+
 
 }

@@ -119,7 +119,18 @@ export class ProfeToolsService {
   }
 
   selectRankingOrdenPuntuacion(Ranking){
-    return this.http.post(`${environment.serverUrl}SelectRankingPuntuacion.php`,JSON.stringify(Ranking))
+    return this.http.post(`${environment.serverUrl}SelectRankingPuntuacion.php`,JSON.stringify(Ranking));
+  }
+
+  comprobarRanking(codigoRanking){
+
+    return this.http.post(`${environment.serverUrl}ComprobarRanking.php`,JSON.stringify(codigoRanking));
+  }
+
+  unirseRanking(datosRanking){
+console.log(datosRanking);
+
+    return this.http.post(`${environment.serverUrl}UnirseRanking.php`,JSON.stringify(datosRanking));
   }
 
 
