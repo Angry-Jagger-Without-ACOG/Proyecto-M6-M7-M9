@@ -35,7 +35,7 @@
       <tr>
         <th>Nombre </th>
         <th>Apellido</th>
-        <th>{{tarea_Name}}</th>
+        <th>Puntuacion {{tarea_Name}}</th>
         <th>Nueva Puntuacion</th>
 
       </tr>
@@ -46,9 +46,15 @@
         <td class="extra">{{usuario.Nombre}}</td>
         <td class="extra">{{usuario.Apellido}}</td>
         <td class="extra">{{usuario.Puntuacion}}</td>
-        <td *ngIf="tarea_Name 'Puntuacion Total'">
-          <input type="number" min="0" max="10" #nuevaPutuacion><br>
-          <button type="button" class="btn btn-light mt-2"  (click)='modificarPuntuacion(nuevaPutuacion.value,usuario.Nombre)'>Modificar puntuacion</button></td>
+        <td>
+          <div class="input-group mt-3 ml-n5 mr-3">
+            <div class="input-group-prepend">
+              <button class="btn btn-outline-light" type="button"(click)='modificarPuntuacion(nuevaPutuacion.value,usuario.Nombre)'>Modificar puntuacion</button>
+            </div>
+            <input class="form-control" type="number" min="0" max="10" #nuevaPutuacion>
+          </div>
+
+        </td>
       </tr>
     </tbody>
   </table>

@@ -59,7 +59,7 @@ export class ModificarRankingComponent implements OnInit {
   }
 
   SelectRanking() {
-    this.tarea_Name = "Puntuacion ";
+    this.tarea_Name = "Tarea1";
     this.BD.selectTareas(this.nombreRanking).subscribe(
       result => this.Usuario = result
     )
