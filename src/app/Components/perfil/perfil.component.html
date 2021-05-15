@@ -70,7 +70,7 @@
 
       <div *ngIf="Tipo == false" class="card text-white Marco">
 
-        <table class="table table-borderless text-light posi">
+        <table class="table table-borderless text-light posi mt-1">
           <tr>
             <th>Nombre:</th>
             <td>{{usuario.nombre}}</td>
@@ -88,23 +88,23 @@
             <td>{{usuario.curso}}</td>
           </tr>
           <tr>
-            <td><button class="btn btn-light mt-n2 mb-n2" (click)='Cambiar_Opcion("Datos")' type="button">Cambiar Datos
-              </button></td>
-              <td><button class="btn btn-light mt-n2 mb-n2" (click)='Cambiar_Opcion("Contra")' type="button">Cambiar
+            <td><button class="btn btn-light mt-2" (click)='Cambiar_Opcion("Contra")' type="button">Cambiar
                 Contraseña
-              </button></td>
-
-              <td>
-                <input type="text" #codigoRanking>
-                <br>
-                <br>
-                <button class="btn btn-light mt-n2 mb-n2" (click)='comprobarRanking(codigoRanking.value,usuario.apellido)' >
-                Unirse a ranking
-                </button>
-              </td>
+              </button>
+            </td>
+            <td><button class="btn btn-light mt-2" (click)='Cambiar_Opcion("Datos")' type="button">Cambiar Datos
+              </button>
+            </td>
           </tr>
         </table>
 
+        <div class="input-group mb-4 pr-5 pl-5">
+          <div class="input-group-prepend">
+            <button class="btn btn-outline-light" (click)='comprobarRanking(codigoRanking.value,usuario.apellido)'
+              type="button">Codigo ranking</button>
+          </div>
+          <input class="form-control" type="text" #codigoRanking>
+        </div>
       </div>
 
     </div>
@@ -139,7 +139,7 @@
   </div>
 
   <div class="d-flex justify-content-center pt-5" *ngIf='ModoCambio == "Datos"'>
-    <app-actualizar></app-actualizar >
+    <app-actualizar></app-actualizar>
   </div>
 
   <div class="d-flex justify-content-center pt-5" *ngIf='ModoCambio == "Contra"'>
