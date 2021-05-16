@@ -1,6 +1,6 @@
 import { trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
-import { faHighlighter, faTintSlash } from '@fortawesome/free-solid-svg-icons';
+import { faHighlighter, faSquare, faTintSlash } from '@fortawesome/free-solid-svg-icons';
 import { result } from 'lodash';
 import Swal from 'sweetalert2';
 import { ProfeToolsService } from '../../servicios/profe-tools.service';
@@ -20,12 +20,21 @@ export class PerfilComponent implements OnInit {
   nombre_Usuario: String;
   apellidoAlumno: String;
   nombreRanking: any;
+  codigoRanking: String;
 
   usuario: Object = {}
 
   ranking: any = {}
 
-  macagoendios: any = {}
+  selectRankings: any = {
+    nombre:String,
+    nombreProfesor: String
+  }
+
+  datosRanking: any = {
+    nombreAlumno: String,
+    codigoRanking: String
+  }
 
   constructor(private BD: ProfeToolsService) { }
 
@@ -39,6 +48,7 @@ export class PerfilComponent implements OnInit {
       this.GetProfesor(this.nombre_Usuario);
     } else if (this.tipo_Usuario == "Alumno") {
       this.Tipo = false;
+      this.selectRankingsAlumno();
       this.GetAlumno(this.nombre_Usuario);
 
     }
@@ -60,7 +70,6 @@ export class PerfilComponent implements OnInit {
 
   }
 
-
   Cambiar_Opcion(op: String): void {
     this.ModoCambio = op;
   }
@@ -70,16 +79,31 @@ export class PerfilComponent implements OnInit {
     this.ranking.nombreAlumno = this.nombre_Usuario;
     this.ranking.apellidoAlumno = apellido;
 
-    this.BD.comprobarRanking(codigoRanking).subscribe(
-      result => this.ranking = result
-    )
 
-    console.log(this.ranking);
 
-    this.BD.unirseRanking(this.ranking).subscribe();
+
+    this.datosRanking.nombreAlumno = this.nombre_Usuario;
+    this.datosRanking.codigoRanking = codigoRanking;
+
+
+    this.BD.selectComprobarTablaTarea(this.datosRanking).subscribe(
+      datos => {
+        if (datos['response'] == 'OK'){
+          Swal.fire('No podes puto','');
+        }else{
+           Swal.fire('Entraste wachin ', '');
+        }
+      }
+
+    );
 
   }
 
+  selectRankingsAlumno(){
+
+    this.BD.selectRankingsAlumno(this.nombre_Usuario).subscribe();
+
+  }
 
   refresh(): void {
     window.location.reload();

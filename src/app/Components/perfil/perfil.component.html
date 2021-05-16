@@ -124,19 +124,16 @@
       </div>
 
       <div *ngIf="Tipo == false"
-        class="text-white align-items-center text-center pt-3 pb-3 pre-scrollable Marco scroll-height">
-
+        class="text-white align-items-center text-center pt-3 pb-3 pre-scrollable Marco scroll-height" >
         <!-- Lista de ranking creados -->
-        <div class="list-group rounded mr-3 ml-3">
-          <a *ngFor="let Alumno of Alumnos" class="list-group-item list-group-item-action text-center p-4 bg-light">
-            <strong>{{usuario.nick}}</strong></a>
+        <div  class="list-group rounded mr-3 ml-3" *ngFor="let ranking of datosRanking">
+        <strong>Nombre: {{ranking.nombre}}</strong>
+        <strong>fghfhgj</strong>
         </div>
-
       </div>
-
     </div>
-
   </div>
+
 
   <div class="d-flex justify-content-center pt-5" *ngIf='ModoCambio == "Datos"'>
     <app-actualizar></app-actualizar>

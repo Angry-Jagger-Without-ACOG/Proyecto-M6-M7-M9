@@ -133,6 +133,14 @@ export class ProfeToolsService {
     return this.http.get(`${environment.serverUrl}GetRanking.php`);
   }
 
+  selectRankingsAlumno(nombre_Usuario){
+    return this.http.post(`${environment.serverUrl}SelectRankingAlumno.php`,JSON.stringify(nombre_Usuario));
+  }
+
+  selectComprobarTablaTarea(datosRanking){
+    return this.http.post(`${environment.serverUrl}ComprobarTablaTarea.php`,JSON.stringify(datosRanking));
+  }
+
 
   getRanking(){
     return this.nombre;
