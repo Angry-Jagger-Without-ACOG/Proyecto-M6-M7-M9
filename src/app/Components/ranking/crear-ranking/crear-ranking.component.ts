@@ -60,19 +60,7 @@ export class CrearRankingComponent implements OnInit {
   }
 
   Crear() {
-    Swal.fire({
-      title: 'Estas seguro?',
-      text: "No podras cambiar los nombres!",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Crear',
-      cancelButtonText: 'Cancelar'
-    }).then((result) => {
-      if (result.isConfirmed) {
-
-        this.codigoRanking = this.generaNss();
+    this.codigoRanking = this.generaNss();
 
         this.ranking.nombre_Usuario = this.nombre_Usuario;
         this.ranking.codigoRanking = this.codigoRanking;
@@ -86,14 +74,9 @@ export class CrearRankingComponent implements OnInit {
 
             } else {
               Swal.fire('Error al crear el ranking', 'error' )
-
             }
           }
         );
-      }
-
-    })
-
   }
 
   crearTablaTareas()
