@@ -14,28 +14,18 @@ $params = json_decode($json);
 $con;
 $con=conexion();
 
+$vec;
+
+$resultado = mysqli_query($con,"SELECT nombre FROM rankings WHERE codigo= '$params'");
 
 
-$resultado = mysqli_query($con,"SELECT NombreAlumno,CodigoRanking FROM tarea WHERE NombreAlumno= '$params->nombreAlumno' AND CodigoRanking = '$params->codigoRanking'");
+while ($reg = mysqli_fetch_row($resultado)){
 
-class Result {}
+    $vec=$reg;
 
+  }
 
-$response = new Result();
-
-
-if($resultado->num_rows == 0 ) {
-
-    $response->response = 'OK';
-
-} else {
-
-    $response->response = 'FAIL';
-
-}
-
-
-    echo json_encode($response);
+  echo json_encode($vec);
 
 
 ?>

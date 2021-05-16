@@ -34,6 +34,11 @@ export class RankingComponent implements OnInit {
     codigoNuevo: String
   }
 
+  datosRanking: Object = {
+    nombre: String,
+    codigo: String
+  }
+
 
   Rankings: Ranking[] = [];
 
@@ -49,6 +54,7 @@ export class RankingComponent implements OnInit {
       this.GetRanking(this.nombre_Usuario);
     } else if (this.tipo_Usuario == "Alumno") {
       this.Tipo = false;
+      this.selectRankingsAlumno();
     }
 
   }
@@ -89,7 +95,17 @@ export class RankingComponent implements OnInit {
 
   Cambiar_Opcion(op: String, codigo: String, nombre: String): void {
     this.ModoCambio = op;
+    console.log(codigo,nombre);
+
     this.BD.setCodigo(codigo,nombre);
+  }
+
+  selectRankingsAlumno(){
+
+    this.BD.selectRankingsAlumno(this.nombre_Usuario).subscribe(
+      result => this.datosRanking = result
+    );
+
   }
 
   BorrarRanking(codigo: String, NombreTabla : String) {

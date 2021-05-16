@@ -1,4 +1,5 @@
 import { trigger } from '@angular/animations';
+import { stripGeneratedFileSuffix } from '@angular/compiler/src/aot/util';
 import { Component, OnInit } from '@angular/core';
 import { faHighlighter, faSquare, faTintSlash } from '@fortawesome/free-solid-svg-icons';
 import { result } from 'lodash';
@@ -21,6 +22,7 @@ export class PerfilComponent implements OnInit {
   apellidoAlumno: String;
   nombreRanking: any;
   codigoRanking: String;
+  nombreRankingAlumno: Object;
 
   usuario: Object = {}
 
@@ -33,7 +35,8 @@ export class PerfilComponent implements OnInit {
 
   datosRanking: any = {
     nombreAlumno: String,
-    codigoRanking: String
+    apellidoAlumno: String,
+    codigoRanking: String,
   }
 
   constructor(private BD: ProfeToolsService) { }
@@ -48,7 +51,6 @@ export class PerfilComponent implements OnInit {
       this.GetProfesor(this.nombre_Usuario);
     } else if (this.tipo_Usuario == "Alumno") {
       this.Tipo = false;
-      this.selectRankingsAlumno();
       this.GetAlumno(this.nombre_Usuario);
 
     }
@@ -80,17 +82,22 @@ export class PerfilComponent implements OnInit {
     this.ranking.apellidoAlumno = apellido;
 
 
-
-
     this.datosRanking.nombreAlumno = this.nombre_Usuario;
     this.datosRanking.codigoRanking = codigoRanking;
+    this.datosRanking.apellidoAlumno = apellido;
+
+    this.BD.selectRankingPorcodigo(codigoRanking).subscribe(
+      result => this.datosRanking.nombre = result[0]
+    );
 
 
     this.BD.selectComprobarTablaTarea(this.datosRanking).subscribe(
       datos => {
-        if (datos['response'] == 'OK'){
-          Swal.fire('No podes puto','');
+        if (datos['response'] == 'FAIL'){
+          Swal.fire('No podes wachin','');
         }else{
+          this.BD.insertTablaTarea(this.datosRanking).subscribe();
+          this.BD.unirseRanking(this.datosRanking).subscribe();
            Swal.fire('Entraste wachin ', '');
         }
       }
@@ -99,11 +106,7 @@ export class PerfilComponent implements OnInit {
 
   }
 
-  selectRankingsAlumno(){
 
-    this.BD.selectRankingsAlumno(this.nombre_Usuario).subscribe();
-
-  }
 
   refresh(): void {
     window.location.reload();

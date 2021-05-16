@@ -98,7 +98,6 @@ export class ProfeToolsService {
     return this.http.post(`${environment.serverUrl}CountRankings.php`,JSON.stringify(nombre_Usuario));
   }
 
-  // Select mejor para el componente ver ranking , ordenar-lo por puntuacion
   selectTareas(ranking){
     return this.http.post(`${environment.serverUrl}SelectTotalTareas.php`,JSON.stringify(ranking));
   }
@@ -141,6 +140,13 @@ export class ProfeToolsService {
     return this.http.post(`${environment.serverUrl}ComprobarTablaTarea.php`,JSON.stringify(datosRanking));
   }
 
+  insertTablaTarea(datosRanking){
+    return this.http.post(`${environment.serverUrl}InsertTablaTarea.php`,JSON.stringify(datosRanking));
+  }
+
+  selectRankingPorcodigo(codigoRanking){
+    return this.http.post(`${environment.serverUrl}SelectRankingAlumnoCodigo.php`,JSON.stringify(codigoRanking));
+  }
 
   getRanking(){
     return this.nombre;

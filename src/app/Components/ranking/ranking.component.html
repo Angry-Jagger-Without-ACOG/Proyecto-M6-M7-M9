@@ -59,7 +59,39 @@
 
   <!-- Alumno -->
   <div *ngIf="Tipo == false">
-    <h1>Este componente no esta habilitado para alumnos!!</h1>
+      <div *ngIf="ModoCambio==='RC'">
+        <button type="button" (click)='Cambiar_Opcion("Crear")' class="btn btn-dark mt-5">Crear Ranking</button>
+
+          <table class="table table-dark pre-scrollable mt-3 table-striped rounded text-center">
+
+            <thead>
+              <tr>
+                <th>Ranking</th>
+                <th>Codigo</th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr *ngFor="let ranking of datosRanking;">
+                <div class="Index"></div>
+                <td>{{ranking.nombre}}</td>
+                <td>{{ranking.codigo}}</td>
+                <td><button type="button" (click)='Cambiar_Opcion("Ver",ranking.codigo,ranking.nombre)' class="btn btn-light">Ver Ranking</button></td>
+              </tr>
+
+
+            </tbody>
+          </table>
+        </div>
+        <div *ngIf="ModoCambio==='Ver'">
+          <app-ver-ranking></app-ver-ranking>
+        </div>
+
   </div>
+
 
 </div>

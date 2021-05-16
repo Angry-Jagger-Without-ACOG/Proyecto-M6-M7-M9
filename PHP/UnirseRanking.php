@@ -14,9 +14,10 @@ $params = json_decode($json);
 $con;
 $con=conexion();
 
+
 $nombreRanking = strtolower($params->nombre);
 
-$resultado = mysqli_query($con,"INSERT INTO $nombreRanking SET Nombre = '$params->nombreAlumno', Apellido='$params->apellidoAlumno', Profesor='$params->nombreProfesor', Tarea1= 0, Tarea2=0 , Tarea3= 0 ,
+$resultado = mysqli_query($con,"INSERT INTO $nombreRanking SET Nombre = '$params->nombreAlumno', Apellido='$params->apellidoAlumno', Tarea1= 0, Tarea2=0 , Tarea3= 0 ,
                                 Tarea4= 0 , Tarea5= 0 , Tarea6= 0, Tarea7= 0 , Tarea8 = 0, Tarea9 = 0, Tarea10 =0 ");
 
 
