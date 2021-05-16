@@ -1,3 +1,17 @@
-<form>
+
+<form [formGroup]="NewRank" (ngSubmit)="Crear()" class="color">
+
+  <div class="form-group">
+    <p class="text-light">Nombre para el nuevo Ranking</p>
+    <input type="text" formControlName="nombre_rank" class="form-control"
+      [ngClass]="{'is-invalid': R.nombre_rank.touched && R.nombre_rank.errors}" >
+
+    <div *ngIf="R.nombre_rank.touched && R.nombre_rank.errors" class="invalid-feedback">
+      <div *ngIf="R.nombre_rank.errors.required">El campo ranking esta vacio!</div>
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="NewRank.invalid" class="btn btn-light mt-2">Crear</button>
+  <button type="button" (click)="UpdateCont()" class="btn btn-light text-dark mt-2 ml-4">Volver</button>
 
 </form>

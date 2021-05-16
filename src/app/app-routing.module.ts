@@ -5,8 +5,6 @@ import { RegistroComponent } from './Components/registro/registro.component';
 import { PerfilComponent } from './Components/perfil/perfil.component';
 import { RankingComponent } from './Components/ranking/ranking.component';
 import { CrearRankingComponent } from './Components/ranking/crear-ranking/crear-ranking.component';
-import { RankingGrupoComponent } from './Components/ranking/ranking-grupo/ranking-grupo.component';
-import { RankingSoloComponent } from './Components/ranking/ranking-solo/ranking-solo.component';
 import { ModificarRankingComponent } from './Components/ranking/modificar-ranking/modificar-ranking.component';
 
 const routes: Routes = [
@@ -15,8 +13,6 @@ const routes: Routes = [
 { path: 'REG', component: RegistroComponent},
 { path: 'RC', component: RankingComponent},
 { path: 'CRC', component: CrearRankingComponent},
-{ path: 'RGC', component: RankingGrupoComponent},
-{ path: 'RSC', component: RankingSoloComponent},
 { path: 'MRC', component: ModificarRankingComponent},
 { path: 'Perfil', component: PerfilComponent}];
 

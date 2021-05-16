@@ -16,39 +16,82 @@
               <th>Ranking</th>
               <th>Codigo</th>
               <th></th>
-              <th>Modificar</th>
-              <th>Borrar</th>
+              <th></th>
+              <th></th>
+              <th></th>
             </tr>
           </thead>
 
           <tbody>
-            <tr *ngFor="let Equipo of Rankings;index as i">
-              <div class="Index"> {{i+1}}</div>
-              <td>{{Equipo.nombre}}</td>
-              <td>{{Equipo.codigo}}</td>
-              <td><button type="button" (click)='Cambiar_Opcion("Ver")' class="btn btn-light">Ver Datos</button></td>
-              <td><button type="button" (click)='Cambiar_Opcion("Modificar")' class="btn btn-light">Modificar</button>
+            <tr *ngFor="let rank of ranking ;">
+              <div class="Index"></div>
+              <td>{{rank.nombre}}</td>
+              <td>{{rank.codigo}}</td>
+              <td><button type="button" (click)='Cambiar_Opcion("Ver",rank.codigo,rank.nombre)' class="btn btn-light">Ver Ranking</button></td>
+              <td><button type="button" (click)='Cambiar_Opcion("Modificar",rank.codigo,rank.nombre)' class="btn btn-light">Modificar</button>
               </td>
-              <td><button type="button" (click)='BorrarRanking(i)' class="btn btn-light">Borrar</button></td>
+              <td><button type="button" (click)='CambiarCodigo(rank.codigo)' class="btn btn-light">Generar Codigo</button></td>
+              <td><button type="button" (click)='BorrarRanking(rank.codigo, rank.nombre)' class="btn btn-light">Borrar</button></td>
             </tr>
           </tbody>
 
         </table>
       </div>
 
-      <div class="info" *ngIf="Rankings.length === 0">
-        <h1>Aun no has creado ningun ranking</h1>
+      <div *ngIf="Rankings.length === 0">
+        <h1 class="info">Aun no has creado ningun ranking</h1>
+        <img class="inf_img mx-auto d-block mt-2" src="assets\img\rank.png">
       </div>
     </div>
 
-    <div *ngIf="ModoCambio==='Crear'"></div>
-    <div *ngIf="ModoCambio==='Modificar'"></div>
+    <div *ngIf="ModoCambio==='Crear'">
+      <app-crear-ranking></app-crear-ranking>
+    </div>
+
+    <div *ngIf="ModoCambio==='Modificar'">
+      <app-modificar-ranking></app-modificar-ranking>
+    </div>
+    <div *ngIf="ModoCambio==='Ver'">
+      <app-ver-ranking></app-ver-ranking>
+    </div>
 
   </div>
 
   <!-- Alumno -->
   <div *ngIf="Tipo == false">
-    <h1>Este componente no esta habilitado para alumnos!!</h1>
+      <div *ngIf="ModoCambio==='RC'">
+        <button type="button" (click)='Cambiar_Opcion("Crear")' class="btn btn-dark mt-5">Crear Ranking</button>
+
+          <table class="table table-dark pre-scrollable mt-3 table-striped rounded text-center">
+
+            <thead>
+              <tr>
+                <th>Ranking</th>
+                <th>Codigo</th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr *ngFor="let ranking of datosRanking;">
+                <div class="Index"></div>
+                <td>{{ranking.nombre}}</td>
+                <td>{{ranking.codigo}}</td>
+                <td><button type="button" (click)='Cambiar_Opcion("Ver",ranking.codigo,ranking.nombre)' class="btn btn-light">Ver Ranking</button></td>
+              </tr>
+
+
+            </tbody>
+          </table>
+        </div>
+        <div *ngIf="ModoCambio==='Ver'">
+          <app-ver-ranking></app-ver-ranking>
+        </div>
+
   </div>
+
 
 </div>

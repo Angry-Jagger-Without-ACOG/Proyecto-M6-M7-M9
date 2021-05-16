@@ -1,0 +1,31 @@
+<button type="button" (click)="UpdateCont()" class="btn btn-dark  mt-5">Atras</button>
+
+<div class="btn-group float-right mt-5 mb-4">
+
+  <div class="btn-group">
+
+  </div>
+
+</div>
+
+<div class="table-responsive mt-3">
+
+  <table class="table table-dark table-striped rounded text-center">
+    <thead>
+      <tr>
+        <th>Nombre </th>
+        <th>Apellido</th>
+        <th>{{tarea_Name}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let usuario of Usuario;">
+        <div class="Index"></div>
+        <td>{{usuario.Nombre}}</td>
+        <td>{{usuario.Apellido}}</td>
+        <td>{{usuario.Puntuacion}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

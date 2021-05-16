@@ -1,0 +1,29 @@
+.info{
+  margin-left: 25%;
+  width: 50%;
+  text-align: center;
+}
+
+.inf_img{
+  max-width: 200px;
+  max-height: 200px;
+}
+
+.extra{
+  padding-top:3%;
+  padding-bottom:3%;
+}
+
+.Index{
+  display: none;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
+a:hover{
+  background-color: rgb(215, 141, 245);
+  color: black;
+}

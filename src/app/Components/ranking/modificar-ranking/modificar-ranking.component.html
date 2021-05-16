@@ -1,1 +1,69 @@
-<p>modificar-ranking works!</p>
+<div *ngIf="!isEmptyObject(Usuario)">
+
+<button type="button" (click)="UpdateCont()" class="btn btn-dark  mt-5">Atras</button>
+
+<div class="btn-group float-right mt-5 mb-4">
+
+  <button type="button" (click)=" anadirTarea()" class="btn btn-dark">Añadir Tarea</button>
+
+  <div class="btn-group">
+
+    <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown">
+      Seleccionar Tarea
+    </button>
+
+    <div class="dropdown-menu">
+      <a class="nav-link active btn btn-link" (click)='NombreTarea("Tarea1")'>Tarea1</a>
+      <a class="nav-link active btn btn-link" (click)='NombreTarea("Tarea2")'>Tarea2</a>
+      <a class="nav-link active btn btn-link" (click)='NombreTarea("Tarea3")'>Tarea3</a>
+      <a class="nav-link active btn btn-link" (click)='NombreTarea("Tarea4")'>Tarea4</a>
+      <a class="nav-link active btn btn-link" (click)='NombreTarea("Tarea5")'>Tarea5</a>
+      <a class="nav-link active btn btn-link" (click)='NombreTarea("Tarea6")'>Tarea6</a>
+      <a class="nav-link active btn btn-link" (click)='NombreTarea("Tarea7")'>Tarea7</a>
+      <a class="nav-link active btn btn-link" (click)='NombreTarea("Tarea8")'>Tarea8</a>
+      <a class="nav-link active btn btn-link" (click)='NombreTarea("Tarea9")'>Tarea9</a>
+      <a class="nav-link active btn btn-link" (click)='NombreTarea("Tarea10")'>Tarea10</a>
+    </div>
+  </div>
+
+</div>
+
+<div class="table-responsive">
+
+  <table class="table table-dark table-striped rounded text-center">
+    <thead>
+      <tr>
+        <th>Nombre </th>
+        <th>Apellido</th>
+        <th>Puntuacion {{tarea_Name}}</th>
+        <th>Nueva Puntuacion</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let usuario of Usuario;">
+        <div class="Index"></div>
+        <td class="extra">{{usuario.Nombre}}</td>
+        <td class="extra">{{usuario.Apellido}}</td>
+        <td class="extra">{{usuario.Puntuacion}}</td>
+        <td>
+          <div class="input-group mt-3 ml-n5 mr-3">
+            <div class="input-group-prepend">
+              <button class="btn btn-outline-light" type="button"(click)='modificarPuntuacion(nuevaPutuacion.value,usuario.Nombre)'>Modificar puntuacion</button>
+            </div>
+            <input class="form-control" type="number" min="0" max="10" #nuevaPutuacion>
+          </div>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+</div>
+
+<div *ngIf="isEmptyObject(Usuario)">
+  <button type="button" (click)="UpdateCont()" class="btn btn-dark mt-5">Atras</button>
+  <img class="inf_img mx-auto d-block mt-5" src="assets\img\rank.png">
+  <h1 class="info">Aun no hay alumnos en este ranking</h1>
+</div>

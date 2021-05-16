@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RankingGrupoComponent } from './ranking-grupo.component';
+import { VerRankingComponent } from './ver-ranking.component';
 
-describe('RankingGrupoComponent', () => {
-  let component: RankingGrupoComponent;
-  let fixture: ComponentFixture<RankingGrupoComponent>;
+describe('VerRankingComponent', () => {
+  let component: VerRankingComponent;
+  let fixture: ComponentFixture<VerRankingComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RankingGrupoComponent ]
+      declarations: [ VerRankingComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RankingGrupoComponent);
+    fixture = TestBed.createComponent(VerRankingComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

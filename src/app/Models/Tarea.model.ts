@@ -1,9 +1,13 @@
 export class Tarea {
 
-  id_tarea?: number;
-  id_rank?: number;
-  nombre_tarea?: string;
-  nick_user?: string;
-  puntuacion?: number;
+  nombre?: string;
+  apellido?: string;
+  profesor?: string;
+  puntuacion1?: string;
+  puntuacion2?: string;
+  puntuacion3?: string;
+  puntuacion4?: string;
+  puntuacion5?: string;
+
 
 }

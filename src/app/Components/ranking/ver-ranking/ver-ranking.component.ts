@@ -1,23 +1,19 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ProfeToolsService } from '../../../servicios/profe-tools.service';
 import { Tarea } from '../../../Models/Tarea.model';
-import Swal from 'sweetalert2';
-import { map} from 'lodash';
 
 @Component({
-  selector: 'app-modificar-ranking',
-  templateUrl: './modificar-ranking.component.html',
-  styleUrls: ['./modificar-ranking.component.css']
+  selector: 'app-ver-ranking',
+  templateUrl: './ver-ranking.component.html',
+  styleUrls: ['./ver-ranking.component.css']
 })
-export class ModificarRankingComponent implements OnInit {
+export class VerRankingComponent implements OnInit {
 
-  @Input() codigo_ranking: String;
 
   Tipo: boolean = true;
   tipo_Usuario: String;
   nombre_Usuario: String;
   usuario: Object = {}
-  Tarea = 10;
 
   codigo: String;
   nombreRanking: String;
@@ -55,12 +51,15 @@ export class ModificarRankingComponent implements OnInit {
     this.codigo = this.BD.getCodigo();
     this.nombreRanking = this.BD.getRanking();
 
+    console.log(this.codigo,this.nombreRanking);
+
+
     this.SelectRanking();
   }
 
   SelectRanking() {
-    this.tarea_Name = "Tarea1";
-    this.BD.selectTareas(this.nombreRanking).subscribe(
+    this.tarea_Name = "Puntuacion Total";
+    this.BD.selectRankingOrdenPuntuacion(this.nombreRanking).subscribe(
       result => this.Usuario = result
     )
   }
@@ -69,6 +68,7 @@ export class ModificarRankingComponent implements OnInit {
     this.refresh();
   }
 
+  // Supongo que aparte de pasar el nombre de la tarea , tambien tendria que actualizar los datos
   NombreTarea(nombreTarea:string){
 
     this.tarea_Name = nombreTarea;
@@ -85,32 +85,6 @@ export class ModificarRankingComponent implements OnInit {
     return (obj && (Object.keys(obj).length === 0));
   }
 
-  modificarPuntuacion(nuevaPuntuacion: Number,nombre: String){
-
-
-    this.PuntuacionNueva.nombreRanking = this.nombreRanking;
-    this.PuntuacionNueva.Tarea = this.tarea_Name;
-    this.PuntuacionNueva.puntuacionRanking = nuevaPuntuacion;
-    this.PuntuacionNueva.nombreAlumno = nombre;
-
-
-    this.BD.actualizarPuntuacionNueva(this.PuntuacionNueva).subscribe(
-
-      datos => {
-        if(datos['response'] == 'OK'){
-          Swal.fire('Puntuacion actualizada', '')
-
-         }
-        this.refresh()
-      }
-    )
-  }
-
-  anadirTarea(){
-    this.Tarea = this.Tarea +1;
-    console.log(this.Tarea);
-
-  }
 
   refresh(): void {
     window.location.reload();
